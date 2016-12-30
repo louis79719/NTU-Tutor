@@ -14,6 +14,7 @@
 		BFF3BCDC1E16A35E006E5067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BCDA1E16A35E006E5067 /* LaunchScreen.storyboard */; };
 		BFF3BCEA1E16B9DF006E5067 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BCE81E16B9DF006E5067 /* Main.storyboard */; };
 		BFF3BCEC1E16BDDF006E5067 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */; };
+		BFF3BCEF1E172BD7006E5067 /* AfterLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BCED1E172BD7006E5067 /* AfterLogin.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		BFF3BCDD1E16A35E006E5067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFF3BCE91E16B9DF006E5067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BFF3BCEE1E172BD7006E5067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AfterLogin.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				BFF3BCD01E16A35E006E5067 /* ViewController.swift */,
 				BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */,
 				BFF3BCE81E16B9DF006E5067 /* Main.storyboard */,
+				BFF3BCED1E172BD7006E5067 /* AfterLogin.storyboard */,
 				BFF3BCDA1E16A35E006E5067 /* LaunchScreen.storyboard */,
 				BFF3BCD81E16A35E006E5067 /* Assets.xcassets */,
 				BFF3BCDD1E16A35E006E5067 /* Info.plist */,
@@ -133,6 +136,7 @@
 				BFF3BCDC1E16A35E006E5067 /* LaunchScreen.storyboard in Resources */,
 				BFF3BCD91E16A35E006E5067 /* Assets.xcassets in Resources */,
 				BFF3BCEA1E16B9DF006E5067 /* Main.storyboard in Resources */,
+				BFF3BCEF1E172BD7006E5067 /* AfterLogin.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +171,14 @@
 				BFF3BCE91E16B9DF006E5067 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BFF3BCED1E172BD7006E5067 /* AfterLogin.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF3BCEE1E172BD7006E5067 /* Base */,
+			);
+			name = AfterLogin.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

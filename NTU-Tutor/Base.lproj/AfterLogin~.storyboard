@@ -54,17 +54,47 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="mDn-yc-Ff9" kind="show" identifier="Segue_MainToAfterLogin" id="xbs-KZ-K3d"/>
+                        <segue destination="1gP-jX-os9" kind="show" identifier="Segue_MainToAfterLogin" id="xbs-KZ-K3d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--AfterLogin-->
-        <scene sceneID="Nkb-hr-3Eo">
+        <!--Login View Controller-->
+        <scene sceneID="twj-vb-zIU">
             <objects>
-                <viewControllerPlaceholder storyboardName="AfterLogin" id="mDn-yc-Ff9" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v6q-Ve-ZZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="1gP-jX-os9" customClass="LoginViewController" customModule="NTU_Tutor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G5B-qL-UAG"/>
+                        <viewControllerLayoutGuide type="bottom" id="BX5-9h-EjI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QSy-bt-HE8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GT-9G-GNs">
+                                <rect key="frame" x="66" y="120" width="243" height="100"/>
+                                <color key="backgroundColor" red="0.55336027619972183" green="0.56063077777434733" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Kwt-al-nq8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0GT-9G-GNs" firstAttribute="top" secondItem="G5B-qL-UAG" secondAttribute="bottom" constant="100" id="TcR-gv-kJX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0GT-9G-GNs" secondAttribute="trailing" constant="50" id="j2f-gm-F2J"/>
+                            <constraint firstItem="0GT-9G-GNs" firstAttribute="leading" secondItem="QSy-bt-HE8" secondAttribute="leadingMargin" constant="50" id="lJF-Y3-zKn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="LoginWelcomeLabel" destination="0GT-9G-GNs" id="BcH-sD-t1G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CQm-dE-vkV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="807" y="72"/>
         </scene>
