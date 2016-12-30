@@ -1,0 +1,331 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BFF3BCCF1E16A35E006E5067 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */; };
+		BFF3BCD11E16A35E006E5067 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCD01E16A35E006E5067 /* ViewController.swift */; };
+		BFF3BCD71E16A35E006E5067 /* NTU_Tutor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCD51E16A35E006E5067 /* NTU_Tutor.xcdatamodeld */; };
+		BFF3BCD91E16A35E006E5067 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BCD81E16A35E006E5067 /* Assets.xcassets */; };
+		BFF3BCDC1E16A35E006E5067 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BCDA1E16A35E006E5067 /* LaunchScreen.storyboard */; };
+		BFF3BCEA1E16B9DF006E5067 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BCE81E16B9DF006E5067 /* Main.storyboard */; };
+		BFF3BCEC1E16BDDF006E5067 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BFF3BCCB1E16A35E006E5067 /* NTU-Tutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTU-Tutor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BFF3BCD01E16A35E006E5067 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFF3BCD61E16A35E006E5067 /* NTU_Tutor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NTU_Tutor.xcdatamodel; sourceTree = "<group>"; };
+		BFF3BCD81E16A35E006E5067 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BFF3BCDB1E16A35E006E5067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BFF3BCDD1E16A35E006E5067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFF3BCE91E16B9DF006E5067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFF3BCC81E16A35E006E5067 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BFF3BCC21E16A35E006E5067 = {
+			isa = PBXGroup;
+			children = (
+				BFF3BCCD1E16A35E006E5067 /* NTU-Tutor */,
+				BFF3BCCC1E16A35E006E5067 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BFF3BCCC1E16A35E006E5067 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFF3BCCB1E16A35E006E5067 /* NTU-Tutor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFF3BCCD1E16A35E006E5067 /* NTU-Tutor */ = {
+			isa = PBXGroup;
+			children = (
+				BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */,
+				BFF3BCD01E16A35E006E5067 /* ViewController.swift */,
+				BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */,
+				BFF3BCE81E16B9DF006E5067 /* Main.storyboard */,
+				BFF3BCDA1E16A35E006E5067 /* LaunchScreen.storyboard */,
+				BFF3BCD81E16A35E006E5067 /* Assets.xcassets */,
+				BFF3BCDD1E16A35E006E5067 /* Info.plist */,
+				BFF3BCD51E16A35E006E5067 /* NTU_Tutor.xcdatamodeld */,
+			);
+			path = "NTU-Tutor";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFF3BCCA1E16A35E006E5067 /* NTU-Tutor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFF3BCE01E16A35E006E5067 /* Build configuration list for PBXNativeTarget "NTU-Tutor" */;
+			buildPhases = (
+				BFF3BCC71E16A35E006E5067 /* Sources */,
+				BFF3BCC81E16A35E006E5067 /* Frameworks */,
+				BFF3BCC91E16A35E006E5067 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NTU-Tutor";
+			productName = "NTU-Tutor";
+			productReference = BFF3BCCB1E16A35E006E5067 /* NTU-Tutor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFF3BCC31E16A35E006E5067 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Louis's Mac";
+				TargetAttributes = {
+					BFF3BCCA1E16A35E006E5067 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = N3L4FSWQC8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = BFF3BCC61E16A35E006E5067 /* Build configuration list for PBXProject "NTU-Tutor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BFF3BCC21E16A35E006E5067;
+			productRefGroup = BFF3BCCC1E16A35E006E5067 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFF3BCCA1E16A35E006E5067 /* NTU-Tutor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFF3BCC91E16A35E006E5067 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF3BCDC1E16A35E006E5067 /* LaunchScreen.storyboard in Resources */,
+				BFF3BCD91E16A35E006E5067 /* Assets.xcassets in Resources */,
+				BFF3BCEA1E16B9DF006E5067 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFF3BCC71E16A35E006E5067 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF3BCEC1E16BDDF006E5067 /* LoginViewController.swift in Sources */,
+				BFF3BCD11E16A35E006E5067 /* ViewController.swift in Sources */,
+				BFF3BCD71E16A35E006E5067 /* NTU_Tutor.xcdatamodeld in Sources */,
+				BFF3BCCF1E16A35E006E5067 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BFF3BCDA1E16A35E006E5067 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF3BCDB1E16A35E006E5067 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BFF3BCE81E16B9DF006E5067 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFF3BCE91E16B9DF006E5067 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFF3BCDE1E16A35E006E5067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BFF3BCDF1E16A35E006E5067 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BFF3BCE11E16A35E006E5067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N3L4FSWQC8;
+				INFOPLIST_FILE = "NTU-Tutor/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Louis-s-Mac.NTU-Tutor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BFF3BCE21E16A35E006E5067 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N3L4FSWQC8;
+				INFOPLIST_FILE = "NTU-Tutor/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Louis-s-Mac.NTU-Tutor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFF3BCC61E16A35E006E5067 /* Build configuration list for PBXProject "NTU-Tutor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF3BCDE1E16A35E006E5067 /* Debug */,
+				BFF3BCDF1E16A35E006E5067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFF3BCE01E16A35E006E5067 /* Build configuration list for PBXNativeTarget "NTU-Tutor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFF3BCE11E16A35E006E5067 /* Debug */,
+				BFF3BCE21E16A35E006E5067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BFF3BCD51E16A35E006E5067 /* NTU_Tutor.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BFF3BCD61E16A35E006E5067 /* NTU_Tutor.xcdatamodel */,
+			);
+			currentVersion = BFF3BCD61E16A35E006E5067 /* NTU_Tutor.xcdatamodel */;
+			path = NTU_Tutor.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BFF3BCC31E16A35E006E5067 /* Project object */;
+}
