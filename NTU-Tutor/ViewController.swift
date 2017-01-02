@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
@@ -14,6 +15,8 @@ class ViewController: UIViewController {
     var strPw: String! = ""
     
     var PropertyListDictionary: NSMutableDictionary? = nil
+    var viewContext: NSManagedObjectContext!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBAction func onLoginBtnClicked(_ sender: Any) {
         showLoginDialog();
@@ -26,6 +29,7 @@ class ViewController: UIViewController {
         if let kPList = NSMutableDictionary(contentsOfFile: strStringTablePath!){
             PropertyListDictionary = kPList
         }
+        viewContext = appDelegate.persistentContainer.viewContext
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,7 +57,7 @@ class ViewController: UIViewController {
                 textField.isSecureTextEntry = true
             }
             
-            let loginAction = UIAlertAction(title: "Login", style: .default ){
+            let loginAction = UIAlertAction(title: self.PropertyListDictionary!["LoginButtonLabel"] as?    String, style: .default ){
                 (action)in
                 self.strId = loginDialog.textFields![0].text
                 self.strPw = loginDialog.textFields![1].text
@@ -61,12 +65,22 @@ class ViewController: UIViewController {
                 print( "pw = \(self.strPw)")
                 self.onLogin()
             }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel ){
+            let cancelAction = UIAlertAction(title: self.PropertyListDictionary!["CancelButtonLabel"] as?    String, style: .cancel ){
                 (action)in
                 self.dismiss(animated: true, completion: nil)
             }
+            let createAccountAction = UIAlertAction(title: self.PropertyListDictionary!["CreateAccountButtonLabel"] as?    String, style: .default ){
+                (action)in
+                self.strId = loginDialog.textFields![0].text
+                self.strPw = loginDialog.textFields![1].text
+                print( "uid = \(self.strId)")
+                print( "pw = \(self.strPw)")
+                self.onCreateAccount()
+            }
+
             loginDialog.addAction(loginAction)
             loginDialog.addAction(cancelAction)
+            loginDialog.addAction(createAccountAction)
             
             show(loginDialog, sender: self)
             
@@ -75,7 +89,56 @@ class ViewController: UIViewController {
 
     func onLogin() -> Void {
         //storyboard?.instantiateViewController(withIdentifier: "LoginSB")
-        self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
+        do {
+            let allAccounts = try viewContext.fetch(TutorAccount.fetchRequest())
+            for account in allAccounts as! [TutorAccount]
+            {
+                let strFetchId: String = account.id! as String
+                let strFetchPw: String = account.password! as String
+                if( strFetchId == strId && strFetchPw == strPw )
+                {
+                    self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
+                    return
+                }
+            }
+            showAlertDialog(title: "Login Fail", message: "Invalid account or password")
+            return
+            
+        } catch {
+            return
+        }
+
+    }
+    
+    func onCreateAccount() -> Void
+    {
+        do {
+            let allAccounts = try viewContext.fetch(TutorAccount.fetchRequest())
+            for account in allAccounts as! [TutorAccount]
+            {
+                if( account.id == strId ){
+                    showAlertDialog(title: "Create Account Fail", message: "Account is already exist!")
+                    return
+                }
+            }
+        }catch{
+        
+        }
+        
+        var newAccount = NSEntityDescription.insertNewObject(forEntityName: "TutorAccount", into: viewContext) as! TutorAccount
+        newAccount.id = strId
+        newAccount.password = strPw
+        appDelegate.saveContext()
+    }
+    
+    func showAlertDialog( title: String, message: String ) -> Void{
+        let alertDialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel ){
+            (action)in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertDialog.addAction( okAction )
+        show(alertDialog, sender: self)
     }
 }
 

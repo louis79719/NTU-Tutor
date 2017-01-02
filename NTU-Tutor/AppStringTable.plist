@@ -6,10 +6,12 @@
 	<string>Login</string>
 	<key>LoginDialogId</key>
 	<string>ID</string>
-	<key>LoginButtonLabel</key>
-	<string>Login</string>
 	<key>LoginDialogPw</key>
 	<string>Password</string>
+	<key>LoginButtonLabel</key>
+	<string>Login</string>
+	<key>CreateAccountButtonLabel</key>
+	<string>Create Account</string>
 	<key>CancelButtonLabel</key>
 	<string>Cancel</string>
 	<key>DefaultLoginMessage</key>
