@@ -90,18 +90,19 @@ class ViewController: UIViewController {
     func onLogin() -> Void {
         //storyboard?.instantiateViewController(withIdentifier: "LoginSB")
         do {
-            let allAccounts = try viewContext.fetch(TutorAccount.fetchRequest())
-            for account in allAccounts as! [TutorAccount]
-            {
-                let strFetchId: String = account.id! as String
-                let strFetchPw: String = account.password! as String
-                if( strFetchId == strId && strFetchPw == strPw )
-                {
-                    self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
-                    return
-                }
+            let fetchRequest : NSFetchRequest<TutorAccount> = TutorAccount.fetchRequest()
+            let predicate = NSPredicate(format: "id = %@ && password = %@", strId, strPw)
+            fetchRequest.predicate = predicate
+            let fetchAccount = try viewContext.fetch(fetchRequest)
+            if( fetchAccount.count == 1 ){
+                self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
             }
-            showAlertDialog(title: "Login Fail", message: "Invalid account or password")
+            else if(fetchAccount.isEmpty){
+                showAlertDialog(title: "Login Fail", message: "Invalid account or password")
+            }
+            else{
+                showAlertDialog(title: "Login Fail", message: "Database error, please contact the manager")
+            }
             return
             
         } catch {

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NTU-Tutor/ViewController.swift"
-            timestampString = "505046228.558304"
+            timestampString = "505046984.437043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "onLogin()"
             landmarkType = "7">
          </BreakpointContent>
