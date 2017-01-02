@@ -28,9 +28,12 @@ class LoginViewController: UIViewController {
     
     func UpdateUi(){
         var strText = "Hello " + strId + ", your passowrd is "
-        for _ in 1...strPw.characters.count
+        if( !strPw.isEmpty)
         {
-            strText += "*"
+            for _ in 1...strPw.characters.count
+            {
+                strText += "*"
+            }
         }
         LoginWelcomeLabel.text = strText
         LoginWelcomeLabel.lineBreakMode = .byWordWrapping
