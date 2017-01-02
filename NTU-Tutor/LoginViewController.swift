@@ -11,8 +11,8 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var LoginWelcomeLabel: UILabel!
-    var strId: String = "No Name"
-    var strPw: String = ""
+    var strId: String = "Nil"
+    var strPw: String = "Nil"
     
     override func viewDidLoad() {
         super.viewDidLoad()

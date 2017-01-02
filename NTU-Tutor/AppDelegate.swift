@@ -16,7 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let strSrcPropertyListPath = Bundle.main.path(forResource: "AppStringTable", ofType: "plist")
+        let strDstPropertyListPath = NSHomeDirectory() + "/Document/AppStringTable.plist"
+        let kFileManager = FileManager.default
+        if( !kFileManager.fileExists(atPath: strDstPropertyListPath) ){
+            do
+            {
+                try kFileManager.copyItem(atPath: strSrcPropertyListPath!, toPath: strDstPropertyListPath)
+            }
+            catch
+            {
+                return true
+            }
+        }
         return true
     }
 

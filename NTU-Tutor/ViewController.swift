@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     var strId: String! = ""
     var strPw: String! = ""
     
+    var PropertyListDictionary: NSMutableDictionary? = nil
+    
     @IBAction func onLoginBtnClicked(_ sender: Any) {
         showLoginDialog();
     }
@@ -20,6 +22,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let strStringTablePath = Bundle.main.path(forResource: "AppStringTable", ofType: "plist")
+        if let kPList = NSMutableDictionary(contentsOfFile: strStringTablePath!){
+            PropertyListDictionary = kPList
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,34 +42,38 @@ class ViewController: UIViewController {
     }
     
     func showLoginDialog(){
-        let loginDialog = UIAlertController(title: "Login", message: "Login to NTU-Tutor", preferredStyle: .alert)
-        loginDialog.addTextField{
-            (textField) in textField.placeholder = "uid"
+        if self.PropertyListDictionary != nil
+        {
+            let loginDialog = UIAlertController(title: self.PropertyListDictionary!["LoginDialogTitile"] as?    String, message: self.PropertyListDictionary!["LoginDialogMessage"] as? String, preferredStyle: .alert)
+            loginDialog.addTextField{
+                (textField) in textField.placeholder = self.PropertyListDictionary!["LoginDialogId"] as?    String
+            }
+            loginDialog.addTextField{
+                (textField) in textField.placeholder = self.PropertyListDictionary!["LoginDialogPw"] as?    String
+                textField.isSecureTextEntry = true
+            }
+            
+            let loginAction = UIAlertAction(title: "Login", style: .default ){
+                (action)in
+                self.strId = loginDialog.textFields![0].text
+                self.strPw = loginDialog.textFields![1].text
+                print( "uid = \(self.strId)")
+                print( "pw = \(self.strPw)")
+                self.onLogin()
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel ){
+                (action)in
+                self.dismiss(animated: true, completion: nil)
+            }
+            loginDialog.addAction(loginAction)
+            loginDialog.addAction(cancelAction)
+            
+            show(loginDialog, sender: self)
+            
         }
-        loginDialog.addTextField{
-            (textField) in textField.placeholder = "pw"
-                           textField.isSecureTextEntry = true
-        }
-        
-        let loginAction = UIAlertAction(title: "Login", style: .default ){
-            (action)in
-            self.strId = loginDialog.textFields![0].text
-            self.strPw = loginDialog.textFields![1].text
-            print( "uid = \(self.strId)")
-            print( "pw = \(self.strPw)")
-            self.login( uid: self.strId, pw: self.strPw )
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel ){
-            (action)in
-            self.dismiss(animated: true, completion: nil)
-        }
-        loginDialog.addAction(loginAction)
-        loginDialog.addAction(cancelAction)
-        
-        show(loginDialog, sender: self)
     }
 
-    func login( uid: String!, pw: String! ) -> Void {
+    func onLogin() -> Void {
         //storyboard?.instantiateViewController(withIdentifier: "LoginSB")
         self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
     }
