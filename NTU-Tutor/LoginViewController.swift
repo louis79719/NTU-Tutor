@@ -10,7 +10,14 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var prevPageBtn: UIBarButtonItem!
     @IBOutlet weak var LoginWelcomeLabel: UILabel!
+    
+    @IBAction func onPrevPageBtnClick(_ sender: Any) {
+        self.performSegue(withIdentifier: "SegueLoginToMain", sender: self)
+    }
+    
+    
     var strId: String = "Nil"
     var strPw: String = "Nil"
     
