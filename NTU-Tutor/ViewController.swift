@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     var PropertyListDictionary: NSMutableDictionary? = nil
     var viewContext: NSManagedObjectContext!
+    var manageObjectModel: NSManagedObjectModel!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBAction func onLoginBtnClicked(_ sender: Any) {
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
             PropertyListDictionary = kPList
         }
         viewContext = appDelegate.persistentContainer.viewContext
+        manageObjectModel = appDelegate.persistentContainer.managedObjectModel
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,20 +92,23 @@ class ViewController: UIViewController {
     func onLogin() -> Void {
         //storyboard?.instantiateViewController(withIdentifier: "LoginSB")
         do {
-            let fetchRequest : NSFetchRequest<TutorAccount> = TutorAccount.fetchRequest()
-            let predicate = NSPredicate(format: "id = %@ && password = %@", strId, strPw)
-            fetchRequest.predicate = predicate
-            let fetchAccount = try viewContext.fetch(fetchRequest)
-            if( fetchAccount.count == 1 ){
-                self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
+            
+            if let fetchRequest = manageObjectModel.fetchRequestFromTemplate(
+                withName: "LoginCheckRequest",
+                substitutionVariables: ["ATTRIBUTE_ID":strId, "ATTRIBUTE_PW":strPw])
+            {
+                let fetchAccount = try viewContext.fetch(fetchRequest)
+                if( fetchAccount.count == 1 ){
+                    self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
+                }
+                else if(fetchAccount.isEmpty){
+                    showAlertDialog(title: "Login Fail", message: "Invalid account or password")
+                }
+                else{
+                    showAlertDialog(title: "Login Fail", message: "Database error, please contact the manager")
+                }
+                return
             }
-            else if(fetchAccount.isEmpty){
-                showAlertDialog(title: "Login Fail", message: "Invalid account or password")
-            }
-            else{
-                showAlertDialog(title: "Login Fail", message: "Database error, please contact the manager")
-            }
-            return
             
         } catch {
             return
