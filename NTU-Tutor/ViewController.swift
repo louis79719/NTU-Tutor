@@ -107,34 +107,37 @@ class ViewController: UIViewController {
                 else{
                     showAlertDialog(title: "Login Fail", message: "Database error, please contact the manager")
                 }
-                return
             }
             
         } catch {
-            return
+            
         }
 
     }
     
     func onCreateAccount() -> Void
     {
-        do {
-            let allAccounts = try viewContext.fetch(TutorAccount.fetchRequest())
-            for account in allAccounts as! [TutorAccount]
-            {
-                if( account.id == strId ){
-                    showAlertDialog(title: "Create Account Fail", message: "Account is already exist!")
-                    return
-                }
-            }
-        }catch{
-        
+        if let loginPage = storyboard?.instantiateViewController(withIdentifier: "CreateAccountPage")
+        {
+                show(loginPage, sender: self)
         }
-        
-        var newAccount = NSEntityDescription.insertNewObject(forEntityName: "TutorAccount", into: viewContext) as! TutorAccount
-        newAccount.id = strId
-        newAccount.password = strPw
-        appDelegate.saveContext()
+//        do {
+//            let allAccounts = try viewContext.fetch(TutorAccount.fetchRequest())
+//            for account in allAccounts as! [TutorAccount]
+//            {
+//                if( account.id == strId ){
+//                    showAlertDialog(title: "Create Account Fail", message: "Account is already exist!")
+//                    return
+//                }
+//            }
+//        }catch{
+//        
+//        }
+//        
+//        var newAccount = NSEntityDescription.insertNewObject(forEntityName: "TutorAccount", into: viewContext) as! TutorAccount
+//        newAccount.id = strId
+//        newAccount.password = strPw
+//        appDelegate.saveContext()
     }
     
     func showAlertDialog( title: String, message: String ) -> Void{
@@ -147,4 +150,3 @@ class ViewController: UIViewController {
         show(alertDialog, sender: self)
     }
 }
-

@@ -70,7 +70,7 @@
         <!--Main-->
         <scene sceneID="Wew-l5-zw8">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="8p7-N5-Ilj" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="MainPage" storyboardName="Main" id="8p7-N5-Ilj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIy-9w-qF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1382" y="-55"/>

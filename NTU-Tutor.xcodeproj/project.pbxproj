@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF73D1F81E23EBE30054EFB4 /* CreateAccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73D1F71E23EBE30054EFB4 /* CreateAccountPage.swift */; };
 		BFF3BCCF1E16A35E006E5067 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */; };
 		BFF3BCD11E16A35E006E5067 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCD01E16A35E006E5067 /* ViewController.swift */; };
 		BFF3BCD71E16A35E006E5067 /* NTU_Tutor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCD51E16A35E006E5067 /* NTU_Tutor.xcdatamodeld */; };
@@ -16,9 +17,11 @@
 		BFF3BCEC1E16BDDF006E5067 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */; };
 		BFF3BCEF1E172BD7006E5067 /* AfterLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BCED1E172BD7006E5067 /* AfterLogin.storyboard */; };
 		BFF3BCF11E1A0E31006E5067 /* AppStringTable.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BCF01E1A0E31006E5067 /* AppStringTable.plist */; };
+		BFF3BD0B1E23E5CE006E5067 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF3BD0A1E23E5CE006E5067 /* CreateAccount.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF73D1F71E23EBE30054EFB4 /* CreateAccountPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountPage.swift; sourceTree = "<group>"; };
 		BFF3BCCB1E16A35E006E5067 /* NTU-Tutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTU-Tutor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFF3BCD01E16A35E006E5067 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BFF3BCEE1E172BD7006E5067 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AfterLogin.storyboard; sourceTree = "<group>"; };
 		BFF3BCF01E1A0E31006E5067 /* AppStringTable.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppStringTable.plist; sourceTree = "<group>"; };
+		BFF3BD0A1E23E5CE006E5067 /* CreateAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +68,12 @@
 			children = (
 				BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */,
 				BFF3BCD01E16A35E006E5067 /* ViewController.swift */,
+				BF73D1F71E23EBE30054EFB4 /* CreateAccountPage.swift */,
 				BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */,
 				BFF3BCE81E16B9DF006E5067 /* Main.storyboard */,
 				BFF3BCED1E172BD7006E5067 /* AfterLogin.storyboard */,
 				BFF3BCDA1E16A35E006E5067 /* LaunchScreen.storyboard */,
+				BFF3BD0A1E23E5CE006E5067 /* CreateAccount.storyboard */,
 				BFF3BCD81E16A35E006E5067 /* Assets.xcassets */,
 				BFF3BCDD1E16A35E006E5067 /* Info.plist */,
 				BFF3BCD51E16A35E006E5067 /* NTU_Tutor.xcdatamodeld */,
@@ -138,6 +144,7 @@
 			files = (
 				BFF3BCDC1E16A35E006E5067 /* LaunchScreen.storyboard in Resources */,
 				BFF3BCD91E16A35E006E5067 /* Assets.xcassets in Resources */,
+				BFF3BD0B1E23E5CE006E5067 /* CreateAccount.storyboard in Resources */,
 				BFF3BCEA1E16B9DF006E5067 /* Main.storyboard in Resources */,
 				BFF3BCF11E1A0E31006E5067 /* AppStringTable.plist in Resources */,
 				BFF3BCEF1E172BD7006E5067 /* AfterLogin.storyboard in Resources */,
@@ -152,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFF3BCEC1E16BDDF006E5067 /* LoginViewController.swift in Sources */,
+				BF73D1F81E23EBE30054EFB4 /* CreateAccountPage.swift in Sources */,
 				BFF3BCD11E16A35E006E5067 /* ViewController.swift in Sources */,
 				BFF3BCD71E16A35E006E5067 /* NTU_Tutor.xcdatamodeld in Sources */,
 				BFF3BCCF1E16A35E006E5067 /* AppDelegate.swift in Sources */,

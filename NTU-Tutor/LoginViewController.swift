@@ -20,12 +20,15 @@ class LoginViewController: UIViewController {
     
     var strId: String = "Nil"
     var strPw: String = "Nil"
+    var sexList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UpdateUi();
         //LoginWelcomeLabel.text = strWelcome
         // Do any additional setup after loading the view.
+        sexList.append("男")
+        sexList.append("女")
     }
 
     override func didReceiveMemoryWarning() {
