@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        FIRApp.configure()
         let strSrcPropertyListPath = Bundle.main.path(forResource: "AppStringTable", ofType: "plist")
         let strDstPropertyListPath = NSHomeDirectory() + "/Document/AppStringTable.plist"
         let kFileManager = FileManager.default
@@ -30,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return true
             }
         }
-        FIRApp.configure()
         return true
     }
 
