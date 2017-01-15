@@ -8,10 +8,12 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
-    var strId: String! = ""
+    var strEmail: String! = ""
     var strPw: String! = ""
     
     var PropertyListDictionary: NSMutableDictionary? = nil
@@ -42,7 +44,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if( segue.identifier == "Segue_MainToAfterLogin" ){
             let vc = segue.destination as! LoginViewController
-            vc.strId = self.strId;
+            vc.strId = self.strEmail;
             vc.strPw = self.strPw;
         }
     }
@@ -61,10 +63,8 @@ class ViewController: UIViewController {
             
             let loginAction = UIAlertAction(title: self.PropertyListDictionary!["LoginButtonLabel"] as?    String, style: .default ){
                 (action)in
-                self.strId = loginDialog.textFields![0].text
+                self.strEmail = loginDialog.textFields![0].text
                 self.strPw = loginDialog.textFields![1].text
-                print( "uid = \(self.strId)")
-                print( "pw = \(self.strPw)")
                 self.onLogin()
             }
             let cancelAction = UIAlertAction(title: self.PropertyListDictionary!["CancelButtonLabel"] as?    String, style: .cancel ){
@@ -73,10 +73,8 @@ class ViewController: UIViewController {
             }
             let createAccountAction = UIAlertAction(title: self.PropertyListDictionary!["CreateAccountButtonLabel"] as?    String, style: .default ){
                 (action)in
-                self.strId = loginDialog.textFields![0].text
+                self.strEmail = loginDialog.textFields![0].text
                 self.strPw = loginDialog.textFields![1].text
-                print( "uid = \(self.strId)")
-                print( "pw = \(self.strPw)")
                 self.onCreateAccount()
             }
 
@@ -91,26 +89,14 @@ class ViewController: UIViewController {
 
     func onLogin() -> Void {
         //storyboard?.instantiateViewController(withIdentifier: "LoginSB")
-        do {
-            
-            if let fetchRequest = manageObjectModel.fetchRequestFromTemplate(
-                withName: "LoginCheckRequest",
-                substitutionVariables: ["ATTRIBUTE_ID":strId, "ATTRIBUTE_PW":strPw])
-            {
-                let fetchAccount = try viewContext.fetch(fetchRequest)
-                if( fetchAccount.count == 1 ){
-                    self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
-                }
-                else if(fetchAccount.isEmpty){
-                    showAlertDialog(title: "Login Fail", message: "Invalid account or password")
-                }
-                else{
-                    showAlertDialog(title: "Login Fail", message: "Database error, please contact the manager")
-                }
+        FIRAuth.auth()?.signIn(withEmail: strEmail, password: strPw ){
+            (user, error) in
+            if( error != nil ){
+                ShowErrorAlert(view: self, title: "Oops!", message: error!.localizedDescription)
             }
-            
-        } catch {
-            
+            else{
+                self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
+            }
         }
 
     }

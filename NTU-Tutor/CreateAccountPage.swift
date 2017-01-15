@@ -44,15 +44,15 @@ class CreateAccountPage: UIViewController {
             let bPwOk = !strPw.isEmpty && strPw.characters.count >= 8
             let bPwAgainSame = strPw == strPwAgain
             if ( !bEmailOk ){
-                self.ShowErrorAlert(title: "Error", message: "Invalid E-mail address")
+                ShowErrorAlert(view: self, title: "Error", message: "Invalid E-mail address")
                 return
             }
             else if( !bPwOk ){
-                self.ShowErrorAlert(title: "Error", message: "Invalid Password")
+                ShowErrorAlert(view: self, title: "Error", message: "Invalid Password")
                 return
             }
             else if( !bPwAgainSame ){
-                self.ShowErrorAlert(title: "Error", message: "Please enter the same password in password again")
+                ShowErrorAlert(view: self, title: "Error", message: "Please enter the same password in password again")
                 return
             }
 
@@ -60,10 +60,10 @@ class CreateAccountPage: UIViewController {
             {
                 (user, error) in
                 if( error != nil ){
-                    self.ShowErrorAlert( title: "Oops!", message: error!.localizedDescription)
+                    ShowErrorAlert( view: self, title: "Oops!", message: error!.localizedDescription)
                 }
                 else{
-                    print( "You have successfully create the account." )
+                    //self.ShowErrorAlert( title: "Successful", message: "Create Account Successful")
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainPage")
                     if( vc != nil ){
                         self.present(vc!, animated: true, completion: nil)
@@ -83,14 +83,6 @@ class CreateAccountPage: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-    func ShowErrorAlert(title: String, message: String) {
-        // Called upon signup error to let the user know signup didn't work.
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
-    }
 
     
 }

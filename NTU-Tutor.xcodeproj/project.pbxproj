@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF3E6C491E2BCC250014F4D4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3E6C481E2BCC250014F4D4 /* Utilities.swift */; };
 		BF73D1F81E23EBE30054EFB4 /* CreateAccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73D1F71E23EBE30054EFB4 /* CreateAccountPage.swift */; };
 		BFF364631E2B8E5000D6728E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFF364621E2B8E5000D6728E /* GoogleService-Info.plist */; };
 		BFF3BCCF1E16A35E006E5067 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		3BA4D2EAE79DFD4E25CB2563 /* Pods_NTU_Tutor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NTU_Tutor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A36E32C9295BDDF13FD157 /* Pods-NTU-Tutor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTU-Tutor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NTU-Tutor/Pods-NTU-Tutor.debug.xcconfig"; sourceTree = "<group>"; };
 		895D59DAAED2589A5729206B /* Pods-NTU-Tutor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTU-Tutor.release.xcconfig"; path = "Pods/Target Support Files/Pods-NTU-Tutor/Pods-NTU-Tutor.release.xcconfig"; sourceTree = "<group>"; };
+		BF3E6C481E2BCC250014F4D4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BF73D1F71E23EBE30054EFB4 /* CreateAccountPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountPage.swift; sourceTree = "<group>"; };
 		BFF364621E2B8E5000D6728E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFF3BCCB1E16A35E006E5067 /* NTU-Tutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTU-Tutor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				BFF3BCDD1E16A35E006E5067 /* Info.plist */,
 				BFF3BCD51E16A35E006E5067 /* NTU_Tutor.xcdatamodeld */,
 				BFF3BCF01E1A0E31006E5067 /* AppStringTable.plist */,
+				BF3E6C481E2BCC250014F4D4 /* Utilities.swift */,
 			);
 			path = "NTU-Tutor";
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF3E6C491E2BCC250014F4D4 /* Utilities.swift in Sources */,
 				BFF3BCEC1E16BDDF006E5067 /* LoginViewController.swift in Sources */,
 				BF73D1F81E23EBE30054EFB4 /* CreateAccountPage.swift in Sources */,
 				BFF3BCD11E16A35E006E5067 /* ViewController.swift in Sources */,
