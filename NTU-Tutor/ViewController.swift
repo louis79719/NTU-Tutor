@@ -93,7 +93,7 @@ class ViewController: UIViewController {
                 ShowErrorAlert(view: self, title: "Oops!", message: error!.localizedDescription)
             }
             else if( !((FIRAuth.auth()?.currentUser?.isEmailVerified)!) ){
-                ShowErrorAlert(view: self, title: "Oops!", message: "You account haven't been verified through e-mail.")
+                ShowErrorAlert(view: self, title: "Oops!", message: "Your account haven't been verified through e-mail.")
                 do{
                     try FIRAuth.auth()?.signOut()
                 }
