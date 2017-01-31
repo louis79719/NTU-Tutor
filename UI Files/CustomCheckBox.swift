@@ -17,8 +17,8 @@ import UIKit
             updateViews()
         }
     }
-    @IBInspectable var checkedIcon: UIImage = UIImage( named: "Checked.png" )!
-    @IBInspectable var uncheckedIcon: UIImage = UIImage( named: "Unchecked.png" )!
+    @IBInspectable var checkedIcon: UIImage? = UIImage( named: "Checked.png" )
+    @IBInspectable var uncheckedIcon: UIImage? = UIImage( named: "Unchecked.png" )
     
     //this init fires usually called, when storyboards UI objects created:
     required init?(coder aDecoder: NSCoder) {

@@ -83,6 +83,12 @@ class CreateAccountPage: UIViewController {
                         }
                     }
                     
+                    // Send the user's info to the firebase database
+                    if let currentUser = user{
+                        FirebaseDatabaseRef.child("Users").child(currentUser.uid).setValue(["UserMail":
+                        strEmail])
+                    }
+                    
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainPage")
                     if( vc != nil ){
                         self.present(vc!, animated: true, completion: nil)
