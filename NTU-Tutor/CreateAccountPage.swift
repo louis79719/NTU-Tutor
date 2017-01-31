@@ -19,8 +19,19 @@ class CreateAccountPage: UIViewController {
     @IBOutlet weak var TextEditPw: UITextField!
     @IBOutlet weak var TextEditPwAgain: UITextField!
     @IBOutlet weak var PickerViewSex: UIPickerView!
+    @IBOutlet weak var MaleCheckBox: CustomCheckBox!
+    @IBOutlet weak var FemaleCheckBox: CustomCheckBox!
     
     var sexList = [String]()
+    
+    @IBAction func onMaleCheckBoxClicked(_ sender: Any) {
+        MaleCheckBox.isChecked = true
+        FemaleCheckBox.isChecked = false
+    }
+    @IBAction func onFemaleCheckBoxClicked(_ sender: Any) {
+        MaleCheckBox.isChecked = false
+        FemaleCheckBox.isChecked = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +78,14 @@ class CreateAccountPage: UIViewController {
                     user?.sendEmailVerification(){
                         (error) in
                         if( error != nil ){
-                            ShowErrorAlert( view: self, title: "E-mail verification fail", message: error!.localizedDescription)
+                            ShowErrorAlert( view: self, title: "Send E-mail for verification fail", message: error!.localizedDescription)
+                            return
                         }
+                    }
+                    
+                    if let currentUser = user{
+                        FirebaseDatabaseRef.child("Users").child(currentUser.uid).setValue(["UserMail":
+                        strEmail])
                     }
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainPage")
                     if( vc != nil ){

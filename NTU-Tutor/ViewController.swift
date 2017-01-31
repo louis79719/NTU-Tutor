@@ -28,6 +28,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        FirebaseDatabaseRef = FIRDatabase.database().reference()
+        
         let strStringTablePath = Bundle.main.path(forResource: "AppStringTable", ofType: "plist")
         if let kPList = NSMutableDictionary(contentsOfFile: strStringTablePath!){
             PropertyListDictionary = kPList
