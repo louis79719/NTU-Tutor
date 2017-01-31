@@ -216,6 +216,7 @@
                         <outlet property="TextEditEmail" destination="a8o-cu-AP9" id="vuH-m8-r5G"/>
                         <outlet property="TextEditPw" destination="2f5-ci-vnJ" id="ZP9-Wb-u2O"/>
                         <outlet property="TextEditPwAgain" destination="KkT-hu-xO3" id="v81-oL-veU"/>
+                        <outlet property="TextEditUserName" destination="zHE-t7-6IK" id="ffz-l8-Ob5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMw-Cg-CrA" userLabel="First Responder" sceneMemberID="firstResponder"/>

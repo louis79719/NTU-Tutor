@@ -18,7 +18,7 @@ class CreateAccountPage: UIViewController {
     @IBOutlet weak var ButtonCreateAccount: UIButton!
     @IBOutlet weak var TextEditPw: UITextField!
     @IBOutlet weak var TextEditPwAgain: UITextField!
-    @IBOutlet weak var PickerViewSex: UIPickerView!
+    @IBOutlet weak var TextEditUserName: UITextField!
     @IBOutlet weak var MaleCheckBox: CustomCheckBox!
     @IBOutlet weak var FemaleCheckBox: CustomCheckBox!
     
@@ -49,21 +49,26 @@ class CreateAccountPage: UIViewController {
     }
     
     @IBAction func OnTouchDownCreateButton(_ sender: Any) {
-        if let strEmail = TextEditEmail.text, let strPw = TextEditPw.text, let strPwAgain = TextEditPwAgain.text
+        if let strEmail = TextEditEmail.text, let strPw = TextEditPw.text, let strPwAgain = TextEditPwAgain.text, let strUserName = TextEditUserName.text
         {
             let bEmailOk = !strEmail.isEmpty
             let bPwOk = !strPw.isEmpty && strPw.characters.count >= 8
             let bPwAgainSame = strPw == strPwAgain
+            let bNameOk = !strUserName.isEmpty
             if ( !bEmailOk ){
-                ShowErrorAlert(view: self, title: "Error", message: "Invalid E-mail address")
+                ShowErrorAlert(view: self, title: "Error", message: "請輸入 E-mail")
                 return
             }
             else if( !bPwOk ){
-                ShowErrorAlert(view: self, title: "Error", message: "Invalid Password")
+                ShowErrorAlert(view: self, title: "Error", message: "密碼長度至少要8個字元")
                 return
             }
             else if( !bPwAgainSame ){
-                ShowErrorAlert(view: self, title: "Error", message: "Please enter the same password in password again")
+                ShowErrorAlert(view: self, title: "Error", message: "兩次密碼輸入須一致")
+                return
+            }
+            else if( !bNameOk ){
+                ShowErrorAlert(view: self, title: "Error", message: "請輸入姓名")
                 return
             }
 
@@ -85,8 +90,15 @@ class CreateAccountPage: UIViewController {
                     
                     // Send the user's info to the firebase database
                     if let currentUser = user{
-                        FirebaseDatabaseRef.child("Users").child(currentUser.uid).setValue(["UserMail":
-                        strEmail])
+                        FirebaseDatabaseRef.child("Users/\(currentUser.uid)/UserMail").setValue(strEmail)
+                        FirebaseDatabaseRef.child("Users/\(currentUser.uid)/UserName").setValue(strUserName)
+                        if( self.MaleCheckBox.isChecked ){
+                            FirebaseDatabaseRef.child("Users/\(currentUser.uid)/Sex").setValue("男")
+                        }
+                        else if( self.FemaleCheckBox.isChecked ){
+                            FirebaseDatabaseRef.child("Users/\(currentUser.uid)/Sex").setValue("女")
+                        }
+                        
                     }
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainPage")
@@ -110,32 +122,5 @@ class CreateAccountPage: UIViewController {
     */
 
     
-}
-
-extension CreateAccountPage : UIPickerViewDataSource, UIPickerViewDelegate{
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int
-    {
-        if( pickerView == PickerViewSex ){
-            return 1
-        }
-        return 0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
-    {
-        if( pickerView == PickerViewSex ){
-            return sexList.count
-        }
-        return 0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
-    {
-        if( pickerView == PickerViewSex ){
-            return sexList[row]
-        }
-        return ""
-    }
 }
 
