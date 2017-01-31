@@ -64,6 +64,12 @@ class CreateAccountPage: UIViewController {
                 }
                 else{
                     //self.ShowErrorAlert( title: "Successful", message: "Create Account Successful")
+                    user?.sendEmailVerification(){
+                        (error) in
+                        if( error != nil ){
+                            ShowErrorAlert( view: self, title: "E-mail verification fail", message: error!.localizedDescription)
+                        }
+                    }
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainPage")
                     if( vc != nil ){
                         self.present(vc!, animated: true, completion: nil)

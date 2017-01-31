@@ -73,8 +73,6 @@ class ViewController: UIViewController {
             }
             let createAccountAction = UIAlertAction(title: self.PropertyListDictionary!["CreateAccountButtonLabel"] as?    String, style: .default ){
                 (action)in
-                self.strEmail = loginDialog.textFields![0].text
-                self.strPw = loginDialog.textFields![1].text
                 self.onCreateAccount()
             }
 
@@ -94,6 +92,15 @@ class ViewController: UIViewController {
             if( error != nil ){
                 ShowErrorAlert(view: self, title: "Oops!", message: error!.localizedDescription)
             }
+            else if( !((FIRAuth.auth()?.currentUser?.isEmailVerified)!) ){
+                ShowErrorAlert(view: self, title: "Oops!", message: "You account haven't been verified through e-mail.")
+                do{
+                    try FIRAuth.auth()?.signOut()
+                }
+                catch let error as NSError {
+                    ShowErrorAlert(view: self, title: "Sign out error!", message: error.localizedDescription)
+                }
+            }
             else{
                 self.performSegue(withIdentifier: "Segue_MainToAfterLogin", sender: self)
             }
@@ -103,9 +110,9 @@ class ViewController: UIViewController {
     
     func onCreateAccount() -> Void
     {
-        if let loginPage = storyboard?.instantiateViewController(withIdentifier: "CreateAccountPage")
+        if let createAccontPage = storyboard?.instantiateViewController(withIdentifier: "CreateAccountPage")
         {
-                show(loginPage, sender: self)
+            show(createAccontPage, sender: self)
         }
 //        do {
 //            let allAccounts = try viewContext.fetch(TutorAccount.fetchRequest())
