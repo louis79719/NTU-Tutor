@@ -38,12 +38,11 @@
                                     <constraint firstAttribute="height" constant="50" id="kna-R2-tjS"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Back" id="hEc-1a-sJY">
+                                    <barButtonItem title="Log out" id="hEc-1a-sJY">
                                         <connections>
                                             <action selector="onPrevPageBtnClick:" destination="1gP-jX-os9" id="5dS-sW-gd5"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Nil1" id="vIb-Yu-6We"/>
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKP-Pj-ZG8">
