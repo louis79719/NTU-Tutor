@@ -8,9 +8,10 @@
 
 import UIKit
 
-class TeacherListView: UITableViewController {
+class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var TeacherTable: UITableView!
+    @IBOutlet weak var Toolbar: UIToolbar!
+    @IBOutlet weak var TeacherTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,19 +19,19 @@ class TeacherListView: UITableViewController {
         TeacherTable.register( nib, forCellReuseIdentifier: "Cell" )
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int
+    func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         //let userID = FIRAuth.auth()?.currentUser?.uid
         // need to implement from Firbase database
         return 3
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
         
         switch indexPath.row {

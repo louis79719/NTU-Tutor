@@ -9,27 +9,27 @@
 import UIKit
 import Firebase
 
-class StudentListView: UITableViewController {
-
-    @IBOutlet var StudentTable: UITableView!
+class StudentListView: UIViewController, UITableViewDelegate, UITableViewDataSource
+{
+    @IBOutlet weak var Toolbar: UIToolbar!
+    @IBOutlet weak var StudentTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib( nibName: "UserTableViewCell", bundle:nil )
         StudentTable.register( nib, forCellReuseIdentifier: "Cell" )
     }
-
-    override func numberOfSections(in tableView: UITableView) -> Int
-    {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return 3
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
         
         switch indexPath.row {

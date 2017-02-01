@@ -16,6 +16,7 @@
 		BFE476661E4099CB00931111 /* Checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE476641E4099CB00931111 /* Checked.png */; };
 		BFE476671E4099CB00931111 /* Unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE476651E4099CB00931111 /* Unchecked.png */; };
 		BFEBBDFB1E4186F00062936D /* TeacherListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEBBDFA1E4186F00062936D /* TeacherListView.swift */; };
+		BFEBBDFD1E4194450062936D /* PreviousPage.png in Resources */ = {isa = PBXBuildFile; fileRef = BFEBBDFC1E4194450062936D /* PreviousPage.png */; };
 		BFF364631E2B8E5000D6728E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFF364621E2B8E5000D6728E /* GoogleService-Info.plist */; };
 		BFF3BCCF1E16A35E006E5067 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */; };
 		BFF3BCD11E16A35E006E5067 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCD01E16A35E006E5067 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		BFE476641E4099CB00931111 /* Checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Checked.png; path = "UI Files/Checked.png"; sourceTree = "<group>"; };
 		BFE476651E4099CB00931111 /* Unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Unchecked.png; path = "UI Files/Unchecked.png"; sourceTree = "<group>"; };
 		BFEBBDFA1E4186F00062936D /* TeacherListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherListView.swift; sourceTree = "<group>"; };
+		BFEBBDFC1E4194450062936D /* PreviousPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PreviousPage.png; path = icons/PreviousPage.png; sourceTree = "<group>"; };
 		BFF364621E2B8E5000D6728E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFF3BCCB1E16A35E006E5067 /* NTU-Tutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTU-Tutor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		BFE476591E40975500931111 /* UI Files */ = {
 			isa = PBXGroup;
 			children = (
+				BFEBBDFC1E4194450062936D /* PreviousPage.png */,
 				BFE476641E4099CB00931111 /* Checked.png */,
 				BFE476651E4099CB00931111 /* Unchecked.png */,
 				BF1FDCB31E40AAB1009E2B89 /* CustomCheckBox.swift */,
@@ -211,6 +214,7 @@
 				BF1FDCBC1E40E641009E2B89 /* UserTableViewCell.xib in Resources */,
 				BFF3BCEA1E16B9DF006E5067 /* Main.storyboard in Resources */,
 				BFF3BCF11E1A0E31006E5067 /* AppStringTable.plist in Resources */,
+				BFEBBDFD1E4194450062936D /* PreviousPage.png in Resources */,
 				BFF3BCEF1E172BD7006E5067 /* AfterLogin.storyboard in Resources */,
 				BFF364631E2B8E5000D6728E /* GoogleService-Info.plist in Resources */,
 				BFE476661E4099CB00931111 /* Checked.png in Resources */,

@@ -51,7 +51,7 @@
                                 <color key="backgroundColor" red="1" green="0.78728118019087168" blue="0.52024606610430357" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="查看學生資料"/>
                                 <connections>
-                                    <segue destination="Fhb-7w-uCF" kind="show" id="i62-gf-hcv"/>
+                                    <segue destination="366-MU-dBb" kind="show" id="9NS-2D-dhO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfo-1X-WDN">
@@ -59,7 +59,7 @@
                                 <color key="backgroundColor" red="0.50346809488860256" green="1" blue="0.56819804135749186" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="查看老師資料"/>
                                 <connections>
-                                    <segue destination="kmV-5j-sdl" kind="show" id="KRx-nm-YUc"/>
+                                    <segue destination="Wly-B8-4lc" kind="show" id="X16-ae-FtM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -103,67 +103,145 @@
             </objects>
             <point key="canvasLocation" x="1531" y="71"/>
         </scene>
-        <!--Teacher List View-->
-        <scene sceneID="tuf-TQ-XgU">
-            <objects>
-                <tableViewController id="kmV-5j-sdl" customClass="TeacherListView" customModule="NTU_Tutor" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UQM-Yn-UBT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="kV5-Mb-WgH" customClass="UserTableViewCell" customModule="NTU_Tutor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kV5-Mb-WgH" id="EY0-KO-xvm">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="kmV-5j-sdl" id="UC0-T5-lnc"/>
-                            <outlet property="delegate" destination="kmV-5j-sdl" id="AjG-hw-aMJ"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <outlet property="TeacherTable" destination="UQM-Yn-UBT" id="3SQ-1X-agO"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="whL-UZ-ZI4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1592.8" y="616.64167916041981"/>
-        </scene>
         <!--Student List View-->
-        <scene sceneID="g3f-lj-xHc">
+        <scene sceneID="ZMa-mi-ix9">
             <objects>
-                <tableViewController id="Fhb-7w-uCF" customClass="StudentListView" customModule="NTU_Tutor" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vd0-7U-oqs">
+                <viewController id="366-MU-dBb" customClass="StudentListView" customModule="NTU_Tutor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sDw-O3-Yas"/>
+                        <viewControllerLayoutGuide type="bottom" id="k64-ZK-LJs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iaz-xE-gk6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-0Y-6kH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="ypA-Tf-phU">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wPK-oH-cCy">
+                                            <rect key="frame" x="16" y="0.0" width="44" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <state key="normal" image="PreviousPage.png"/>
+                                            <connections>
+                                                <segue destination="1gP-jX-os9" kind="show" id="UTU-x6-a1u"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fm9-bi-9Ib">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="V3u-HS-FQc" customClass="UserTableViewCell" customModule="NTU_Tutor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V3u-HS-FQc" id="oV1-hz-ezH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="366-MU-dBb" id="SNS-CM-PeA"/>
+                                    <outlet property="delegate" destination="366-MU-dBb" id="SEA-S0-r7Q"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="G14-sa-LND" customClass="UserTableViewCell" customModule="NTU_Tutor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G14-sa-LND" id="jCF-fs-rwU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Fhb-7w-uCF" id="SZR-F2-zFB"/>
-                            <outlet property="delegate" destination="Fhb-7w-uCF" id="m15-IM-d9w"/>
-                        </connections>
-                    </tableView>
+                        <constraints>
+                            <constraint firstItem="wV3-0Y-6kH" firstAttribute="top" secondItem="iaz-xE-gk6" secondAttribute="top" id="JUN-el-RV2"/>
+                            <constraint firstItem="fm9-bi-9Ib" firstAttribute="centerX" secondItem="wV3-0Y-6kH" secondAttribute="centerX" id="JvS-5g-lmL"/>
+                            <constraint firstItem="wV3-0Y-6kH" firstAttribute="leading" secondItem="iaz-xE-gk6" secondAttribute="leading" id="P3N-X2-iMp"/>
+                            <constraint firstAttribute="trailing" secondItem="wV3-0Y-6kH" secondAttribute="trailing" id="P7t-og-OWV"/>
+                            <constraint firstItem="fm9-bi-9Ib" firstAttribute="width" secondItem="wV3-0Y-6kH" secondAttribute="width" id="dXZ-7K-T0S"/>
+                            <constraint firstItem="k64-ZK-LJs" firstAttribute="top" secondItem="fm9-bi-9Ib" secondAttribute="bottom" id="mWd-0b-qjW"/>
+                            <constraint firstItem="fm9-bi-9Ib" firstAttribute="top" secondItem="wV3-0Y-6kH" secondAttribute="bottom" id="pUJ-OL-Q3a"/>
+                            <constraint firstItem="fm9-bi-9Ib" firstAttribute="top" secondItem="wV3-0Y-6kH" secondAttribute="bottom" id="tUB-Dd-qLX"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <outlet property="StudentTable" destination="vd0-7U-oqs" id="wrS-MC-Q3U"/>
+                        <outlet property="StudentTable" destination="fm9-bi-9Ib" id="GoJ-as-Lup"/>
+                        <outlet property="Toolbar" destination="wV3-0Y-6kH" id="Fya-ma-J9k"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aBO-ks-zu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DYX-d8-bMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1592.8" y="-483.50824587706148"/>
+            <point key="canvasLocation" x="1542" y="-430"/>
+        </scene>
+        <!--Teacher List View-->
+        <scene sceneID="sUT-To-vdr">
+            <objects>
+                <viewController id="Wly-B8-4lc" customClass="TeacherListView" customModule="NTU_Tutor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r6W-ol-QFD"/>
+                        <viewControllerLayoutGuide type="bottom" id="OIf-ay-oYx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VF2-Pj-Kzv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="9xA-co-b0V">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="8Ot-CE-man">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z7I-fd-qA4">
+                                            <rect key="frame" x="16" y="0.0" width="44" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <state key="normal" image="PreviousPage.png"/>
+                                            <connections>
+                                                <segue destination="1gP-jX-os9" kind="show" id="C38-SL-yO6"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dmq-S4-jTe">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ll1-Ag-Ees" customClass="UserTableViewCell" customModule="NTU_Tutor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ll1-Ag-Ees" id="qk8-cv-GrR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wly-B8-4lc" id="EAA-N8-vTY"/>
+                                    <outlet property="delegate" destination="Wly-B8-4lc" id="nbS-Yd-4or"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9xA-co-b0V" firstAttribute="top" secondItem="VF2-Pj-Kzv" secondAttribute="top" id="0E8-bk-CXw"/>
+                            <constraint firstItem="9xA-co-b0V" firstAttribute="leading" secondItem="VF2-Pj-Kzv" secondAttribute="leading" id="8qM-r4-2zA"/>
+                            <constraint firstItem="dmq-S4-jTe" firstAttribute="top" secondItem="9xA-co-b0V" secondAttribute="bottom" id="NmN-UD-UC8"/>
+                            <constraint firstItem="OIf-ay-oYx" firstAttribute="top" secondItem="dmq-S4-jTe" secondAttribute="bottom" id="PGk-c2-vvz"/>
+                            <constraint firstItem="dmq-S4-jTe" firstAttribute="width" secondItem="9xA-co-b0V" secondAttribute="width" id="PaR-tg-RkA"/>
+                            <constraint firstAttribute="trailing" secondItem="9xA-co-b0V" secondAttribute="trailing" id="a7A-40-nkD"/>
+                            <constraint firstItem="dmq-S4-jTe" firstAttribute="centerX" secondItem="9xA-co-b0V" secondAttribute="centerX" id="bVe-i5-Vkc"/>
+                            <constraint firstItem="dmq-S4-jTe" firstAttribute="top" secondItem="9xA-co-b0V" secondAttribute="bottom" id="gKT-Z0-5jA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="TeacherTable" destination="dmq-S4-jTe" id="Qzd-qe-sbb"/>
+                        <outlet property="Toolbar" destination="9xA-co-b0V" id="ihS-tU-V5v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWD-Yn-p5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1807" y="500"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PreviousPage.png" width="119" height="119"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="C38-SL-yO6"/>
+    </inferredMetricsTieBreakers>
 </document>
