@@ -7,16 +7,29 @@
 //
 
 import UIKit
+import Firebase
 
 class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var Toolbar: UIToolbar!
     @IBOutlet weak var TeacherTable: UITableView!
     
+    var AllTeacherData: NSArray?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib( nibName: "UserTableViewCell", bundle:nil )
         TeacherTable.register( nib, forCellReuseIdentifier: "Cell" )
+        
+        FirebaseDatabaseRef.child("Users/").observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            // Get user value
+            let allUserData = snapshot.value as? NSDictionary //[uid,data]
+            self.AllTeacherData = allUserData?.allValues as NSArray?
+            self.TeacherTable.reloadData()
+        }){ (error) in
+            print(error.localizedDescription)
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -28,30 +41,24 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
     {
         //let userID = FIRAuth.auth()?.currentUser?.uid
         // need to implement from Firbase database
-        return 3
+        if( AllTeacherData != nil ){
+            return AllTeacherData!.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
         
-        switch indexPath.row {
-        case 0:
-            cell.UserNameLabel.text = "Teacher 0"
-            cell.UserSexLabel.text = "男"
-            break
-        case 1:
-            cell.UserNameLabel.text = "Teacher 1"
-            cell.UserSexLabel.text = "女"
-            break
-        case 2:
-            cell.UserNameLabel.text = "Teacher 2"
-            cell.UserSexLabel.text = "男"
-            break
-        default:
-            break
+        if( AllTeacherData != nil ){
+            if let teacherData = AllTeacherData![ indexPath.row ] as? NSDictionary{
+                cell.UserNameLabel.text = teacherData.value(forKey: "UserName") as! String?
+                cell.UserSexLabel.text = teacherData.value(forKey: "Sex") as! String?
+            }
         }
         
         return cell
     }
+    
 
 }
