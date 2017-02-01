@@ -66,7 +66,7 @@
                 <viewControllerPlaceholder storyboardName="AfterLogin" id="mDn-yc-Ff9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6q-Ve-ZZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="72"/>
+            <point key="canvasLocation" x="1248" y="-122"/>
         </scene>
         <!--CreateAccountPage-->
         <scene sceneID="yiC-n5-TbJ">
@@ -74,7 +74,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="CreateAccountPage" storyboardName="CreateAccount" referencedIdentifier="CreateAccountPage" id="o5h-ad-Zu9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJX-KT-vzl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="779" y="153"/>
+            <point key="canvasLocation" x="1157" y="36"/>
         </scene>
     </scenes>
 </document>

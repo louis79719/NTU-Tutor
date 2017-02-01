@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		BF1FDCB41E40AAB1009E2B89 /* CustomCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FDCB31E40AAB1009E2B89 /* CustomCheckBox.swift */; };
+		BF1FDCBB1E40E641009E2B89 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FDCB91E40E641009E2B89 /* UserTableViewCell.swift */; };
+		BF1FDCBC1E40E641009E2B89 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1FDCBA1E40E641009E2B89 /* UserTableViewCell.xib */; };
+		BF1FDCBE1E40EAEC009E2B89 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FDCBD1E40EAEC009E2B89 /* StudentListView.swift */; };
 		BF3E6C491E2BCC250014F4D4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3E6C481E2BCC250014F4D4 /* Utilities.swift */; };
 		BF73D1F81E23EBE30054EFB4 /* CreateAccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73D1F71E23EBE30054EFB4 /* CreateAccountPage.swift */; };
 		BFE476661E4099CB00931111 /* Checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE476641E4099CB00931111 /* Checked.png */; };
 		BFE476671E4099CB00931111 /* Unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE476651E4099CB00931111 /* Unchecked.png */; };
+		BFEBBDFB1E4186F00062936D /* TeacherListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEBBDFA1E4186F00062936D /* TeacherListView.swift */; };
 		BFF364631E2B8E5000D6728E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFF364621E2B8E5000D6728E /* GoogleService-Info.plist */; };
 		BFF3BCCF1E16A35E006E5067 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */; };
 		BFF3BCD11E16A35E006E5067 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF3BCD01E16A35E006E5067 /* ViewController.swift */; };
@@ -31,10 +35,14 @@
 		81A36E32C9295BDDF13FD157 /* Pods-NTU-Tutor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTU-Tutor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NTU-Tutor/Pods-NTU-Tutor.debug.xcconfig"; sourceTree = "<group>"; };
 		895D59DAAED2589A5729206B /* Pods-NTU-Tutor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTU-Tutor.release.xcconfig"; path = "Pods/Target Support Files/Pods-NTU-Tutor/Pods-NTU-Tutor.release.xcconfig"; sourceTree = "<group>"; };
 		BF1FDCB31E40AAB1009E2B89 /* CustomCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCheckBox.swift; path = "UI Files/CustomCheckBox.swift"; sourceTree = "<group>"; };
+		BF1FDCB91E40E641009E2B89 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableViewCell.swift; path = "UI Files/UserTableViewCell.swift"; sourceTree = "<group>"; };
+		BF1FDCBA1E40E641009E2B89 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserTableViewCell.xib; path = "UI Files/UserTableViewCell.xib"; sourceTree = "<group>"; };
+		BF1FDCBD1E40EAEC009E2B89 /* StudentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentListView.swift; sourceTree = "<group>"; };
 		BF3E6C481E2BCC250014F4D4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BF73D1F71E23EBE30054EFB4 /* CreateAccountPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountPage.swift; sourceTree = "<group>"; };
 		BFE476641E4099CB00931111 /* Checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Checked.png; path = "UI Files/Checked.png"; sourceTree = "<group>"; };
 		BFE476651E4099CB00931111 /* Unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Unchecked.png; path = "UI Files/Unchecked.png"; sourceTree = "<group>"; };
+		BFEBBDFA1E4186F00062936D /* TeacherListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherListView.swift; sourceTree = "<group>"; };
 		BFF364621E2B8E5000D6728E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BFF3BCCB1E16A35E006E5067 /* NTU-Tutor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NTU-Tutor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF3BCCE1E16A35E006E5067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +84,8 @@
 				BFE476641E4099CB00931111 /* Checked.png */,
 				BFE476651E4099CB00931111 /* Unchecked.png */,
 				BF1FDCB31E40AAB1009E2B89 /* CustomCheckBox.swift */,
+				BF1FDCB91E40E641009E2B89 /* UserTableViewCell.swift */,
+				BF1FDCBA1E40E641009E2B89 /* UserTableViewCell.xib */,
 			);
 			name = "UI Files";
 			sourceTree = "<group>";
@@ -107,6 +117,8 @@
 				BFF3BCD01E16A35E006E5067 /* ViewController.swift */,
 				BF73D1F71E23EBE30054EFB4 /* CreateAccountPage.swift */,
 				BFF3BCEB1E16BDDF006E5067 /* LoginViewController.swift */,
+				BF1FDCBD1E40EAEC009E2B89 /* StudentListView.swift */,
+				BFEBBDFA1E4186F00062936D /* TeacherListView.swift */,
 				BFF3BCE81E16B9DF006E5067 /* Main.storyboard */,
 				BFF3BCED1E172BD7006E5067 /* AfterLogin.storyboard */,
 				BFF3BCDA1E16A35E006E5067 /* LaunchScreen.storyboard */,
@@ -196,6 +208,7 @@
 				BFF3BCD91E16A35E006E5067 /* Assets.xcassets in Resources */,
 				BFE476671E4099CB00931111 /* Unchecked.png in Resources */,
 				BFF3BD0B1E23E5CE006E5067 /* CreateAccount.storyboard in Resources */,
+				BF1FDCBC1E40E641009E2B89 /* UserTableViewCell.xib in Resources */,
 				BFF3BCEA1E16B9DF006E5067 /* Main.storyboard in Resources */,
 				BFF3BCF11E1A0E31006E5067 /* AppStringTable.plist in Resources */,
 				BFF3BCEF1E172BD7006E5067 /* AfterLogin.storyboard in Resources */,
@@ -263,9 +276,12 @@
 				BFF3BCEC1E16BDDF006E5067 /* LoginViewController.swift in Sources */,
 				BF73D1F81E23EBE30054EFB4 /* CreateAccountPage.swift in Sources */,
 				BF1FDCB41E40AAB1009E2B89 /* CustomCheckBox.swift in Sources */,
+				BF1FDCBB1E40E641009E2B89 /* UserTableViewCell.swift in Sources */,
 				BFF3BCD11E16A35E006E5067 /* ViewController.swift in Sources */,
 				BFF3BCD71E16A35E006E5067 /* NTU_Tutor.xcdatamodeld in Sources */,
+				BFEBBDFB1E4186F00062936D /* TeacherListView.swift in Sources */,
 				BFF3BCCF1E16A35E006E5067 /* AppDelegate.swift in Sources */,
+				BF1FDCBE1E40EAEC009E2B89 /* StudentListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

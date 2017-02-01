@@ -13,6 +13,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var prevPageBtn: UIBarButtonItem!
     @IBOutlet weak var LoginWelcomeLabel: UILabel!
     
+    @IBOutlet weak var GoToStudentListViewButton: UIButton!
+    @IBOutlet weak var GoToTeacherListViewButton: UIButton!
+    
     @IBAction func onPrevPageBtnClick(_ sender: Any) {
         self.performSegue(withIdentifier: "SegueLoginToMain", sender: self)
     }
