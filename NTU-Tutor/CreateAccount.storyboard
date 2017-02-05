@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Account Page-->
+        <!--Create Account View Controller-->
         <scene sceneID="WJI-MM-QL1">
             <objects>
-                <viewController storyboardIdentifier="CreateAccountPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SBJ-TR-Loe" customClass="CreateAccountPage" customModule="NTU_Tutor" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateAccountPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SBJ-TR-Loe" customClass="CreateAccountViewController" customModule="NTU_Tutor" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S0z-lA-2dt"/>
                         <viewControllerLayoutGuide type="bottom" id="Jic-Kc-gfB"/>

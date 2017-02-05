@@ -1,33 +1,41 @@
 //
-//  LoginViewController.swift
+//  ViewController.swift
 //  NTU-Tutor
 //
-//  Created by Louis on 2016/12/31.
+//  Created by Louis on 2016/12/30.
 //  Copyright © 2016年 Louis's Mac. All rights reserved.
 //
 
 import UIKit
+import CoreData
+import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var prevPageBtn: UIBarButtonItem!
-    @IBOutlet weak var LoginWelcomeLabel: UILabel!
+    var strEmail: String! = ""
+    var strPw: String! = ""
     
-    @IBOutlet weak var GoToStudentListViewButton: UIButton!
-    @IBOutlet weak var GoToTeacherListViewButton: UIButton!
+    var PropertyListDictionary: NSMutableDictionary? = nil
+    var viewContext: NSManagedObjectContext!
+    var manageObjectModel: NSManagedObjectModel!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    @IBAction func onPrevPageBtnClick(_ sender: Any) {
-        self.performSegue(withIdentifier: "SegueLoginToMain", sender: self)
+    @IBAction func onLoginBtnClicked(_ sender: Any) {
+        showLoginDialog();
     }
-    
-    
-    var strId: String = "Nil"
-    var strPw: String = "Nil"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UpdateUi();
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view, typically from a nib.
+        FirebaseDatabaseRef = FIRDatabase.database().reference()
+        
+        let strStringTablePath = Bundle.main.path(forResource: "AppStringTable", ofType: "plist")
+        if let kPList = NSMutableDictionary(contentsOfFile: strStringTablePath!){
+            PropertyListDictionary = kPList
+        }
+        viewContext = appDelegate.persistentContainer.viewContext
+        manageObjectModel = appDelegate.persistentContainer.managedObjectModel
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,18 +43,87 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func UpdateUi(){
-        var strText = "Hello " + strId + ", your passowrd is "
-        if( !strPw.isEmpty)
-        {
-            for _ in 1...strPw.characters.count
-            {
-                strText += "*"
-            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if( segue.identifier == "Segue_LoginViewToAccountView" ){
+            let vc = segue.destination as! AccountViewController
+            vc.strId = self.strEmail;
+            vc.strPw = self.strPw;
         }
-        LoginWelcomeLabel.text = strText
-        LoginWelcomeLabel.lineBreakMode = .byWordWrapping
-        LoginWelcomeLabel.numberOfLines = 0;
+    }
+    
+    func showLoginDialog(){
+        if self.PropertyListDictionary != nil
+        {
+            let loginDialog = UIAlertController(title: self.PropertyListDictionary!["LoginDialogTitile"] as?    String, message: self.PropertyListDictionary!["LoginDialogMessage"] as? String, preferredStyle: .alert)
+            loginDialog.addTextField{
+                (textField) in textField.placeholder = self.PropertyListDictionary!["LoginDialogId"] as?    String
+            }
+            loginDialog.addTextField{
+                (textField) in textField.placeholder = self.PropertyListDictionary!["LoginDialogPw"] as?    String
+                textField.isSecureTextEntry = true
+            }
+            
+            let loginAction = UIAlertAction(title: self.PropertyListDictionary!["LoginButtonLabel"] as?    String, style: .default ){
+                (action)in
+                self.strEmail = loginDialog.textFields![0].text
+                self.strPw = loginDialog.textFields![1].text
+                self.onLogin()
+            }
+            let cancelAction = UIAlertAction(title: self.PropertyListDictionary!["CancelButtonLabel"] as?    String, style: .cancel ){
+                (action)in
+                self.dismiss(animated: true, completion: nil)
+            }
+            let createAccountAction = UIAlertAction(title: self.PropertyListDictionary!["CreateAccountButtonLabel"] as?    String, style: .default ){
+                (action)in
+                self.onCreateAccount()
+            }
+
+            loginDialog.addAction(loginAction)
+            loginDialog.addAction(cancelAction)
+            loginDialog.addAction(createAccountAction)
+            
+            show(loginDialog, sender: self)
+            
+        }
     }
 
+    func onLogin() -> Void {
+        FIRAuth.auth()?.signIn(withEmail: strEmail, password: strPw ){
+            (user, error) in
+            if( error != nil ){
+                ShowErrorAlert(view: self, title: "Oops!", message: error!.localizedDescription)
+            }
+            else if( !((FIRAuth.auth()?.currentUser?.isEmailVerified)!) ){
+                ShowErrorAlert(view: self, title: "Oops!", message: "Your account haven't been verified through e-mail.")
+                do{
+                    try FIRAuth.auth()?.signOut()
+                }
+                catch let error as NSError {
+                    ShowErrorAlert(view: self, title: "Sign out error!", message: error.localizedDescription)
+                }
+            }
+            else{
+                self.performSegue(withIdentifier: "Segue_LoginViewToAccountView", sender: self)
+            }
+        }
+
+    }
+    
+    func onCreateAccount() -> Void
+    {
+        if let createAccontPage = storyboard?.instantiateViewController(withIdentifier: "CreateAccountPage")
+        {
+            show(createAccontPage, sender: self)
+        }
+    }
+    
+    func showAlertDialog( title: String, message: String ) -> Void{
+        let alertDialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel ){
+            (action)in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertDialog.addAction( okAction )
+        show(alertDialog, sender: self)
+    }
 }

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class CreateAccountPage: UIViewController {
+class CreateAccountViewController: UIViewController {
 
     @IBOutlet weak var TextEditEmail: UITextField!
     @IBOutlet weak var LabelEmailHint: UILabel!
