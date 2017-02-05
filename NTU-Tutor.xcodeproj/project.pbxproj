@@ -97,11 +97,11 @@
 			isa = PBXGroup;
 			children = (
 				BFE476591E40975500931111 /* UI Files */,
-				BFF364621E2B8E5000D6728E /* GoogleService-Info.plist */,
 				BFF3BCCD1E16A35E006E5067 /* NTU-Tutor */,
 				BFF3BCCC1E16A35E006E5067 /* Products */,
 				F212F9700DD5DC22D344D2C2 /* Pods */,
 				1B51E169D1995E9014B0FEA3 /* Frameworks */,
+				BFF364621E2B8E5000D6728E /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
