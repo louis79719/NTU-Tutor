@@ -88,7 +88,6 @@ class ViewController: UIViewController {
     }
 
     func onLogin() -> Void {
-        //storyboard?.instantiateViewController(withIdentifier: "LoginSB")
         FIRAuth.auth()?.signIn(withEmail: strEmail, password: strPw ){
             (user, error) in
             if( error != nil ){
@@ -116,23 +115,6 @@ class ViewController: UIViewController {
         {
             show(createAccontPage, sender: self)
         }
-//        do {
-//            let allAccounts = try viewContext.fetch(TutorAccount.fetchRequest())
-//            for account in allAccounts as! [TutorAccount]
-//            {
-//                if( account.id == strId ){
-//                    showAlertDialog(title: "Create Account Fail", message: "Account is already exist!")
-//                    return
-//                }
-//            }
-//        }catch{
-//        
-//        }
-//        
-//        var newAccount = NSEntityDescription.insertNewObject(forEntityName: "TutorAccount", into: viewContext) as! TutorAccount
-//        newAccount.id = strId
-//        newAccount.password = strPw
-//        appDelegate.saveContext()
     }
     
     func showAlertDialog( title: String, message: String ) -> Void{
