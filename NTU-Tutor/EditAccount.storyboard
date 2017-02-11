@@ -75,6 +75,9 @@
                                 <state key="normal" title="OK">
                                     <color key="titleShadowColor" red="0.95690756499389884" green="1" blue="0.20059704159042524" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="OnEditOkButtonClicked:" destination="SBJ-TR-Loe" eventType="touchDown" id="tSO-sH-DZ5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lY-J7-gsq" customClass="CustomCheckBox" customModule="NTU_Tutor" customModuleProvider="target">
                                 <rect key="frame" x="133.5" y="192" width="50" height="30"/>
@@ -169,10 +172,24 @@
                             <constraint firstItem="8lY-J7-gsq" firstAttribute="centerY" secondItem="L2t-7a-tNO" secondAttribute="centerY" id="zxa-PJ-riD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="EditOkButton" destination="PLh-tN-ZJq" id="uyZ-yj-Tit"/>
+                        <outlet property="PasswordAgainText" destination="KkT-hu-xO3" id="147-yL-3WO"/>
+                        <outlet property="PasswordText" destination="2f5-ci-vnJ" id="6Kw-7x-1kg"/>
+                        <segue destination="FN2-bm-2IZ" kind="show" identifier="SegueToAccountPage" id="xaU-X4-kET"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMw-Cg-CrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-402.39999999999998" y="846.9265367316342"/>
+        </scene>
+        <!--AccountPage-->
+        <scene sceneID="PYQ-fe-nBS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AccountPage" id="FN2-bm-2IZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gbf-9u-vVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="273" y="861"/>
         </scene>
     </scenes>
     <resources>
