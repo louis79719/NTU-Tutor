@@ -11,8 +11,8 @@ import UIKit
 class AccountViewController: UIViewController {
 
     @IBOutlet weak var prevPageBtn: UIBarButtonItem!
-    @IBOutlet weak var LoginWelcomeLabel: UILabel!
     
+    @IBOutlet weak var GoToEditAccountViewButton: UIButton!
     @IBOutlet weak var GoToStudentListViewButton: UIButton!
     @IBOutlet weak var GoToTeacherListViewButton: UIButton!
     
@@ -36,17 +36,6 @@ class AccountViewController: UIViewController {
     }
     
     func UpdateUi(){
-        var strText = "Hello " + strId + ", your passowrd is "
-        if( !strPw.isEmpty)
-        {
-            for _ in 1...strPw.characters.count
-            {
-                strText += "*"
-            }
-        }
-        LoginWelcomeLabel.text = strText
-        LoginWelcomeLabel.lineBreakMode = .byWordWrapping
-        LoginWelcomeLabel.numberOfLines = 0;
     }
 
 }
