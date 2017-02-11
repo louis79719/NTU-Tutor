@@ -22,8 +22,7 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var MaleCheckBox: CustomCheckBox!
     @IBOutlet weak var FemaleCheckBox: CustomCheckBox!
     
-    var sexList = [String]()
-    
+
     @IBAction func onMaleCheckBoxClicked(_ sender: Any) {
         MaleCheckBox.isChecked = true
         FemaleCheckBox.isChecked = false
@@ -36,11 +35,6 @@ class CreateAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        sexList.append("男")
-        sexList.append("女")
-        LabelEmailHint.text = "Your E-mail will be used as login account"
-        LabelPwHint.text = "Yout Password should be at least 8 characters"
     }
 
     override func didReceiveMemoryWarning() {
