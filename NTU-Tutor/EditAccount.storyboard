@@ -179,20 +179,11 @@
                         <outlet property="EditOkButton" destination="PLh-tN-ZJq" id="uyZ-yj-Tit"/>
                         <outlet property="PasswordAgainText" destination="KkT-hu-xO3" id="147-yL-3WO"/>
                         <outlet property="PasswordText" destination="2f5-ci-vnJ" id="6Kw-7x-1kg"/>
-                        <segue destination="FN2-bm-2IZ" kind="show" identifier="SegueToAccountPage" id="xaU-X4-kET"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMw-Cg-CrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-402.39999999999998" y="846.9265367316342"/>
-        </scene>
-        <!--AccountPage-->
-        <scene sceneID="PYQ-fe-nBS">
-            <objects>
-                <viewControllerPlaceholder storyboardName="AccountPage" id="FN2-bm-2IZ" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gbf-9u-vVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="273" y="861"/>
         </scene>
     </scenes>
     <resources>

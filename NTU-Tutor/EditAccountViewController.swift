@@ -35,7 +35,7 @@ class EditAccountViewController: UIViewController {
                     ShowErrorAlert( view: self, title: "Update Password fail", message: error!.localizedDescription)
                 }
                 else{
-                    self.performSegue(withIdentifier: "SegueToAccountPage", sender: self)
+                    self.dismiss(animated: true)
                 }
             }
         }
