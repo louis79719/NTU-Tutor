@@ -40,7 +40,7 @@
                                 <color key="backgroundColor" red="1" green="0.78728118019087168" blue="0.52024606610430357" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="查看學生資料"/>
                                 <connections>
-                                    <segue destination="366-MU-dBb" kind="show" id="9NS-2D-dhO"/>
+                                    <segue destination="366-MU-dBb" kind="show" id="SEY-dk-V0E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfo-1X-WDN">
@@ -48,7 +48,7 @@
                                 <color key="backgroundColor" red="0.50346809488860256" green="1" blue="0.56819804135749186" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="查看老師資料"/>
                                 <connections>
-                                    <segue destination="Wly-B8-4lc" kind="show" id="X16-ae-FtM"/>
+                                    <segue destination="Wly-B8-4lc" kind="show" id="tuu-ga-Fjn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAe-4c-Lic">
@@ -123,7 +123,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="wV3-0Y-6kH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" id="ypA-Tf-phU">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wPK-oH-cCy">
@@ -131,14 +131,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <state key="normal" image="PreviousPage.png"/>
                                             <connections>
-                                                <segue destination="1gP-jX-os9" kind="show" id="UTU-x6-a1u"/>
+                                                <action selector="OnBackButtonClicked:" destination="366-MU-dBb" eventType="touchDown" id="vHg-Cb-iCW"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fm9-bi-9Ib">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="V3u-HS-FQc" customClass="UserTableViewCell" customModule="NTU_Tutor" customModuleProvider="target">
@@ -158,11 +158,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wV3-0Y-6kH" firstAttribute="top" secondItem="iaz-xE-gk6" secondAttribute="top" id="JUN-el-RV2"/>
                             <constraint firstItem="fm9-bi-9Ib" firstAttribute="centerX" secondItem="wV3-0Y-6kH" secondAttribute="centerX" id="JvS-5g-lmL"/>
+                            <constraint firstItem="wV3-0Y-6kH" firstAttribute="top" secondItem="sDw-O3-Yas" secondAttribute="bottom" id="OcW-Dc-1aY"/>
                             <constraint firstItem="wV3-0Y-6kH" firstAttribute="leading" secondItem="iaz-xE-gk6" secondAttribute="leading" id="P3N-X2-iMp"/>
                             <constraint firstAttribute="trailing" secondItem="wV3-0Y-6kH" secondAttribute="trailing" id="P7t-og-OWV"/>
                             <constraint firstItem="fm9-bi-9Ib" firstAttribute="width" secondItem="wV3-0Y-6kH" secondAttribute="width" id="dXZ-7K-T0S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wV3-0Y-6kH" secondAttribute="trailing" constant="-16" id="jLr-Mo-idm"/>
                             <constraint firstItem="k64-ZK-LJs" firstAttribute="top" secondItem="fm9-bi-9Ib" secondAttribute="bottom" id="mWd-0b-qjW"/>
                             <constraint firstItem="fm9-bi-9Ib" firstAttribute="top" secondItem="wV3-0Y-6kH" secondAttribute="bottom" id="pUJ-OL-Q3a"/>
                             <constraint firstItem="fm9-bi-9Ib" firstAttribute="top" secondItem="wV3-0Y-6kH" secondAttribute="bottom" id="tUB-Dd-qLX"/>
@@ -190,7 +191,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="9xA-co-b0V">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" id="8Ot-CE-man">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z7I-fd-qA4">
@@ -198,14 +199,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <state key="normal" image="PreviousPage.png"/>
                                             <connections>
-                                                <segue destination="1gP-jX-os9" kind="show" id="C38-SL-yO6"/>
+                                                <action selector="OnBackButtonClicked:" destination="Wly-B8-4lc" eventType="touchDown" id="VGN-lL-ZfO"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dmq-S4-jTe">
-                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ll1-Ag-Ees" customClass="UserTableViewCell" customModule="NTU_Tutor" customModuleProvider="target">
@@ -225,7 +226,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9xA-co-b0V" firstAttribute="top" secondItem="VF2-Pj-Kzv" secondAttribute="top" id="0E8-bk-CXw"/>
                             <constraint firstItem="9xA-co-b0V" firstAttribute="leading" secondItem="VF2-Pj-Kzv" secondAttribute="leading" id="8qM-r4-2zA"/>
                             <constraint firstItem="dmq-S4-jTe" firstAttribute="top" secondItem="9xA-co-b0V" secondAttribute="bottom" id="NmN-UD-UC8"/>
                             <constraint firstItem="OIf-ay-oYx" firstAttribute="top" secondItem="dmq-S4-jTe" secondAttribute="bottom" id="PGk-c2-vvz"/>
@@ -233,6 +233,7 @@
                             <constraint firstAttribute="trailing" secondItem="9xA-co-b0V" secondAttribute="trailing" id="a7A-40-nkD"/>
                             <constraint firstItem="dmq-S4-jTe" firstAttribute="centerX" secondItem="9xA-co-b0V" secondAttribute="centerX" id="bVe-i5-Vkc"/>
                             <constraint firstItem="dmq-S4-jTe" firstAttribute="top" secondItem="9xA-co-b0V" secondAttribute="bottom" id="gKT-Z0-5jA"/>
+                            <constraint firstItem="9xA-co-b0V" firstAttribute="top" secondItem="r6W-ol-QFD" secondAttribute="bottom" id="lvy-Ze-U1B"/>
                         </constraints>
                     </view>
                     <connections>
@@ -248,7 +249,4 @@
     <resources>
         <image name="PreviousPage.png" width="119" height="119"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="C38-SL-yO6"/>
-    </inferredMetricsTieBreakers>
 </document>

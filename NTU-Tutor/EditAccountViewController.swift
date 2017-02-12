@@ -44,4 +44,7 @@ class EditAccountViewController: UIViewController {
         }
     }
 
+    @IBAction func OnCancelButtonClicked(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }

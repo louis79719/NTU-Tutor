@@ -60,5 +60,9 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
+    @IBAction func OnBackButtonClicked(_ sender: Any) {
+        dismiss(animated: true)
+    }
+
 
 }

@@ -126,6 +126,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleShadowColor" red="0.95690756499999996" green="1" blue="0.2005970416" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="OnCancelButtonClicked:" destination="SBJ-TR-Loe" eventType="touchDown" id="Qq0-BL-xh4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.62763101031757873" green="0.87006007059542867" blue="1" alpha="1" colorSpace="calibratedRGB"/>
