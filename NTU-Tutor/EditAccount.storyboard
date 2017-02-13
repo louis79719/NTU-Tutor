@@ -80,15 +80,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lY-J7-gsq" customClass="CustomCheckBox" customModule="NTU_Tutor" customModuleProvider="target">
-                                <rect key="frame" x="133.5" y="192" width="50" height="30"/>
+                                <rect key="frame" x="133.5" y="192" width="30" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="checkedIcon" value="Checked.png"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="uncheckedIcon" value="Unchecked.png"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="OnMaleChecked:" destination="SBJ-TR-Loe" eventType="touchDown" id="iap-ro-TBZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sc0-uC-moM">
-                                <rect key="frame" x="226" y="192" width="18" height="30"/>
+                                <rect key="frame" x="246" y="192" width="18" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -100,12 +103,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fw-B1-OjX" customClass="CustomCheckBox" customModule="NTU_Tutor" customModuleProvider="target">
-                                <rect key="frame" x="249" y="192" width="50" height="30"/>
+                                <rect key="frame" x="269" y="192" width="30" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="checkedIcon" value="Checked.png"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="uncheckedIcon" value="Unchecked.png"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="OnFemaleChecked:" destination="SBJ-TR-Loe" eventType="touchDown" id="Cfo-rT-S4b"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Again" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ut2-61-08U">
                                 <rect key="frame" x="16" y="83" width="125" height="30"/>
@@ -177,6 +183,9 @@
                     </view>
                     <connections>
                         <outlet property="EditOkButton" destination="PLh-tN-ZJq" id="uyZ-yj-Tit"/>
+                        <outlet property="FemaleCheckBox" destination="5fw-B1-OjX" id="rEc-5S-usB"/>
+                        <outlet property="MaleCheckBox" destination="8lY-J7-gsq" id="FcB-LX-c7e"/>
+                        <outlet property="NameText" destination="zHE-t7-6IK" id="mI0-KH-d0z"/>
                         <outlet property="PasswordAgainText" destination="KkT-hu-xO3" id="147-yL-3WO"/>
                         <outlet property="PasswordText" destination="2f5-ci-vnJ" id="6Kw-7x-1kg"/>
                     </connections>
