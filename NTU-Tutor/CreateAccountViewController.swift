@@ -115,6 +115,21 @@ class CreateAccountViewController: UIViewController {
     }
     */
 
+}
+
+extension CreateAccountViewController : UITextFieldDelegate {
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
     
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        self.view.endEditing(true)
+    }
 }
 

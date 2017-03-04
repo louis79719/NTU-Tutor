@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -65,8 +65,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLh-tN-ZJq">
-                                <rect key="frame" x="82" y="277" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLh-tN-ZJq">
+                                <rect key="frame" x="91" y="352" width="50" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.82989444710384708" blue="0.42376113931403192" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="2Dy-Wf-rF2"/>
@@ -80,7 +80,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lY-J7-gsq" customClass="CustomCheckBox" customModule="NTU_Tutor" customModuleProvider="target">
-                                <rect key="frame" x="133.5" y="192" width="30" height="30"/>
+                                <rect key="frame" x="133.5" y="192" width="50" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="checkedIcon" value="Checked.png"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="uncheckedIcon" value="Unchecked.png"/>
@@ -91,7 +91,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sc0-uC-moM">
-                                <rect key="frame" x="246" y="192" width="18" height="30"/>
+                                <rect key="frame" x="226" y="192" width="18" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fw-B1-OjX" customClass="CustomCheckBox" customModule="NTU_Tutor" customModuleProvider="target">
-                                <rect key="frame" x="269" y="192" width="30" height="30"/>
+                                <rect key="frame" x="249" y="192" width="50" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="checkedIcon" value="Checked.png"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="uncheckedIcon" value="Unchecked.png"/>
@@ -123,8 +123,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPX-XM-AlT">
-                                <rect key="frame" x="228" y="277" width="50" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPX-XM-AlT">
+                                <rect key="frame" x="224" y="352" width="50" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.82989444710000004" blue="0.42376113929999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VPV-vw-2qq"/>
@@ -136,12 +136,26 @@
                                     <action selector="OnCancelButtonClicked:" destination="SBJ-TR-Loe" eventType="touchDown" id="Qq0-BL-xh4"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KYw-FX-FZR">
+                                <rect key="frame" x="133" y="246" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="科目" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKS-XA-LHn">
+                                <rect key="frame" x="16" y="251" width="80" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.62763101031757873" green="0.87006007059542867" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ut2-61-08U" firstAttribute="top" secondItem="4Jw-p2-iRc" secondAttribute="bottom" constant="25" id="53J-c1-wqc"/>
                             <constraint firstItem="L2t-7a-tNO" firstAttribute="leading" secondItem="9Yz-0d-nzY" secondAttribute="trailing" constant="15" id="57s-T9-ROV"/>
                             <constraint firstItem="9Yz-0d-nzY" firstAttribute="height" secondItem="Ppi-JL-8Oz" secondAttribute="height" id="6jc-JA-cue"/>
+                            <constraint firstItem="wKS-XA-LHn" firstAttribute="top" secondItem="9Yz-0d-nzY" secondAttribute="bottom" constant="29" id="8yf-lx-IsV"/>
                             <constraint firstItem="5fw-B1-OjX" firstAttribute="leading" secondItem="sc0-uC-moM" secondAttribute="trailing" constant="5" id="9eK-Uo-Wna"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2f5-ci-vnJ" secondAttribute="trailing" constant="10" id="A8y-7z-KIp"/>
                             <constraint firstItem="KkT-hu-xO3" firstAttribute="leading" secondItem="ut2-61-08U" secondAttribute="trailing" constant="8" id="ACK-xq-aSf"/>
@@ -153,12 +167,14 @@
                             <constraint firstItem="Ppi-JL-8Oz" firstAttribute="width" secondItem="4Jw-p2-iRc" secondAttribute="width" id="DRN-kQ-CJm"/>
                             <constraint firstItem="8lY-J7-gsq" firstAttribute="height" secondItem="L2t-7a-tNO" secondAttribute="height" id="DWY-ol-Ge0"/>
                             <constraint firstItem="L2t-7a-tNO" firstAttribute="height" secondItem="9Yz-0d-nzY" secondAttribute="height" id="EIi-lA-H82"/>
+                            <constraint firstItem="wKS-XA-LHn" firstAttribute="leading" secondItem="K05-Cy-E2u" secondAttribute="leadingMargin" id="IYo-DZ-zrL"/>
                             <constraint firstItem="sc0-uC-moM" firstAttribute="height" secondItem="L2t-7a-tNO" secondAttribute="height" id="KZB-4p-4HH"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ut2-61-08U" secondAttribute="leading" id="KZk-Fk-thj"/>
                             <constraint firstAttribute="leadingMargin" secondItem="9Yz-0d-nzY" secondAttribute="leading" id="LSY-nw-4ma"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zHE-t7-6IK" secondAttribute="trailing" constant="10" id="MhZ-MB-Jry"/>
                             <constraint firstItem="LPX-XM-AlT" firstAttribute="width" secondItem="PLh-tN-ZJq" secondAttribute="width" id="Phg-ZG-JJ4"/>
                             <constraint firstItem="sc0-uC-moM" firstAttribute="centerY" secondItem="L2t-7a-tNO" secondAttribute="centerY" id="Pwz-wS-Y4d"/>
+                            <constraint firstItem="wKS-XA-LHn" firstAttribute="width" secondItem="9Yz-0d-nzY" secondAttribute="width" id="Q4c-hv-V9G"/>
                             <constraint firstItem="KkT-hu-xO3" firstAttribute="height" secondItem="ut2-61-08U" secondAttribute="height" id="TiR-1r-CjI"/>
                             <constraint firstItem="2f5-ci-vnJ" firstAttribute="leading" secondItem="4Jw-p2-iRc" secondAttribute="trailing" constant="10" id="UrV-gG-cUj"/>
                             <constraint firstItem="LPX-XM-AlT" firstAttribute="centerY" secondItem="PLh-tN-ZJq" secondAttribute="centerY" id="aa3-Fm-tmb"/>
@@ -166,6 +182,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="5fw-B1-OjX" secondAttribute="trailing" constant="60" id="cCF-l8-RMy"/>
                             <constraint firstItem="LPX-XM-AlT" firstAttribute="height" secondItem="PLh-tN-ZJq" secondAttribute="height" id="cQN-OX-p34"/>
                             <constraint firstAttribute="leadingMargin" secondItem="4Jw-p2-iRc" secondAttribute="leading" id="d65-Rh-ItA"/>
+                            <constraint firstItem="wKS-XA-LHn" firstAttribute="height" secondItem="9Yz-0d-nzY" secondAttribute="height" id="eYA-1e-JLL"/>
                             <constraint firstItem="8lY-J7-gsq" firstAttribute="leading" secondItem="L2t-7a-tNO" secondAttribute="trailing" constant="5" id="edk-h7-77T"/>
                             <constraint firstItem="2f5-ci-vnJ" firstAttribute="centerY" secondItem="4Jw-p2-iRc" secondAttribute="centerY" id="fGr-Zw-yKv"/>
                             <constraint firstItem="zHE-t7-6IK" firstAttribute="top" secondItem="Ppi-JL-8Oz" secondAttribute="top" id="ho5-YW-hL0"/>
@@ -175,7 +192,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="LPX-XM-AlT" secondAttribute="trailing" constant="81" id="pAA-sE-GTT"/>
                             <constraint firstItem="9Yz-0d-nzY" firstAttribute="width" secondItem="Ppi-JL-8Oz" secondAttribute="width" id="tJl-Q4-SFd"/>
                             <constraint firstItem="9Yz-0d-nzY" firstAttribute="top" secondItem="Ppi-JL-8Oz" secondAttribute="bottom" constant="24" id="u0L-21-Tld"/>
-                            <constraint firstItem="PLh-tN-ZJq" firstAttribute="top" secondItem="9Yz-0d-nzY" secondAttribute="bottom" constant="55" id="vKX-ts-IAO"/>
                             <constraint firstItem="4Jw-p2-iRc" firstAttribute="top" secondItem="S0z-lA-2dt" secondAttribute="bottom" constant="8" id="wlV-za-2fV"/>
                             <constraint firstItem="Ppi-JL-8Oz" firstAttribute="top" secondItem="ut2-61-08U" secondAttribute="bottom" constant="25" id="y97-gh-FMv"/>
                             <constraint firstItem="8lY-J7-gsq" firstAttribute="centerY" secondItem="L2t-7a-tNO" secondAttribute="centerY" id="zxa-PJ-riD"/>
