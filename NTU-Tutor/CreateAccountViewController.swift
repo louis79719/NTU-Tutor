@@ -35,6 +35,10 @@ class CreateAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tapOnViewRecognizer = UITapGestureRecognizer( target:self,
+                                                          action:#selector(CreateAccountViewController.onMainViewTap(_:)))
+        tapOnViewRecognizer.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapOnViewRecognizer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,6 +107,10 @@ class CreateAccountViewController: UIViewController {
             }
             
         }
+    }
+    
+    func onMainViewTap(_:UITapGestureRecognizer){
+        self.view.endEditing(true)
     }
 
     /*

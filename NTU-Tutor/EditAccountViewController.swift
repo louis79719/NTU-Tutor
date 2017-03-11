@@ -52,6 +52,11 @@ class EditAccountViewController: UIViewController {
             let userSchoolAndDepartment = userData?["SchoolDepartment"] as? String ?? ""
             self.SchoolAndDepartmentText.text = userSchoolAndDepartment
         })
+        
+        let tapOnViewRecognizer = UITapGestureRecognizer( target:self,
+                                                          action:#selector(EditAccountViewController.onMainViewTap(_:)))
+        tapOnViewRecognizer.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapOnViewRecognizer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,6 +134,11 @@ class EditAccountViewController: UIViewController {
                 self.nWaitCount = self.nWaitCount - 1
             }
         }
+    }
+    
+    func onMainViewTap(_:UITapGestureRecognizer)
+    {
+        self.view.endEditing(true)
     }
     
 }
