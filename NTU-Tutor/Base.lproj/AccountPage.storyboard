@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1gP-jX-os9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1gP-jX-os9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -138,7 +138,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fm9-bi-9Ib">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="V3u-HS-FQc" customClass="UserTableViewCell" customModule="NTU_Tutor" customModuleProvider="target">
@@ -155,28 +155,39 @@
                                     <outlet property="delegate" destination="366-MU-dBb" id="SEA-S0-r7Q"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="n84-MZ-PXN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="366-MU-dBb" id="mLu-Ho-Qb5"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fm9-bi-9Ib" firstAttribute="top" secondItem="n84-MZ-PXN" secondAttribute="bottom" id="HXQ-Ac-89N"/>
                             <constraint firstItem="fm9-bi-9Ib" firstAttribute="centerX" secondItem="wV3-0Y-6kH" secondAttribute="centerX" id="JvS-5g-lmL"/>
+                            <constraint firstItem="n84-MZ-PXN" firstAttribute="top" secondItem="wV3-0Y-6kH" secondAttribute="bottom" id="Nd7-LO-qkG"/>
+                            <constraint firstItem="n84-MZ-PXN" firstAttribute="leading" secondItem="iaz-xE-gk6" secondAttribute="leadingMargin" constant="-16" id="Npu-0l-epS"/>
                             <constraint firstItem="wV3-0Y-6kH" firstAttribute="top" secondItem="sDw-O3-Yas" secondAttribute="bottom" id="OcW-Dc-1aY"/>
                             <constraint firstItem="wV3-0Y-6kH" firstAttribute="leading" secondItem="iaz-xE-gk6" secondAttribute="leading" id="P3N-X2-iMp"/>
                             <constraint firstAttribute="trailing" secondItem="wV3-0Y-6kH" secondAttribute="trailing" id="P7t-og-OWV"/>
                             <constraint firstItem="fm9-bi-9Ib" firstAttribute="width" secondItem="wV3-0Y-6kH" secondAttribute="width" id="dXZ-7K-T0S"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wV3-0Y-6kH" secondAttribute="trailing" constant="-16" id="jLr-Mo-idm"/>
                             <constraint firstItem="k64-ZK-LJs" firstAttribute="top" secondItem="fm9-bi-9Ib" secondAttribute="bottom" id="mWd-0b-qjW"/>
-                            <constraint firstItem="fm9-bi-9Ib" firstAttribute="top" secondItem="wV3-0Y-6kH" secondAttribute="bottom" id="pUJ-OL-Q3a"/>
-                            <constraint firstItem="fm9-bi-9Ib" firstAttribute="top" secondItem="wV3-0Y-6kH" secondAttribute="bottom" id="tUB-Dd-qLX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n84-MZ-PXN" secondAttribute="trailing" constant="-16" id="oOD-r2-JYN"/>
+                            <constraint firstItem="n84-MZ-PXN" firstAttribute="width" secondItem="iaz-xE-gk6" secondAttribute="width" id="r5r-Ss-hep"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="SearchBar" destination="n84-MZ-PXN" id="ltb-4v-WkK"/>
                         <outlet property="StudentTable" destination="fm9-bi-9Ib" id="GoJ-as-Lup"/>
                         <outlet property="Toolbar" destination="wV3-0Y-6kH" id="Fya-ma-J9k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYX-d8-bMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="-430"/>
+            <point key="canvasLocation" x="1541.5999999999999" y="-430.43478260869568"/>
         </scene>
         <!--Teacher List View-->
         <scene sceneID="sUT-To-vdr">
@@ -206,7 +217,7 @@
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dmq-S4-jTe">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ll1-Ag-Ees" customClass="UserTableViewCell" customModule="NTU_Tutor" customModuleProvider="target">
@@ -223,27 +234,37 @@
                                     <outlet property="delegate" destination="Wly-B8-4lc" id="nbS-Yd-4or"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="TQi-xc-OT4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Wly-B8-4lc" id="qT6-4f-jRJ"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="TQi-xc-OT4" firstAttribute="width" secondItem="9xA-co-b0V" secondAttribute="width" id="3ew-TY-RFN"/>
+                            <constraint firstItem="OIf-ay-oYx" firstAttribute="top" secondItem="dmq-S4-jTe" secondAttribute="bottom" id="7N6-E8-Bv0"/>
                             <constraint firstItem="9xA-co-b0V" firstAttribute="leading" secondItem="VF2-Pj-Kzv" secondAttribute="leading" id="8qM-r4-2zA"/>
-                            <constraint firstItem="dmq-S4-jTe" firstAttribute="top" secondItem="9xA-co-b0V" secondAttribute="bottom" id="NmN-UD-UC8"/>
-                            <constraint firstItem="OIf-ay-oYx" firstAttribute="top" secondItem="dmq-S4-jTe" secondAttribute="bottom" id="PGk-c2-vvz"/>
-                            <constraint firstItem="dmq-S4-jTe" firstAttribute="width" secondItem="9xA-co-b0V" secondAttribute="width" id="PaR-tg-RkA"/>
                             <constraint firstAttribute="trailing" secondItem="9xA-co-b0V" secondAttribute="trailing" id="a7A-40-nkD"/>
-                            <constraint firstItem="dmq-S4-jTe" firstAttribute="centerX" secondItem="9xA-co-b0V" secondAttribute="centerX" id="bVe-i5-Vkc"/>
-                            <constraint firstItem="dmq-S4-jTe" firstAttribute="top" secondItem="9xA-co-b0V" secondAttribute="bottom" id="gKT-Z0-5jA"/>
+                            <constraint firstItem="dmq-S4-jTe" firstAttribute="width" secondItem="TQi-xc-OT4" secondAttribute="width" id="c7t-yM-yEH"/>
+                            <constraint firstItem="TQi-xc-OT4" firstAttribute="centerX" secondItem="9xA-co-b0V" secondAttribute="centerX" id="efK-a5-4Ot"/>
                             <constraint firstItem="9xA-co-b0V" firstAttribute="top" secondItem="r6W-ol-QFD" secondAttribute="bottom" id="lvy-Ze-U1B"/>
+                            <constraint firstItem="TQi-xc-OT4" firstAttribute="top" secondItem="9xA-co-b0V" secondAttribute="bottom" id="n2L-yx-uz0"/>
+                            <constraint firstItem="dmq-S4-jTe" firstAttribute="centerX" secondItem="TQi-xc-OT4" secondAttribute="centerX" id="ow7-UQ-53Y"/>
+                            <constraint firstItem="dmq-S4-jTe" firstAttribute="top" secondItem="TQi-xc-OT4" secondAttribute="bottom" id="y6L-zA-xyw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="SearchBar" destination="TQi-xc-OT4" id="enV-Oo-DpC"/>
                         <outlet property="TeacherTable" destination="dmq-S4-jTe" id="Qzd-qe-sbb"/>
                         <outlet property="Toolbar" destination="9xA-co-b0V" id="ihS-tU-V5v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWD-Yn-p5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="500"/>
+            <point key="canvasLocation" x="1805.5999999999999" y="499.70014992503752"/>
         </scene>
     </scenes>
     <resources>

@@ -13,11 +13,13 @@ class StudentListView: UIViewController, UITableViewDelegate, UITableViewDataSou
 {
     @IBOutlet weak var Toolbar: UIToolbar!
     @IBOutlet weak var StudentTable: UITableView!
+    @IBOutlet weak var SearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib( nibName: "UserTableViewCell", bundle:nil )
         StudentTable.register( nib, forCellReuseIdentifier: "Cell" )
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,4 +58,12 @@ class StudentListView: UIViewController, UITableViewDelegate, UITableViewDataSou
         dismiss(animated: true)
     }
 
+}
+
+extension StudentListView : UISearchBarDelegate
+{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
+    {
+    
+    }
 }

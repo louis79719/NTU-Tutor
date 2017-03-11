@@ -13,8 +13,10 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var Toolbar: UIToolbar!
     @IBOutlet weak var TeacherTable: UITableView!
+    @IBOutlet weak var SearchBar: UISearchBar!
     
     var AllTeacherData: NSArray?
+    var TeacherDataPassTheFilter: NSArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,7 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
             // Get user value
             let allUserData = snapshot.value as? NSDictionary //[uid,data]
             self.AllTeacherData = allUserData?.allValues as NSArray?
+            self.TeacherDataPassTheFilter = self.AllTeacherData
             self.TeacherTable.reloadData()
         }){ (error) in
             print(error.localizedDescription)
@@ -41,8 +44,9 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
     {
         //let userID = FIRAuth.auth()?.currentUser?.uid
         // need to implement from Firbase database
-        if( AllTeacherData != nil ){
-            return AllTeacherData!.count
+        if let data = TeacherDataPassTheFilter
+        {
+            return data.count
         }
         return 0
     }
@@ -50,8 +54,8 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
         
-        if( AllTeacherData != nil ){
-            if let teacherData = AllTeacherData![ indexPath.row ] as? NSDictionary{
+        if( TeacherDataPassTheFilter != nil ){
+            if let teacherData = TeacherDataPassTheFilter![ indexPath.row ] as? NSDictionary{
                 cell.UserNameLabel.text = teacherData.value(forKey: "UserName") as! String?
                 cell.UserSexLabel.text = teacherData.value(forKey: "Sex") as! String?
             }
@@ -65,4 +69,31 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
 
 
+}
+
+extension TeacherListView : UISearchBarDelegate
+{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
+    {
+        if (searchBar.text?.isEmpty)!
+        {
+            TeacherDataPassTheFilter = AllTeacherData
+        }
+        else{
+            TeacherDataPassTheFilter = []
+            if let allData = AllTeacherData{
+                for data in allData
+                {
+                    if let dict = data as? NSDictionary
+                    {
+                        let strUserName = dict.value(forKey: "UserName") as! String
+                        if strUserName.lowercased().contains(searchText.lowercased()){
+                            TeacherDataPassTheFilter = TeacherDataPassTheFilter?.adding(dict) as NSArray?
+                        }
+                    }
+                }
+            }
+        }
+        self.TeacherTable.reloadData()
+    }
 }
