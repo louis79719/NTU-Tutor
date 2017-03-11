@@ -29,6 +29,10 @@ class EditAccountViewController: UIViewController {
     @IBOutlet weak var MaleCheckBox: CustomCheckBox!
     @IBOutlet weak var NameText: UITextField!
     
+    @IBOutlet weak var FavorSubjectText: UITextField!
+    @IBOutlet weak var SchoolAndDepartmentText: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser = FIRAuth.auth()?.currentUser
@@ -80,6 +84,14 @@ class EditAccountViewController: UIViewController {
         }
         else if( self.FemaleCheckBox.isChecked ){
             UpdateUserData(key: "Sex", value: "女")
+        }
+        
+        if !( FavorSubjectText.text?.isEmpty )!{
+            UpdateUserData(key: "FavorSubject", value: FavorSubjectText.text!)
+        }
+        
+        if !( SchoolAndDepartmentText.text?.isEmpty )!{
+            UpdateUserData(key: "SchoolDepartment", value: SchoolAndDepartmentText.text!)
         }
         
         bAllDataSended = true
