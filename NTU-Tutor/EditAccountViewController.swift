@@ -42,6 +42,15 @@ class EditAccountViewController: UIViewController {
             let userData = snapshot.value as? NSDictionary
             let userName = userData?["UserName"] as? String ?? ""
             self.NameText.text = userName
+            
+            let userSex = userData?["Sex"] as? String ?? "男"
+            userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
+            
+            let userSubject = userData?["FavorSubject"] as? String ?? ""
+            self.FavorSubjectText.text = userSubject
+            
+            let userSchoolAndDepartment = userData?["SchoolDepartment"] as? String ?? ""
+            self.SchoolAndDepartmentText.text = userSchoolAndDepartment
         })
     }
 
