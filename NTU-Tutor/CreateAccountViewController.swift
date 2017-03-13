@@ -88,13 +88,15 @@ class CreateAccountViewController: UIViewController {
                     
                     // Send the user's info to the firebase database
                     if let currentUser = user{
-                        FirebaseDatabaseRef.child("Users/\(currentUser.uid)/UserMail").setValue(strEmail)
-                        FirebaseDatabaseRef.child("Users/\(currentUser.uid)/UserName").setValue(strUserName)
+                        let userDataRowName: String = PlistAttributeManager.GetAttribute(byVar: "DatabaseTeacherRoot")!
+                        let RowNameOfTeacherData: Dictionary<String,String> = PlistAttributeManager.GetAttribute(byVar: "DatabaseAttributeKey")!
+                        FirebaseDatabaseRef.child("\(userDataRowName)/\(currentUser.uid)/\(RowNameOfTeacherData["Mail"]!)").setValue(strEmail)
+                        FirebaseDatabaseRef.child("\(userDataRowName)/\(currentUser.uid)/\(RowNameOfTeacherData["Name"]!)").setValue(strUserName)
                         if( self.MaleCheckBox.isChecked ){
-                            FirebaseDatabaseRef.child("Users/\(currentUser.uid)/Sex").setValue("男")
+                            FirebaseDatabaseRef.child("\(userDataRowName)/\(currentUser.uid)/\(RowNameOfTeacherData["Sex"]!)").setValue("男")
                         }
                         else if( self.FemaleCheckBox.isChecked ){
-                            FirebaseDatabaseRef.child("Users/\(currentUser.uid)/Sex").setValue("女")
+                            FirebaseDatabaseRef.child("\(userDataRowName)/\(currentUser.uid)/\(RowNameOfTeacherData["Sex"]!)").setValue("女")
                         }
                         
                     }

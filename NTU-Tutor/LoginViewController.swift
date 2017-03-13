@@ -108,7 +108,7 @@ class LoginViewController: UIViewController {
             show(createAccontPage, sender: self)
         }
     }
-    
+
     func showAlertDialog( title: String, message: String ) -> Void{
         let alertDialog = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel ){

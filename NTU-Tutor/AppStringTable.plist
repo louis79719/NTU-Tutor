@@ -15,6 +15,10 @@
 		<key>School</key>
 		<string>SchoolDepartment</string>
 	</dict>
+	<key>DatabaseTeacherRoot</key>
+	<string>Teachers</string>
+	<key>DatabaseStudentRoot</key>
+	<string>Students</string>
 	<key>LoginDialogTitile</key>
 	<string>Login</string>
 	<key>LoginDialogId</key>

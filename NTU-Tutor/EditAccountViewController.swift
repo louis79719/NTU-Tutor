@@ -37,8 +37,15 @@ class EditAccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser = FIRAuth.auth()?.currentUser
-        
-        FirebaseDatabaseRef.child("Users").child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+        let tapOnViewRecognizer = UITapGestureRecognizer( target:self,
+                                                          action:#selector(EditAccountViewController.onMainViewTap(_:)))
+        tapOnViewRecognizer.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapOnViewRecognizer)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let strTeacher: String = PlistAttributeManager.GetAttribute(byVar: "DatabaseTeacherRoot")!
+        FirebaseDatabaseRef.child(strTeacher).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let userData = snapshot.value as? NSDictionary
             self.AttrKeyDictionary = PlistAttributeManager.GetAttribute(byVar: "DatabaseAttributeKey")
@@ -57,11 +64,6 @@ class EditAccountViewController: UIViewController {
                 self.SchoolAndDepartmentText.text = userSchoolAndDepartment
             }
         })
-        
-        let tapOnViewRecognizer = UITapGestureRecognizer( target:self,
-                                                          action:#selector(EditAccountViewController.onMainViewTap(_:)))
-        tapOnViewRecognizer.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tapOnViewRecognizer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,8 +127,10 @@ class EditAccountViewController: UIViewController {
     
     func UpdateUserData(key: String, value: String){
         nWaitCount = nWaitCount + 1
+        
         if let userId = currentUser?.uid{
-            FirebaseDatabaseRef.child("Users").child(userId).child(key).runTransactionBlock({ (dataIn) -> FIRTransactionResult in
+            let strTeacher: String = PlistAttributeManager.GetAttribute(byVar: "DatabaseTeacherRoot")!
+            FirebaseDatabaseRef.child(strTeacher).child(userId).child(key).runTransactionBlock({ (dataIn) -> FIRTransactionResult in
                 dataIn.value = value
                 return FIRTransactionResult.success(withValue: dataIn)
             }) { (error, bCompletion, snap) in
