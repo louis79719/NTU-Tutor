@@ -19,7 +19,19 @@ class PlistAttributeManager
                 PlistAttributeManager.PropertyListDictionary = kPList
             }
         }
-        return PlistAttributeManager.PropertyListDictionary![byVar] as? String
+        return PlistAttributeManager.PropertyListDictionary?[byVar] as? String
+    }
+    
+    static func GetAttribute( byVar: String ) -> Dictionary<String,String>?
+    {
+        if PlistAttributeManager.PropertyListDictionary == nil
+        {
+            let strStringTablePath = Bundle.main.path(forResource: "AppStringTable", ofType: "plist")
+            if let kPList = NSMutableDictionary(contentsOfFile: strStringTablePath!){
+                PlistAttributeManager.PropertyListDictionary = kPList
+            }
+        }
+        return PlistAttributeManager.PropertyListDictionary?[byVar] as? Dictionary<String,String>
     }
     
     static var PropertyListDictionary: NSMutableDictionary? = nil

@@ -32,6 +32,7 @@ class EditAccountViewController: UIViewController {
     @IBOutlet weak var FavorSubjectText: UITextField!
     @IBOutlet weak var SchoolAndDepartmentText: UITextField!
     
+    var AttrKeyDictionary: Dictionary<String, String>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,17 +41,21 @@ class EditAccountViewController: UIViewController {
         FirebaseDatabaseRef.child("Users").child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let userData = snapshot.value as? NSDictionary
-            let userName = userData?["UserName"] as? String ?? ""
-            self.NameText.text = userName
-            
-            let userSex = userData?["Sex"] as? String ?? "男"
-            userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
-            
-            let userSubject = userData?["FavorSubject"] as? String ?? ""
-            self.FavorSubjectText.text = userSubject
-            
-            let userSchoolAndDepartment = userData?["SchoolDepartment"] as? String ?? ""
-            self.SchoolAndDepartmentText.text = userSchoolAndDepartment
+            self.AttrKeyDictionary = PlistAttributeManager.GetAttribute(byVar: "DatabaseAttributeKey")
+            if self.AttrKeyDictionary != nil
+            {
+                let userName = userData?[ self.AttrKeyDictionary!["Name"]! ] as? String ?? ""
+                self.NameText.text = userName
+                
+                let userSex = userData?[ self.AttrKeyDictionary!["Sex"]! ] as? String ?? "男"
+                userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
+                
+                let userSubject = userData?[ self.AttrKeyDictionary!["Subject"]! ] as? String ?? ""
+                self.FavorSubjectText.text = userSubject
+                
+                let userSchoolAndDepartment = userData?[ self.AttrKeyDictionary!["School"]! ] as? String ?? ""
+                self.SchoolAndDepartmentText.text = userSchoolAndDepartment
+            }
         })
         
         let tapOnViewRecognizer = UITapGestureRecognizer( target:self,
@@ -94,18 +99,18 @@ class EditAccountViewController: UIViewController {
         }
         
         if( self.MaleCheckBox.isChecked ){
-            UpdateUserData(key: "Sex", value: "男")
+            UpdateUserData(key: self.AttrKeyDictionary!["Sex"]!, value: "男")
         }
         else if( self.FemaleCheckBox.isChecked ){
-            UpdateUserData(key: "Sex", value: "女")
+            UpdateUserData(key: self.AttrKeyDictionary!["Sex"]!, value: "女")
         }
         
         if !( FavorSubjectText.text?.isEmpty )!{
-            UpdateUserData(key: "FavorSubject", value: FavorSubjectText.text!)
+            UpdateUserData(key: self.AttrKeyDictionary!["Subject"]!, value: FavorSubjectText.text!)
         }
         
         if !( SchoolAndDepartmentText.text?.isEmpty )!{
-            UpdateUserData(key: "SchoolDepartment", value: SchoolAndDepartmentText.text!)
+            UpdateUserData(key: self.AttrKeyDictionary!["School"]!, value: SchoolAndDepartmentText.text!)
         }
         
         bAllDataSended = true
