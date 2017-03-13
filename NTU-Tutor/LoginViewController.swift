@@ -16,7 +16,6 @@ class LoginViewController: UIViewController {
     var strEmail: String! = ""
     var strPw: String! = ""
     
-    var PropertyListDictionary: NSMutableDictionary? = nil
     var viewContext: NSManagedObjectContext!
     var manageObjectModel: NSManagedObjectModel!
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -29,11 +28,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         FirebaseDatabaseRef = FIRDatabase.database().reference()
-        
-        let strStringTablePath = Bundle.main.path(forResource: "AppStringTable", ofType: "plist")
-        if let kPList = NSMutableDictionary(contentsOfFile: strStringTablePath!){
-            PropertyListDictionary = kPList
-        }
         viewContext = appDelegate.persistentContainer.viewContext
         manageObjectModel = appDelegate.persistentContainer.managedObjectModel
     }
@@ -52,39 +46,37 @@ class LoginViewController: UIViewController {
     }
     
     func showLoginDialog(){
-        if self.PropertyListDictionary != nil
-        {
-            let loginDialog = UIAlertController(title: self.PropertyListDictionary!["LoginDialogTitile"] as?    String, message: self.PropertyListDictionary!["LoginDialogMessage"] as? String, preferredStyle: .alert)
-            loginDialog.addTextField{
-                (textField) in textField.placeholder = self.PropertyListDictionary!["LoginDialogId"] as?    String
-            }
-            loginDialog.addTextField{
-                (textField) in textField.placeholder = self.PropertyListDictionary!["LoginDialogPw"] as?    String
-                textField.isSecureTextEntry = true
-            }
-            
-            let loginAction = UIAlertAction(title: self.PropertyListDictionary!["LoginButtonLabel"] as?    String, style: .default ){
-                (action)in
-                self.strEmail = loginDialog.textFields![0].text
-                self.strPw = loginDialog.textFields![1].text
-                self.onLogin()
-            }
-            let cancelAction = UIAlertAction(title: self.PropertyListDictionary!["CancelButtonLabel"] as?    String, style: .cancel ){
-                (action)in
-                self.dismiss(animated: true, completion: nil)
-            }
-            let createAccountAction = UIAlertAction(title: self.PropertyListDictionary!["CreateAccountButtonLabel"] as?    String, style: .default ){
-                (action)in
-                self.onCreateAccount()
-            }
-
-            loginDialog.addAction(loginAction)
-            loginDialog.addAction(cancelAction)
-            loginDialog.addAction(createAccountAction)
-            
-            show(loginDialog, sender: self)
-            
+        let loginDialog = UIAlertController(
+            title: PlistAttributeManager.GetAttribute(byVar: "LoginDialogTitile"),
+            message: PlistAttributeManager.GetAttribute(byVar: "LoginDialogMessage"), preferredStyle: .alert)
+        loginDialog.addTextField{
+            (textField) in textField.placeholder = PlistAttributeManager.GetAttribute(byVar: "LoginDialogId")
         }
+        loginDialog.addTextField{
+            (textField) in textField.placeholder = PlistAttributeManager.GetAttribute(byVar: "LoginDialogPw")
+            textField.isSecureTextEntry = true
+        }
+        
+        let loginAction = UIAlertAction(title: PlistAttributeManager.GetAttribute(byVar: "LoginButtonLabel"), style: .default ){
+            (action)in
+            self.strEmail = loginDialog.textFields![0].text
+            self.strPw = loginDialog.textFields![1].text
+            self.onLogin()
+        }
+        let cancelAction = UIAlertAction(title: PlistAttributeManager.GetAttribute(byVar: "CancelButtonLabel"), style: .cancel ){
+            (action)in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let createAccountAction = UIAlertAction(title: PlistAttributeManager.GetAttribute(byVar: "CreateAccountButtonLabel"), style: .default ){
+            (action)in
+            self.onCreateAccount()
+        }
+        
+        loginDialog.addAction(loginAction)
+        loginDialog.addAction(cancelAction)
+        loginDialog.addAction(createAccountAction)
+        
+        show(loginDialog, sender: self)
     }
 
     func onLogin() -> Void {
