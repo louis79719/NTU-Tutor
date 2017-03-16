@@ -85,15 +85,15 @@ class LoginViewController: UIViewController {
             if( error != nil ){
                 ShowErrorAlert(view: self, title: "Oops!", message: error!.localizedDescription)
             }
-            else if( !((FIRAuth.auth()?.currentUser?.isEmailVerified)!) ){
-                ShowErrorAlert(view: self, title: "Oops!", message: "Your account haven't been verified through e-mail.")
-                do{
-                    try FIRAuth.auth()?.signOut()
-                }
-                catch let error as NSError {
-                    ShowErrorAlert(view: self, title: "Sign out error!", message: error.localizedDescription)
-                }
-            }
+//            else if( !((FIRAuth.auth()?.currentUser?.isEmailVerified)!) ){
+//                ShowErrorAlert(view: self, title: "Oops!", message: "Your account haven't been verified through e-mail.")
+//                do{
+//                    try FIRAuth.auth()?.signOut()
+//                }
+//                catch let error as NSError {
+//                    ShowErrorAlert(view: self, title: "Sign out error!", message: error.localizedDescription)
+//                }
+//            }
             else{
                 self.performSegue(withIdentifier: "Segue_LoginViewToAccountView", sender: self)
             }
