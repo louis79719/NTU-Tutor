@@ -132,7 +132,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lY-J7-gsq" customClass="CustomCheckBox" customModule="NTU_Tutor" customModuleProvider="target">
-                                <rect key="frame" x="133.5" y="243" width="50" height="30"/>
+                                <rect key="frame" x="149" y="243" width="50" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="checkedIcon" value="Checked.png"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="uncheckedIcon" value="Unchecked.png"/>
@@ -142,20 +142,14 @@
                                     <action selector="onMaleCheckBoxClicked:" destination="SBJ-TR-Loe" eventType="touchDown" id="In1-q5-oZR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sc0-uC-moM">
-                                <rect key="frame" x="226" y="242.5" width="18" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2t-7a-tNO">
-                                <rect key="frame" x="111" y="243" width="17.5" height="30"/>
+                                <rect key="frame" x="120" y="243" width="17.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fw-B1-OjX" customClass="CustomCheckBox" customModule="NTU_Tutor" customModuleProvider="target">
-                                <rect key="frame" x="249" y="243" width="50" height="30"/>
+                                <rect key="frame" x="287" y="243" width="50" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="checkedIcon" value="Checked.png"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="uncheckedIcon" value="Unchecked.png"/>
@@ -165,57 +159,119 @@
                                     <action selector="onFemaleCheckBoxClicked:" destination="SBJ-TR-Loe" eventType="touchDown" id="cKq-Eq-f0S"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="註冊身份" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ska-to-tus">
+                                <rect key="frame" x="16" y="299" width="80" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="老師" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tv1-0R-sWZ">
+                                <rect key="frame" x="111" y="299" width="35" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="學生" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3YU-Pn-7Cn">
+                                <rect key="frame" x="228" y="299" width="35" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Y0-hg-Xgt" customClass="CustomCheckBox" customModule="NTU_Tutor" customModuleProvider="target">
+                                <rect key="frame" x="149" y="299" width="50" height="30"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="checkedIcon" value="Checked.png"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="uncheckedIcon" value="Unchecked.png"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTeacherCheckBoxClicked:" destination="SBJ-TR-Loe" eventType="touchDown" id="BOb-ua-YhX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dr0-ik-lZa" customClass="CustomCheckBox" customModule="NTU_Tutor" customModuleProvider="target">
+                                <rect key="frame" x="287" y="299" width="50" height="30"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="checkedIcon" value="Checked.png"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="uncheckedIcon" value="Unchecked.png"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isChecked" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onStudentCheckBoxClicked:" destination="SBJ-TR-Loe" eventType="touchDown" id="8no-Tv-lsU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sc0-uC-moM">
+                                <rect key="frame" x="236" y="243" width="18" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.62763101031757873" green="0.87006007059542867" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ut2-61-08U" firstAttribute="top" secondItem="bqQ-do-vKh" secondAttribute="bottom" constant="10" id="2IQ-1R-DGn"/>
+                            <constraint firstItem="Ska-to-tus" firstAttribute="width" secondItem="9Yz-0d-nzY" secondAttribute="width" id="2go-GN-CcO"/>
                             <constraint firstItem="NIn-0q-LwE" firstAttribute="leading" secondItem="K05-Cy-E2u" secondAttribute="leadingMargin" id="2wn-us-Sbb"/>
                             <constraint firstItem="a8o-cu-AP9" firstAttribute="leading" secondItem="NIn-0q-LwE" secondAttribute="trailing" constant="10" id="47e-pf-7hD"/>
-                            <constraint firstItem="L2t-7a-tNO" firstAttribute="leading" secondItem="9Yz-0d-nzY" secondAttribute="trailing" constant="15" id="57s-T9-ROV"/>
+                            <constraint firstItem="Dr0-ik-lZa" firstAttribute="centerY" secondItem="Ska-to-tus" secondAttribute="centerY" id="658-oZ-sE1"/>
+                            <constraint firstItem="Ska-to-tus" firstAttribute="height" secondItem="9Yz-0d-nzY" secondAttribute="height" id="6A3-6J-Dsc"/>
                             <constraint firstItem="9Yz-0d-nzY" firstAttribute="height" secondItem="Ppi-JL-8Oz" secondAttribute="height" id="6jc-JA-cue"/>
+                            <constraint firstItem="tv1-0R-sWZ" firstAttribute="centerY" secondItem="Ska-to-tus" secondAttribute="centerY" id="7Km-Nb-1bS"/>
+                            <constraint firstItem="8lY-J7-gsq" firstAttribute="leading" secondItem="L2t-7a-tNO" secondAttribute="trailing" constant="11.5" id="7Ux-4Y-Yf9"/>
                             <constraint firstItem="Ppi-JL-8Oz" firstAttribute="height" secondItem="ut2-61-08U" secondAttribute="height" id="8uV-Sq-3Vc"/>
-                            <constraint firstItem="5fw-B1-OjX" firstAttribute="leading" secondItem="sc0-uC-moM" secondAttribute="trailing" constant="5" id="9eK-Uo-Wna"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2f5-ci-vnJ" secondAttribute="trailing" constant="10" id="A8y-7z-KIp"/>
+                            <constraint firstItem="Ska-to-tus" firstAttribute="top" secondItem="9Yz-0d-nzY" secondAttribute="bottom" constant="26" id="ABD-Fs-XOD"/>
                             <constraint firstItem="KkT-hu-xO3" firstAttribute="leading" secondItem="ut2-61-08U" secondAttribute="trailing" constant="8" id="ACK-xq-aSf"/>
                             <constraint firstItem="zHE-t7-6IK" firstAttribute="leading" secondItem="Ppi-JL-8Oz" secondAttribute="trailing" constant="10" id="ARP-77-AaV"/>
                             <constraint firstItem="5fw-B1-OjX" firstAttribute="centerY" secondItem="sc0-uC-moM" secondAttribute="centerY" id="Buy-ND-0si"/>
+                            <constraint firstItem="Ska-to-tus" firstAttribute="centerX" secondItem="9Yz-0d-nzY" secondAttribute="centerX" id="Bwj-Fp-igP"/>
                             <constraint firstItem="KkT-hu-xO3" firstAttribute="centerY" secondItem="ut2-61-08U" secondAttribute="centerY" id="CpY-Cy-kIC"/>
+                            <constraint firstItem="3YU-Pn-7Cn" firstAttribute="height" secondItem="5Y0-hg-Xgt" secondAttribute="height" id="DJL-cj-xU5"/>
                             <constraint firstItem="2f5-ci-vnJ" firstAttribute="height" secondItem="4Jw-p2-iRc" secondAttribute="height" id="DNQ-Ys-wkq"/>
                             <constraint firstItem="Ppi-JL-8Oz" firstAttribute="width" secondItem="4Jw-p2-iRc" secondAttribute="width" id="DRN-kQ-CJm"/>
                             <constraint firstItem="8lY-J7-gsq" firstAttribute="height" secondItem="L2t-7a-tNO" secondAttribute="height" id="DWY-ol-Ge0"/>
+                            <constraint firstItem="tv1-0R-sWZ" firstAttribute="height" secondItem="Ska-to-tus" secondAttribute="height" id="DzC-Fb-040"/>
                             <constraint firstItem="L2t-7a-tNO" firstAttribute="height" secondItem="9Yz-0d-nzY" secondAttribute="height" id="EIi-lA-H82"/>
+                            <constraint firstItem="5Y0-hg-Xgt" firstAttribute="height" secondItem="tv1-0R-sWZ" secondAttribute="height" id="HIj-xc-dfj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bqQ-do-vKh" secondAttribute="trailing" id="He2-yh-OCt"/>
                             <constraint firstItem="PLh-tN-ZJq" firstAttribute="centerX" secondItem="K05-Cy-E2u" secondAttribute="centerX" id="J6l-ng-boC"/>
                             <constraint firstItem="sc0-uC-moM" firstAttribute="height" secondItem="L2t-7a-tNO" secondAttribute="height" id="KZB-4p-4HH"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ut2-61-08U" secondAttribute="leading" id="KZk-Fk-thj"/>
                             <constraint firstAttribute="leadingMargin" secondItem="9Yz-0d-nzY" secondAttribute="leading" id="LSY-nw-4ma"/>
+                            <constraint firstItem="5Y0-hg-Xgt" firstAttribute="centerX" secondItem="8lY-J7-gsq" secondAttribute="centerX" id="Mfs-99-Dxh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zHE-t7-6IK" secondAttribute="trailing" constant="10" id="MhZ-MB-Jry"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a8o-cu-AP9" secondAttribute="trailing" constant="10" id="Nh5-MB-iyo"/>
                             <constraint firstItem="sc0-uC-moM" firstAttribute="centerY" secondItem="L2t-7a-tNO" secondAttribute="centerY" id="Pwz-wS-Y4d"/>
+                            <constraint firstItem="3YU-Pn-7Cn" firstAttribute="centerX" secondItem="sc0-uC-moM" secondAttribute="centerX" id="SLE-8L-iEW"/>
+                            <constraint firstItem="tv1-0R-sWZ" firstAttribute="centerX" secondItem="L2t-7a-tNO" secondAttribute="centerX" id="SRr-Kz-Ty8"/>
+                            <constraint firstItem="Dr0-ik-lZa" firstAttribute="height" secondItem="3YU-Pn-7Cn" secondAttribute="height" id="Smp-La-iWd"/>
                             <constraint firstItem="KkT-hu-xO3" firstAttribute="height" secondItem="ut2-61-08U" secondAttribute="height" id="TiR-1r-CjI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Zt-FC-3LL" secondAttribute="trailing" id="UfS-tz-bw6"/>
                             <constraint firstItem="Ppi-JL-8Oz" firstAttribute="top" secondItem="ut2-61-08U" secondAttribute="bottom" constant="26" id="VeC-sa-k2h"/>
                             <constraint firstItem="2f5-ci-vnJ" firstAttribute="leading" secondItem="4Jw-p2-iRc" secondAttribute="trailing" constant="10" id="ZDd-7v-zYi"/>
                             <constraint firstItem="L2t-7a-tNO" firstAttribute="centerY" secondItem="9Yz-0d-nzY" secondAttribute="centerY" id="bc7-H9-3jj"/>
                             <constraint firstItem="5Zt-FC-3LL" firstAttribute="leading" secondItem="K05-Cy-E2u" secondAttribute="leadingMargin" id="bm4-S8-DQR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5fw-B1-OjX" secondAttribute="trailing" constant="60" id="cCF-l8-RMy"/>
                             <constraint firstAttribute="leadingMargin" secondItem="4Jw-p2-iRc" secondAttribute="leading" id="d65-Rh-ItA"/>
                             <constraint firstItem="5Zt-FC-3LL" firstAttribute="top" secondItem="NIn-0q-LwE" secondAttribute="bottom" constant="3" id="dv6-jr-VlX"/>
                             <constraint firstItem="4Jw-p2-iRc" firstAttribute="top" secondItem="5Zt-FC-3LL" secondAttribute="bottom" constant="10" id="eKe-vm-bjK"/>
-                            <constraint firstItem="8lY-J7-gsq" firstAttribute="leading" secondItem="L2t-7a-tNO" secondAttribute="trailing" constant="5" id="edk-h7-77T"/>
                             <constraint firstItem="2f5-ci-vnJ" firstAttribute="centerY" secondItem="4Jw-p2-iRc" secondAttribute="centerY" id="fGr-Zw-yKv"/>
+                            <constraint firstItem="5fw-B1-OjX" firstAttribute="leading" secondItem="sc0-uC-moM" secondAttribute="trailing" constant="33" id="gYc-ou-F14"/>
                             <constraint firstItem="zHE-t7-6IK" firstAttribute="top" secondItem="Ppi-JL-8Oz" secondAttribute="top" id="ho5-YW-hL0"/>
                             <constraint firstAttribute="leadingMargin" secondItem="bqQ-do-vKh" secondAttribute="leading" id="iqd-bS-ESh"/>
                             <constraint firstItem="5fw-B1-OjX" firstAttribute="height" secondItem="sc0-uC-moM" secondAttribute="height" id="kNC-dQ-BDC"/>
+                            <constraint firstItem="L2t-7a-tNO" firstAttribute="leading" secondItem="9Yz-0d-nzY" secondAttribute="trailing" constant="24" id="kSw-Ka-QSG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KkT-hu-xO3" secondAttribute="trailing" constant="10" id="l7l-e1-c9X"/>
                             <constraint firstItem="bqQ-do-vKh" firstAttribute="top" secondItem="2f5-ci-vnJ" secondAttribute="bottom" constant="5" id="lLc-Sr-wWN"/>
                             <constraint firstItem="a8o-cu-AP9" firstAttribute="centerY" secondItem="NIn-0q-LwE" secondAttribute="centerY" id="lTD-zA-Dhh"/>
                             <constraint firstItem="a8o-cu-AP9" firstAttribute="height" secondItem="NIn-0q-LwE" secondAttribute="height" id="mMQ-mL-QhF"/>
                             <constraint firstItem="Jic-Kc-gfB" firstAttribute="top" secondItem="PLh-tN-ZJq" secondAttribute="bottom" constant="248" id="mXy-pO-CjL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5fw-B1-OjX" secondAttribute="trailing" constant="22" id="mbQ-8w-z6T"/>
+                            <constraint firstItem="Dr0-ik-lZa" firstAttribute="centerX" secondItem="5fw-B1-OjX" secondAttribute="centerX" id="me9-wy-Cgc"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Ppi-JL-8Oz" secondAttribute="leading" id="nYv-V3-eRX"/>
+                            <constraint firstItem="3YU-Pn-7Cn" firstAttribute="centerY" secondItem="Ska-to-tus" secondAttribute="centerY" id="spT-ZO-XWb"/>
                             <constraint firstItem="9Yz-0d-nzY" firstAttribute="width" secondItem="Ppi-JL-8Oz" secondAttribute="width" id="tJl-Q4-SFd"/>
                             <constraint firstItem="9Yz-0d-nzY" firstAttribute="top" secondItem="Ppi-JL-8Oz" secondAttribute="bottom" constant="24" id="u0L-21-Tld"/>
                             <constraint firstItem="NIn-0q-LwE" firstAttribute="top" secondItem="S0z-lA-2dt" secondAttribute="bottom" constant="5" id="uRp-Hr-yDS"/>
+                            <constraint firstItem="5Y0-hg-Xgt" firstAttribute="centerY" secondItem="tv1-0R-sWZ" secondAttribute="centerY" id="xEe-0G-L25"/>
                             <constraint firstItem="8lY-J7-gsq" firstAttribute="centerY" secondItem="L2t-7a-tNO" secondAttribute="centerY" id="zxa-PJ-riD"/>
                         </constraints>
                     </view>
@@ -225,6 +281,8 @@
                         <outlet property="LabelEmailHint" destination="5Zt-FC-3LL" id="CYw-h6-0tB"/>
                         <outlet property="LabelPwHint" destination="bqQ-do-vKh" id="KdZ-UE-ryN"/>
                         <outlet property="MaleCheckBox" destination="8lY-J7-gsq" id="EMG-eR-ZdQ"/>
+                        <outlet property="StudentCheckBox" destination="Dr0-ik-lZa" id="8LA-xf-6fM"/>
+                        <outlet property="TeacherCheckBox" destination="5Y0-hg-Xgt" id="4Eg-y7-28D"/>
                         <outlet property="TextEditEmail" destination="a8o-cu-AP9" id="vuH-m8-r5G"/>
                         <outlet property="TextEditPw" destination="2f5-ci-vnJ" id="ZP9-Wb-u2O"/>
                         <outlet property="TextEditPwAgain" destination="KkT-hu-xO3" id="v81-oL-veU"/>

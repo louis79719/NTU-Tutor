@@ -21,8 +21,9 @@ class CreateAccountViewController: UIViewController {
     @IBOutlet weak var TextEditUserName: UITextField!
     @IBOutlet weak var MaleCheckBox: CustomCheckBox!
     @IBOutlet weak var FemaleCheckBox: CustomCheckBox!
+    @IBOutlet weak var TeacherCheckBox: CustomCheckBox!
+    @IBOutlet weak var StudentCheckBox: CustomCheckBox!
     
-
     @IBAction func onMaleCheckBoxClicked(_ sender: Any) {
         MaleCheckBox.isChecked = true
         FemaleCheckBox.isChecked = false
@@ -30,6 +31,14 @@ class CreateAccountViewController: UIViewController {
     @IBAction func onFemaleCheckBoxClicked(_ sender: Any) {
         MaleCheckBox.isChecked = false
         FemaleCheckBox.isChecked = true
+    }
+    @IBAction func onTeacherCheckBoxClicked(_ sender: Any) {
+        TeacherCheckBox.isChecked = true
+        StudentCheckBox.isChecked = false
+    }
+    @IBAction func onStudentCheckBoxClicked(_ sender: Any) {
+        TeacherCheckBox.isChecked = false
+        StudentCheckBox.isChecked = true
     }
     
     override func viewDidLoad() {
@@ -87,18 +96,21 @@ class CreateAccountViewController: UIViewController {
                     }
                     
                     // Send the user's info to the firebase database
-                    if let currentUser = user{
-                        let userDataRowName: String = PlistAttributeManager.GetAttribute(byVar: "DatabaseTeacherRoot")!
+                    if let currentUser = user
+                    {
+                        let databaseRootName: String = self.TeacherCheckBox.isChecked ?
+                            PlistAttributeManager.GetAttribute(byVar: "DatabaseTeacherRoot")! :
+                            PlistAttributeManager.GetAttribute(byVar: "DatabaseStudentRoot")!
+   
                         let RowNameOfTeacherData: Dictionary<String,String> = PlistAttributeManager.GetAttribute(byVar: "DatabaseAttributeKey")!
-                        FirebaseDatabaseRef.child("\(userDataRowName)/\(currentUser.uid)/\(RowNameOfTeacherData["Mail"]!)").setValue(strEmail)
-                        FirebaseDatabaseRef.child("\(userDataRowName)/\(currentUser.uid)/\(RowNameOfTeacherData["Name"]!)").setValue(strUserName)
+                        FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfTeacherData["Mail"]!)").setValue(strEmail)
+                        FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfTeacherData["Name"]!)").setValue(strUserName)
                         if( self.MaleCheckBox.isChecked ){
-                            FirebaseDatabaseRef.child("\(userDataRowName)/\(currentUser.uid)/\(RowNameOfTeacherData["Sex"]!)").setValue("男")
+                            FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfTeacherData["Sex"]!)").setValue("男")
                         }
                         else if( self.FemaleCheckBox.isChecked ){
-                            FirebaseDatabaseRef.child("\(userDataRowName)/\(currentUser.uid)/\(RowNameOfTeacherData["Sex"]!)").setValue("女")
+                            FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfTeacherData["Sex"]!)").setValue("女")
                         }
-                        
                     }
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainPage")
