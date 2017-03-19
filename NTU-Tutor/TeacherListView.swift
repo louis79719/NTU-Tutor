@@ -23,7 +23,7 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
         let nib = UINib( nibName: "UserTableViewCell", bundle:nil )
         TeacherTable.register( nib, forCellReuseIdentifier: "Cell" )
         
-        FirebaseDatabaseRef.child("\(gs_strDatabaseTeacherRoot!)").observeSingleEvent(of: .value, with: {
+        FirebaseDatabaseRef.child("\(gs_strDatabaseTeacherRoot)").observeSingleEvent(of: .value, with: {
             (snapshot) in
             // Get user value
             let allUserData = snapshot.value as? NSDictionary //[uid,data]
@@ -42,8 +42,6 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        //let userID = FIRAuth.auth()?.currentUser?.uid
-        // need to implement from Firbase database
         if let data = TeacherDataPassTheFilter
         {
             return data.count

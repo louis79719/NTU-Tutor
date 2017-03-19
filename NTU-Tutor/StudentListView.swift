@@ -15,10 +15,23 @@ class StudentListView: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var StudentTable: UITableView!
     @IBOutlet weak var SearchBar: UISearchBar!
     
+    var AllStudentData: NSArray?
+    var StudentDataPassTheFilter: NSArray?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib( nibName: "UserTableViewCell", bundle:nil )
         StudentTable.register( nib, forCellReuseIdentifier: "Cell" )
+        FirebaseDatabaseRef.child("\(gs_strDatabaseStudentRoot)").observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            // Get user value
+            let allUserData = snapshot.value as? NSDictionary //[uid,data]
+            self.AllStudentData = allUserData?.allValues as NSArray?
+            self.StudentDataPassTheFilter = self.AllStudentData
+            self.StudentTable.reloadData()
+        }){ (error) in
+            print(error.localizedDescription)
+        }
         
     }
     
@@ -28,27 +41,20 @@ class StudentListView: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 3
+        if let data = StudentDataPassTheFilter
+        {
+            return data.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
-        
-        switch indexPath.row {
-        case 0:
-            cell.UserNameLabel.text = "Student 0"
-            cell.UserSexLabel.text = "男"
-            break
-        case 1:
-            cell.UserNameLabel.text = "Student 1"
-            cell.UserSexLabel.text = "女"
-            break
-        case 2:
-            cell.UserNameLabel.text = "Student 2"
-            cell.UserSexLabel.text = "男"
-            break
-        default:
-            break
+        if( StudentDataPassTheFilter != nil ){
+            if let teacherData = StudentDataPassTheFilter![ indexPath.row ] as? NSDictionary{
+                cell.UserNameLabel.text = teacherData.value(forKey: gs_strDatabaseDataName) as! String?
+                cell.UserSexLabel.text = teacherData.value(forKey: gs_strDatabaseDataSex) as! String?
+            }
         }
         
         return cell
@@ -64,6 +70,25 @@ extension StudentListView : UISearchBarDelegate
 {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
     {
-    
+        if (searchBar.text?.isEmpty)!
+        {
+            StudentDataPassTheFilter = AllStudentData
+        }
+        else{
+            StudentDataPassTheFilter = []
+            if let allData = AllStudentData{
+                for data in allData
+                {
+                    if let dict = data as? NSDictionary
+                    {
+                        let strUserName = dict.value(forKey: gs_strDatabaseDataName) as! String
+                        if strUserName.lowercased().contains(searchText.lowercased()){
+                            StudentDataPassTheFilter = StudentDataPassTheFilter?.adding(dict) as NSArray?
+                        }
+                    }
+                }
+            }
+        }
+        self.StudentTable.reloadData()
     }
 }
