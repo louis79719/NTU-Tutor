@@ -23,7 +23,7 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
         let nib = UINib( nibName: "UserTableViewCell", bundle:nil )
         TeacherTable.register( nib, forCellReuseIdentifier: "Cell" )
         
-        FirebaseDatabaseRef.child("Users/").observeSingleEvent(of: .value, with: {
+        FirebaseDatabaseRef.child("\(gs_strDatabaseTeacherRoot!)").observeSingleEvent(of: .value, with: {
             (snapshot) in
             // Get user value
             let allUserData = snapshot.value as? NSDictionary //[uid,data]

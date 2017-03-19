@@ -10,3 +10,6 @@ import Foundation
 
 let gs_strUserDefaultAccount: String! = "Account"
 let gs_strUserDefaultPassword: String! = "Password"
+
+let gs_strDatabaseTeacherRoot: String! = "Teachers"
+let gs_strDatabaseStudentRoot: String! = "Studentss"
