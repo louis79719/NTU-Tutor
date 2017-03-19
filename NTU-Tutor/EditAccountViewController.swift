@@ -46,29 +46,32 @@ class EditAccountViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         FirebaseDatabaseRef.child(gs_strDatabaseTeacherRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let userData = snapshot.value as? NSDictionary
-            let userName = userData?[ gs_strDatabaseDataName ] as? String ?? ""
-            self.NameText.text = userName
-            
-            let userSex = userData?[ gs_strDatabaseDataSex ] as? String ?? "男"
-            userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
-            
-            let userSubject = userData?[ gs_strDatabaseDataSubject ] as? String ?? ""
-            self.FavorSubjectText.text = userSubject
-            
-            let userSchoolAndDepartment = userData?[ gs_strDatabaseDataSchool ] as? String ?? ""
-            self.SchoolAndDepartmentText.text = userSchoolAndDepartment
+            if let userData = snapshot.value as? NSDictionary
+            {
+                let userName = userData[ gs_strDatabaseDataName ] as? String ?? ""
+                self.NameText.text = userName
+                
+                let userSex = userData[ gs_strDatabaseDataSex ] as? String ?? "男"
+                userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
+                
+                let userSubject = userData[ gs_strDatabaseDataSubject ] as? String ?? ""
+                self.FavorSubjectText.text = userSubject
+                
+                let userSchoolAndDepartment = userData[ gs_strDatabaseDataSchool ] as? String ?? ""
+                self.SchoolAndDepartmentText.text = userSchoolAndDepartment
+            }
         })
         
         FirebaseDatabaseRef.child(gs_strDatabaseStudentRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let userData = snapshot.value as? NSDictionary
-            let userName = userData?[ gs_strDatabaseDataName ] as? String ?? ""
-            self.NameText.text = userName
-            
-            let userSex = userData?[ gs_strDatabaseDataSex ] as? String ?? "男"
-            userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
-            
+            if let userData = snapshot.value as? NSDictionary
+            {
+                let userName = userData[ gs_strDatabaseDataName ] as? String ?? ""
+                self.NameText.text = userName
+                
+                let userSex = userData[ gs_strDatabaseDataSex ] as? String ?? "男"
+                userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
+            }
         })
     }
 
