@@ -107,7 +107,22 @@ class LoginViewController: UIViewController {
                 self.kUserDefaults.set(self.strEmail, forKey: gs_strUserDefaultAccount)
                 self.kUserDefaults.set(self.strPw, forKey: gs_strUserDefaultPassword)
                 self.kUserDefaults.synchronize()
-                self.performSegue(withIdentifier: "Segue_LoginViewToAccountView", sender: self)
+                
+                CheckAccountType( uid: user!.uid )
+                {
+                    (eReturnType) in
+                    switch eReturnType
+                    {
+                    case EAccountType.Student:
+                        self.performSegue(withIdentifier: "Segue_LoginViewToAccountView", sender: self)
+                        break
+                    case EAccountType.Teacher:
+                        self.performSegue(withIdentifier: "Segue_LoginViewToAccountView", sender: self)
+                        break
+                    default:
+                        break
+                    }
+                }
             }
         }
 

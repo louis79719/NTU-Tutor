@@ -7,7 +7,15 @@
 //
 
 import Foundation
+import Firebase
 import UIKit
+
+enum EAccountType: Int
+{
+    case Teacher
+    case Student
+    case Invalid
+}
 
 func ShowErrorAlert( view: UIViewController, title: String, message: String) {
     // Called upon signup error to let the user know signup didn't work.
@@ -15,4 +23,25 @@ func ShowErrorAlert( view: UIViewController, title: String, message: String) {
     let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
     alert.addAction(action)
     view.present(alert, animated: true, completion: nil)
+}
+
+
+func CheckAccountType( uid: String!, afterCheck: @escaping (_ result: EAccountType)->Void ) -> Void
+{
+    FirebaseDatabaseRef.child(gs_strDatabaseTeacherRoot).child(uid).observeSingleEvent(of: .value, with: {
+        (snapshot) in
+        if (snapshot.value as? NSDictionary) != nil
+        {
+            afterCheck( EAccountType.Teacher )
+        }
+    })
+    FirebaseDatabaseRef.child(gs_strDatabaseStudentRoot).child(uid).observeSingleEvent(of: .value, with: {
+        (snapshot) in
+        if (snapshot.value as? NSDictionary) != nil
+        {
+            afterCheck( EAccountType.Student )
+        }
+    })
+    
+    return
 }
