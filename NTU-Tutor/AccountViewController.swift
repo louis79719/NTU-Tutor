@@ -9,14 +9,16 @@
 import UIKit
 
 class AccountViewController: UIViewController {
-
-    @IBOutlet weak var prevPageBtn: UIBarButtonItem!
     
+    @IBOutlet weak var logoutBtn: UIBarButtonItem!
     @IBOutlet weak var GoToEditAccountViewButton: UIButton!
     @IBOutlet weak var GoToStudentListViewButton: UIButton!
     @IBOutlet weak var GoToTeacherListViewButton: UIButton!
     
-    @IBAction func onPrevPageBtnClick(_ sender: Any) {
+    @IBAction func onLogoutBtnClicked(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: gs_strUserDefaultAccount)
+        UserDefaults.standard.removeObject(forKey: gs_strUserDefaultPassword)
+        UserDefaults.standard.synchronize()
         self.performSegue(withIdentifier: "SegueLoginToMain", sender: self)
     }
     

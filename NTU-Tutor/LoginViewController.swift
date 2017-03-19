@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
 
     var strEmail: String! = ""
     var strPw: String! = ""
+    var kUserDefaults : UserDefaults!
     
     var viewContext: NSManagedObjectContext!
     var manageObjectModel: NSManagedObjectModel!
@@ -30,6 +31,15 @@ class LoginViewController: UIViewController {
         FirebaseDatabaseRef = FIRDatabase.database().reference()
         viewContext = appDelegate.persistentContainer.viewContext
         manageObjectModel = appDelegate.persistentContainer.managedObjectModel
+        
+        kUserDefaults = UserDefaults.standard
+        if let strAccount = kUserDefaults.value(forKey: gs_strUserDefaultAccount) as? String,
+           let strPassword = kUserDefaults.value(forKey: gs_strUserDefaultPassword) as? String
+        {
+            self.strEmail = strAccount
+            self.strPw = strPassword
+            self.onLogin()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,6 +105,9 @@ class LoginViewController: UIViewController {
 //                }
 //            }
             else{
+                self.kUserDefaults.set(self.strEmail, forKey: gs_strUserDefaultAccount)
+                self.kUserDefaults.set(self.strPw, forKey: gs_strUserDefaultPassword)
+                self.kUserDefaults.synchronize()
                 self.performSegue(withIdentifier: "Segue_LoginViewToAccountView", sender: self)
             }
         }

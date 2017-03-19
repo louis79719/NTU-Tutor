@@ -30,7 +30,7 @@
                                 <items>
                                     <barButtonItem title="Log out" id="hEc-1a-sJY">
                                         <connections>
-                                            <action selector="onPrevPageBtnClick:" destination="1gP-jX-os9" id="5dS-sW-gd5"/>
+                                            <action selector="onLogoutBtnClicked:" destination="1gP-jX-os9" id="cQI-dJ-SRm"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -86,7 +86,7 @@
                         <outlet property="GoToEditAccountViewButton" destination="cAe-4c-Lic" id="qGM-VB-RJK"/>
                         <outlet property="GoToStudentListViewButton" destination="OKP-Pj-ZG8" id="2VE-YB-LTt"/>
                         <outlet property="GoToTeacherListViewButton" destination="gfo-1X-WDN" id="5wb-Ml-JF0"/>
-                        <outlet property="prevPageBtn" destination="hEc-1a-sJY" id="wkX-Ae-rsz"/>
+                        <outlet property="logoutBtn" destination="hEc-1a-sJY" id="fXd-P8-ALC"/>
                         <segue destination="8p7-N5-Ilj" kind="show" identifier="SegueLoginToMain" id="Xtg-kd-86U"/>
                     </connections>
                 </viewController>
