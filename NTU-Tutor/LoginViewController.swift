@@ -75,7 +75,6 @@ class LoginViewController: UIViewController {
         }
         let cancelAction = UIAlertAction(title: PlistAttributeManager.GetAttribute(byVar: "CancelButtonLabel"), style: .cancel ){
             (action)in
-            self.dismiss(animated: true, completion: nil)
         }
         let createAccountAction = UIAlertAction(title: PlistAttributeManager.GetAttribute(byVar: "CreateAccountButtonLabel"), style: .default ){
             (action)in
