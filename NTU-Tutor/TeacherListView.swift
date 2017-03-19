@@ -54,8 +54,8 @@ class TeacherListView: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         if( TeacherDataPassTheFilter != nil ){
             if let teacherData = TeacherDataPassTheFilter![ indexPath.row ] as? NSDictionary{
-                cell.UserNameLabel.text = teacherData.value(forKey: "UserName") as! String?
-                cell.UserSexLabel.text = teacherData.value(forKey: "Sex") as! String?
+                cell.UserNameLabel.text = teacherData.value(forKey: gs_strDatabaseDataName) as! String?
+                cell.UserSexLabel.text = teacherData.value(forKey: gs_strDatabaseDataSex) as! String?
             }
         }
         
@@ -84,7 +84,7 @@ extension TeacherListView : UISearchBarDelegate
                 {
                     if let dict = data as? NSDictionary
                     {
-                        let strUserName = dict.value(forKey: "UserName") as! String
+                        let strUserName = dict.value(forKey: gs_strDatabaseDataName) as! String
                         if strUserName.lowercased().contains(searchText.lowercased()){
                             TeacherDataPassTheFilter = TeacherDataPassTheFilter?.adding(dict) as NSArray?
                         }

@@ -2,23 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>DatabaseAttributeKey</key>
-	<dict>
-		<key>Name</key>
-		<string>UserName</string>
-		<key>Mail</key>
-		<string>UserMail</string>
-		<key>Sex</key>
-		<string>Sex</string>
-		<key>Subject</key>
-		<string>FavorSubject</string>
-		<key>School</key>
-		<string>SchoolDepartment</string>
-	</dict>
-	<key>DatabaseTeacherRoot</key>
-	<string>Teachers</string>
-	<key>DatabaseStudentRoot</key>
-	<string>Students</string>
 	<key>LoginDialogTitile</key>
 	<string>Login</string>
 	<key>LoginDialogId</key>

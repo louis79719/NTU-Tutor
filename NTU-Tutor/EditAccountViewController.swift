@@ -44,25 +44,20 @@ class EditAccountViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let strTeacher: String = PlistAttributeManager.GetAttribute(byVar: "DatabaseTeacherRoot")!
-        FirebaseDatabaseRef.child(strTeacher).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+        FirebaseDatabaseRef.child(gs_strDatabaseTeacherRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let userData = snapshot.value as? NSDictionary
-            self.AttrKeyDictionary = PlistAttributeManager.GetAttribute(byVar: "DatabaseAttributeKey")
-            if self.AttrKeyDictionary != nil
-            {
-                let userName = userData?[ self.AttrKeyDictionary!["Name"]! ] as? String ?? ""
-                self.NameText.text = userName
-                
-                let userSex = userData?[ self.AttrKeyDictionary!["Sex"]! ] as? String ?? "男"
-                userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
-                
-                let userSubject = userData?[ self.AttrKeyDictionary!["Subject"]! ] as? String ?? ""
-                self.FavorSubjectText.text = userSubject
-                
-                let userSchoolAndDepartment = userData?[ self.AttrKeyDictionary!["School"]! ] as? String ?? ""
-                self.SchoolAndDepartmentText.text = userSchoolAndDepartment
-            }
+            let userName = userData?[ gs_strDatabaseDataName ] as? String ?? ""
+            self.NameText.text = userName
+            
+            let userSex = userData?[ gs_strDatabaseDataSex ] as? String ?? "男"
+            userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
+            
+            let userSubject = userData?[ gs_strDatabaseDataSubject ] as? String ?? ""
+            self.FavorSubjectText.text = userSubject
+            
+            let userSchoolAndDepartment = userData?[ gs_strDatabaseDataSchool ] as? String ?? ""
+            self.SchoolAndDepartmentText.text = userSchoolAndDepartment
         })
     }
 
@@ -129,8 +124,7 @@ class EditAccountViewController: UIViewController {
         nWaitCount = nWaitCount + 1
         
         if let userId = currentUser?.uid{
-            let strTeacher: String = PlistAttributeManager.GetAttribute(byVar: "DatabaseTeacherRoot")!
-            FirebaseDatabaseRef.child(strTeacher).child(userId).child(key).runTransactionBlock({ (dataIn) -> FIRTransactionResult in
+            FirebaseDatabaseRef.child(gs_strDatabaseTeacherRoot).child(userId).child(key).runTransactionBlock({ (dataIn) -> FIRTransactionResult in
                 dataIn.value = value
                 return FIRTransactionResult.success(withValue: dataIn)
             }) { (error, bCompletion, snap) in
