@@ -102,14 +102,14 @@ class CreateAccountViewController: UIViewController {
                             PlistAttributeManager.GetAttribute(byVar: "DatabaseTeacherRoot")! :
                             PlistAttributeManager.GetAttribute(byVar: "DatabaseStudentRoot")!
    
-                        let RowNameOfTeacherData: Dictionary<String,String> = PlistAttributeManager.GetAttribute(byVar: "DatabaseAttributeKey")!
-                        FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfTeacherData["Mail"]!)").setValue(strEmail)
-                        FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfTeacherData["Name"]!)").setValue(strUserName)
+                        let RowNameOfMemberData: Dictionary<String,String> = PlistAttributeManager.GetAttribute(byVar: "DatabaseAttributeKey")!
+                        FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfMemberData["Mail"]!)").setValue(strEmail)
+                        FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfMemberData["Name"]!)").setValue(strUserName)
                         if( self.MaleCheckBox.isChecked ){
-                            FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfTeacherData["Sex"]!)").setValue("男")
+                            FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfMemberData["Sex"]!)").setValue("男")
                         }
                         else if( self.FemaleCheckBox.isChecked ){
-                            FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfTeacherData["Sex"]!)").setValue("女")
+                            FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(RowNameOfMemberData["Sex"]!)").setValue("女")
                         }
                     }
                     
