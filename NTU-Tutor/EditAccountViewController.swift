@@ -32,8 +32,6 @@ class EditAccountViewController: UIViewController {
     @IBOutlet weak var FavorSubjectText: UITextField!
     @IBOutlet weak var SchoolAndDepartmentText: UITextField!
     
-    var AttrKeyDictionary: Dictionary<String, String>?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser = FIRAuth.auth()?.currentUser
@@ -110,18 +108,18 @@ class EditAccountViewController: UIViewController {
         }
         
         if( self.MaleCheckBox.isChecked ){
-            UpdateUserData(key: self.AttrKeyDictionary!["Sex"]!, value: "男")
+            UpdateUserData(key: gs_strDatabaseDataSex, value: "男")
         }
         else if( self.FemaleCheckBox.isChecked ){
-            UpdateUserData(key: self.AttrKeyDictionary!["Sex"]!, value: "女")
+            UpdateUserData(key: gs_strDatabaseDataSex, value: "女")
         }
         
         if !( FavorSubjectText.text?.isEmpty )!{
-            UpdateUserData(key: self.AttrKeyDictionary!["Subject"]!, value: FavorSubjectText.text!)
+            UpdateUserData(key: gs_strDatabaseDataSubject, value: FavorSubjectText.text!)
         }
         
         if !( SchoolAndDepartmentText.text?.isEmpty )!{
-            UpdateUserData(key: self.AttrKeyDictionary!["School"]!, value: SchoolAndDepartmentText.text!)
+            UpdateUserData(key: gs_strDatabaseDataSchool, value: SchoolAndDepartmentText.text!)
         }
         
         bAllDataSended = true
