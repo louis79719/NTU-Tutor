@@ -114,10 +114,10 @@ class LoginViewController: UIViewController {
                     switch eReturnType
                     {
                     case EAccountType.Student:
-                        self.performSegue(withIdentifier: "Segue_LoginViewToAccountView", sender: self)
+                        self.performSegue(withIdentifier: "SegueToStudentView", sender: self)
                         break
                     case EAccountType.Teacher:
-                        self.performSegue(withIdentifier: "Segue_LoginViewToAccountView", sender: self)
+                        self.performSegue(withIdentifier: "SegueToTeacherView", sender: self)
                         break
                     default:
                         break

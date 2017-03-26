@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,11 +55,82 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="mDn-yc-Ff9" kind="show" identifier="Segue_LoginViewToAccountView" id="xbs-KZ-K3d"/>
+                        <segue destination="mDn-yc-Ff9" kind="show" identifier="SegueToAdministratorView" id="xbs-KZ-K3d"/>
+                        <segue destination="bEo-Jm-x6G" kind="show" identifier="SegueToStudentView" id="4Mb-SO-MXg"/>
+                        <segue destination="9Tm-Jg-R65" kind="show" identifier="SegueToTeacherView" id="dbC-pz-jzi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Student Account View Controller-->
+        <scene sceneID="z35-HC-S2I">
+            <objects>
+                <viewController id="bEo-Jm-x6G" customClass="StudentAccountViewController" customModule="NTU_Tutor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gnM-0c-ZKO"/>
+                        <viewControllerLayoutGuide type="bottom" id="XvT-Df-Hnn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O8r-iY-JWU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBz-WA-mX8">
+                                <rect key="frame" x="9.5" y="217" width="355" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.79508047770000001" blue="0.46088292549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hIb-Ei-8v5"/>
+                                </constraints>
+                                <state key="normal" title="Post New Case"/>
+                                <connections>
+                                    <action selector="OnPostNewCase:" destination="bEo-Jm-x6G" eventType="touchDown" id="EMg-ZT-oUj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tnz-v3-RqZ">
+                                <rect key="frame" x="10" y="100" width="355" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.79508047770000001" blue="0.46088292549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YPR-RS-phI"/>
+                                </constraints>
+                                <state key="normal" title="Edit Account"/>
+                                <connections>
+                                    <action selector="OnEditAccount:" destination="bEo-Jm-x6G" eventType="touchDown" id="s3s-Mi-8Rp"/>
+                                    <segue destination="onE-MD-KWR" kind="show" id="Wc7-RC-i5O"/>
+                                </connections>
+                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyE-N8-G4M">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="VnR-qh-b8W">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rp1-1x-Hod">
+                                            <rect key="frame" x="16" y="7" width="94" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Log out"/>
+                                            <connections>
+                                                <action selector="OnLogoutButtonClicked:" destination="bEo-Jm-x6G" eventType="touchDown" id="GOF-dY-bO6"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.53606416243897792" green="0.68193574073297669" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="vBz-WA-mX8" firstAttribute="centerX" secondItem="O8r-iY-JWU" secondAttribute="centerX" id="8Lg-Kv-hMd"/>
+                            <constraint firstItem="Tnz-v3-RqZ" firstAttribute="top" secondItem="gnM-0c-ZKO" secondAttribute="bottom" constant="80" id="CNL-oU-Gd7"/>
+                            <constraint firstItem="AyE-N8-G4M" firstAttribute="centerX" secondItem="O8r-iY-JWU" secondAttribute="centerX" id="CxE-xr-fIs"/>
+                            <constraint firstItem="AyE-N8-G4M" firstAttribute="width" secondItem="O8r-iY-JWU" secondAttribute="width" id="Fx7-Xi-LtL"/>
+                            <constraint firstItem="AyE-N8-G4M" firstAttribute="top" secondItem="gnM-0c-ZKO" secondAttribute="bottom" id="I7h-Cd-SVv"/>
+                            <constraint firstItem="vBz-WA-mX8" firstAttribute="top" secondItem="Tnz-v3-RqZ" secondAttribute="bottom" constant="87" id="NL7-B0-qmg"/>
+                            <constraint firstItem="Tnz-v3-RqZ" firstAttribute="width" secondItem="O8r-iY-JWU" secondAttribute="width" constant="-20" id="PzM-zk-22F"/>
+                            <constraint firstItem="vBz-WA-mX8" firstAttribute="width" secondItem="O8r-iY-JWU" secondAttribute="width" constant="-20" id="TJc-Lx-S3U"/>
+                            <constraint firstItem="Tnz-v3-RqZ" firstAttribute="centerX" secondItem="O8r-iY-JWU" secondAttribute="centerX" id="nt6-LR-xPw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yum-yn-cx9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="805.60000000000002" y="-228.03598200899552"/>
         </scene>
         <!--AccountPage-->
         <scene sceneID="Nkb-hr-3Eo">
@@ -66,7 +138,7 @@
                 <viewControllerPlaceholder storyboardName="AccountPage" id="mDn-yc-Ff9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v6q-Ve-ZZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248" y="-122"/>
+            <point key="canvasLocation" x="690" y="107"/>
         </scene>
         <!--CreateAccountPage-->
         <scene sceneID="yiC-n5-TbJ">
@@ -74,7 +146,85 @@
                 <viewControllerPlaceholder storyboardIdentifier="CreateAccountPage" storyboardName="CreateAccount" referencedIdentifier="CreateAccountPage" id="o5h-ad-Zu9" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJX-KT-vzl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157" y="36"/>
+            <point key="canvasLocation" x="928" y="107"/>
+        </scene>
+        <!--EditAccountPage-->
+        <scene sceneID="FPL-6t-8lU">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="EditAcc" storyboardName="EditAccount" referencedIdentifier="EditAccountPage" id="onE-MD-KWR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I8R-K4-Vo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1214" y="106"/>
+        </scene>
+        <!--Teacher Account View Controller-->
+        <scene sceneID="jmh-Ys-UFR">
+            <objects>
+                <viewController id="9Tm-Jg-R65" customClass="TeacherAccountViewController" customModule="NTU_Tutor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7fB-m2-QER"/>
+                        <viewControllerLayoutGuide type="bottom" id="tJV-9o-mLP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y20-ap-BAe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fgn-al-kWL">
+                                <rect key="frame" x="10" y="334" width="355" height="323"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Tm-Jg-R65" id="SxN-kP-El2"/>
+                                    <outlet property="delegate" destination="9Tm-Jg-R65" id="8Jr-pW-K0I"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0K-5w-6kr">
+                                <rect key="frame" x="10" y="101" width="355" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.79508047774643187" blue="0.46088292552706545" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit Account"/>
+                                <connections>
+                                    <segue destination="onE-MD-KWR" kind="show" id="vsJ-MK-ZxQ"/>
+                                </connections>
+                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vec-pz-mbH">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="FkA-Lf-E1g">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yue-Gx-6Pu">
+                                            <rect key="frame" x="16" y="7" width="94" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Log out"/>
+                                            <connections>
+                                                <action selector="OnLogoutButtonClicked:" destination="9Tm-Jg-R65" eventType="touchDown" id="CDg-Ex-ciJ"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.48486553853868442" green="1" blue="0.39184292498269302" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="vec-pz-mbH" firstAttribute="centerX" secondItem="Y20-ap-BAe" secondAttribute="centerX" id="2L3-67-haI"/>
+                            <constraint firstItem="fgn-al-kWL" firstAttribute="width" secondItem="Y20-ap-BAe" secondAttribute="width" constant="-20" id="31p-km-HyB"/>
+                            <constraint firstItem="k0K-5w-6kr" firstAttribute="top" secondItem="7fB-m2-QER" secondAttribute="bottom" constant="81" id="5wP-S8-ZSJ"/>
+                            <constraint firstItem="fgn-al-kWL" firstAttribute="centerX" secondItem="Y20-ap-BAe" secondAttribute="centerX" id="Har-b8-oR4"/>
+                            <constraint firstItem="k0K-5w-6kr" firstAttribute="centerX" secondItem="Y20-ap-BAe" secondAttribute="centerX" id="Jlm-v5-8wu"/>
+                            <constraint firstItem="fgn-al-kWL" firstAttribute="top" secondItem="7fB-m2-QER" secondAttribute="bottom" constant="313.5" id="Pdw-gQ-oLh"/>
+                            <constraint firstItem="vec-pz-mbH" firstAttribute="width" secondItem="Y20-ap-BAe" secondAttribute="width" id="cTN-Bp-ubR"/>
+                            <constraint firstItem="vec-pz-mbH" firstAttribute="top" secondItem="7fB-m2-QER" secondAttribute="bottom" id="hZO-Yn-v3O"/>
+                            <constraint firstItem="k0K-5w-6kr" firstAttribute="width" secondItem="Y20-ap-BAe" secondAttribute="width" constant="-20" id="idh-6e-BUE"/>
+                            <constraint firstItem="fgn-al-kWL" firstAttribute="height" secondItem="Y20-ap-BAe" secondAttribute="height" multiplier="0.5" constant="-10" id="q9l-gL-q2n"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="EditAccountButton" destination="k0K-5w-6kr" id="HBZ-Pz-wZl"/>
+                        <outlet property="StudentCaseTableView" destination="fgn-al-kWL" id="9I8-GW-8dC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hId-ex-Xmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="472"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="vsJ-MK-ZxQ"/>
+    </inferredMetricsTieBreakers>
 </document>

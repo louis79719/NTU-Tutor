@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1AC6491E87E12700BD1021 /* StudentAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1AC6481E87E12700BD1021 /* StudentAccountViewController.swift */; };
+		BF1AC64B1E87E15000BD1021 /* TeacherAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1AC64A1E87E15000BD1021 /* TeacherAccountViewController.swift */; };
 		BF1FDCB41E40AAB1009E2B89 /* CustomCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FDCB31E40AAB1009E2B89 /* CustomCheckBox.swift */; };
 		BF1FDCBB1E40E641009E2B89 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FDCB91E40E641009E2B89 /* UserTableViewCell.swift */; };
 		BF1FDCBC1E40E641009E2B89 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1FDCBA1E40E641009E2B89 /* UserTableViewCell.xib */; };
@@ -38,6 +40,8 @@
 		3BA4D2EAE79DFD4E25CB2563 /* Pods_NTU_Tutor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NTU_Tutor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A36E32C9295BDDF13FD157 /* Pods-NTU-Tutor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTU-Tutor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NTU-Tutor/Pods-NTU-Tutor.debug.xcconfig"; sourceTree = "<group>"; };
 		895D59DAAED2589A5729206B /* Pods-NTU-Tutor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NTU-Tutor.release.xcconfig"; path = "Pods/Target Support Files/Pods-NTU-Tutor/Pods-NTU-Tutor.release.xcconfig"; sourceTree = "<group>"; };
+		BF1AC6481E87E12700BD1021 /* StudentAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentAccountViewController.swift; sourceTree = "<group>"; };
+		BF1AC64A1E87E15000BD1021 /* TeacherAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherAccountViewController.swift; sourceTree = "<group>"; };
 		BF1FDCB31E40AAB1009E2B89 /* CustomCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomCheckBox.swift; path = "UI Files/CustomCheckBox.swift"; sourceTree = "<group>"; };
 		BF1FDCB91E40E641009E2B89 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableViewCell.swift; path = "UI Files/UserTableViewCell.swift"; sourceTree = "<group>"; };
 		BF1FDCBA1E40E641009E2B89 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserTableViewCell.xib; path = "UI Files/UserTableViewCell.xib"; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				BF1FDCBD1E40EAEC009E2B89 /* StudentListView.swift */,
 				BFEBBDFA1E4186F00062936D /* TeacherListView.swift */,
 				BFE621E91E473D30000E639E /* EditAccountViewController.swift */,
+				BF1AC6481E87E12700BD1021 /* StudentAccountViewController.swift */,
+				BF1AC64A1E87E15000BD1021 /* TeacherAccountViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -311,12 +317,14 @@
 			files = (
 				BF3E6C491E2BCC250014F4D4 /* Utilities.swift in Sources */,
 				BF53151F1E76D72F00F4CE44 /* PlistAttributeManager.swift in Sources */,
+				BF1AC6491E87E12700BD1021 /* StudentAccountViewController.swift in Sources */,
 				BFF3BCEC1E16BDDF006E5067 /* AccountViewController.swift in Sources */,
 				BF73D1F81E23EBE30054EFB4 /* CreateAccountViewController.swift in Sources */,
 				BF1FDCB41E40AAB1009E2B89 /* CustomCheckBox.swift in Sources */,
 				BF5315211E7E81BF00F4CE44 /* AppGlobalConfig.swift in Sources */,
 				BF1FDCBB1E40E641009E2B89 /* UserTableViewCell.swift in Sources */,
 				BFE621EA1E473D30000E639E /* EditAccountViewController.swift in Sources */,
+				BF1AC64B1E87E15000BD1021 /* TeacherAccountViewController.swift in Sources */,
 				BFF3BCD11E16A35E006E5067 /* LoginViewController.swift in Sources */,
 				BFF3BCD71E16A35E006E5067 /* NTU_Tutor.xcdatamodeld in Sources */,
 				BFEBBDFB1E4186F00062936D /* TeacherListView.swift in Sources */,
