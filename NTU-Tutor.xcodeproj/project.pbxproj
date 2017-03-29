@@ -17,6 +17,7 @@
 		BF53151F1E76D72F00F4CE44 /* PlistAttributeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53151E1E76D72F00F4CE44 /* PlistAttributeManager.swift */; };
 		BF5315211E7E81BF00F4CE44 /* AppGlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5315201E7E81BF00F4CE44 /* AppGlobalConfig.swift */; };
 		BF73D1F81E23EBE30054EFB4 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73D1F71E23EBE30054EFB4 /* CreateAccountViewController.swift */; };
+		BF9611821E8959B300873385 /* PostCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9611811E8959B300873385 /* PostCaseViewController.swift */; };
 		BFE476661E4099CB00931111 /* Checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE476641E4099CB00931111 /* Checked.png */; };
 		BFE476671E4099CB00931111 /* Unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = BFE476651E4099CB00931111 /* Unchecked.png */; };
 		BFE621E81E473CAF000E639E /* EditAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFE621E71E473CAF000E639E /* EditAccount.storyboard */; };
@@ -50,6 +51,7 @@
 		BF53151E1E76D72F00F4CE44 /* PlistAttributeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistAttributeManager.swift; sourceTree = "<group>"; };
 		BF5315201E7E81BF00F4CE44 /* AppGlobalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppGlobalConfig.swift; path = ../AppGlobalConfig.swift; sourceTree = "<group>"; };
 		BF73D1F71E23EBE30054EFB4 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		BF9611811E8959B300873385 /* PostCaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCaseViewController.swift; sourceTree = "<group>"; };
 		BFE476641E4099CB00931111 /* Checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Checked.png; path = "UI Files/Checked.png"; sourceTree = "<group>"; };
 		BFE476651E4099CB00931111 /* Unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Unchecked.png; path = "UI Files/Unchecked.png"; sourceTree = "<group>"; };
 		BFE621E71E473CAF000E639E /* EditAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditAccount.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				BFE621E91E473D30000E639E /* EditAccountViewController.swift */,
 				BF1AC6481E87E12700BD1021 /* StudentAccountViewController.swift */,
 				BF1AC64A1E87E15000BD1021 /* TeacherAccountViewController.swift */,
+				BF9611811E8959B300873385 /* PostCaseViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				BF1FDCB41E40AAB1009E2B89 /* CustomCheckBox.swift in Sources */,
 				BF5315211E7E81BF00F4CE44 /* AppGlobalConfig.swift in Sources */,
 				BF1FDCBB1E40E641009E2B89 /* UserTableViewCell.swift in Sources */,
+				BF9611821E8959B300873385 /* PostCaseViewController.swift in Sources */,
 				BFE621EA1E473D30000E639E /* EditAccountViewController.swift in Sources */,
 				BF1AC64B1E87E15000BD1021 /* TeacherAccountViewController.swift in Sources */,
 				BFF3BCD11E16A35E006E5067 /* LoginViewController.swift in Sources */,
