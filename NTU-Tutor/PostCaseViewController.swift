@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class PostCaseViewController: UIViewController {
 
     var subjectList: [String] = ["國文","數學","英文","物理化學","電腦","音樂","歷史地理"
     ,"其他"]
     
+    @IBOutlet weak var SubjectTextEdit: UITextField!
+    @IBOutlet weak var StudentGradeTextEdit: UITextField!
     @IBOutlet weak var MaleCheckBox: CustomCheckBox!
     @IBOutlet weak var FemaleCheckBox: CustomCheckBox!
     @IBOutlet weak var NoSexLimitCheckBox: CustomCheckBox!
+    @IBOutlet weak var PaymentTextEdit: UITextField!
+    @IBOutlet weak var LocationTextEdit: UITextField!
+    @IBOutlet weak var OtherNoteTextView: UITextView!
     
     
     override func viewDidLoad() {
@@ -51,11 +57,35 @@ class PostCaseViewController: UIViewController {
         FemaleCheckBox.isChecked = false
         NoSexLimitCheckBox.isChecked = true
     }
+    
     @IBAction func OnOkButtonClicked(_ sender: Any) {
-        
+        if let strUid: String = FIRAuth.auth()?.currentUser?.uid
+        {
+            let NewCaseReference = FirebaseDatabaseRef.child("\(gs_strDatabaseTutorCaseRoot)").child(strUid).childByAutoId()
+            NewCaseReference.child(gs_strDatabaseCaseSubject).setValue(SubjectTextEdit.text)
+            NewCaseReference.child(gs_strDatabaseCaseStudentGrade).setValue(StudentGradeTextEdit.text)
+            if( MaleCheckBox.isChecked){
+                NewCaseReference.child(gs_strDatabaseCaseTeacherSex).setValue("男")
+            }
+            else if( FemaleCheckBox.isChecked){
+                NewCaseReference.child(gs_strDatabaseCaseTeacherSex).setValue("女")
+            }
+            else if( NoSexLimitCheckBox.isChecked){
+                NewCaseReference.child(gs_strDatabaseCaseTeacherSex).setValue("不限")
+            }
+            NewCaseReference.child(gs_strDatabaseCaseHourPayment).setValue(PaymentTextEdit.text)
+            NewCaseReference.child(gs_strDatabaseCaseLocation).setValue(LocationTextEdit.text)
+            NewCaseReference.child(gs_strDatabaseCaseNote).setValue(OtherNoteTextView.text)
+        }
+        self.dismiss(animated: true)
     }
+    
     @IBAction func OnCancelButtonClicked(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    func UpdateTutorCaseData(key: String, value: String){
+
     }
 
     /*

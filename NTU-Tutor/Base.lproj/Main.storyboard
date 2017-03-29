@@ -364,8 +364,13 @@
                     </view>
                     <connections>
                         <outlet property="FemaleCheckBox" destination="EcZ-79-vFw" id="O2x-RH-NXD"/>
+                        <outlet property="LocationTextEdit" destination="reu-8F-MJ7" id="Z77-e1-Bl7"/>
                         <outlet property="MaleCheckBox" destination="QGQ-gX-bIM" id="x4v-xo-4hY"/>
                         <outlet property="NoSexLimitCheckBox" destination="7zL-71-2Rn" id="4xi-2c-1VQ"/>
+                        <outlet property="OtherNoteTextView" destination="iKm-Da-hmP" id="ALK-o4-dgv"/>
+                        <outlet property="PaymentTextEdit" destination="gUG-Ww-n4z" id="Y8I-lm-TKQ"/>
+                        <outlet property="StudentGradeTextEdit" destination="Qf4-fT-y2Z" id="MMV-23-BGx"/>
+                        <outlet property="SubjectTextEdit" destination="59c-Ic-hVN" id="9m6-O7-vzR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FiU-q8-758" userLabel="First Responder" sceneMemberID="firstResponder"/>
