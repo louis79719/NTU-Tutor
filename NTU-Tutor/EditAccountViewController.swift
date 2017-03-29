@@ -20,6 +20,7 @@ class EditAccountViewController: UIViewController {
         }
     }
     var bAllDataSended : Bool! = false
+    var eAccountType: EAccountType = EAccountType.Invalid
     
     @IBOutlet weak var PasswordText: UITextField!
     @IBOutlet weak var PasswordAgainText: UITextField!
@@ -39,6 +40,12 @@ class EditAccountViewController: UIViewController {
                                                           action:#selector(EditAccountViewController.onMainViewTap(_:)))
         tapOnViewRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapOnViewRecognizer)
+        
+        CheckAccountType( uid: currentUser?.uid )
+        {
+            (eReturnType) in
+            self.eAccountType = eReturnType
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,8 +142,21 @@ class EditAccountViewController: UIViewController {
     func UpdateUserData(key: String, value: String){
         nWaitCount = nWaitCount + 1
         
+        var strMemberDataRoot: String = ""
+        switch eAccountType {
+        case EAccountType.Student:
+            strMemberDataRoot = gs_strDatabaseStudentRoot
+            break
+        case EAccountType.Teacher:
+            strMemberDataRoot = gs_strDatabaseTeacherRoot
+            break
+        default:
+            assert(false)
+            return
+        }
+        
         if let userId = currentUser?.uid{
-            FirebaseDatabaseRef.child(gs_strDatabaseTeacherRoot).child(userId).child(key).runTransactionBlock({ (dataIn) -> FIRTransactionResult in
+            FirebaseDatabaseRef.child(strMemberDataRoot).child(userId).child(key).runTransactionBlock({ (dataIn) -> FIRTransactionResult in
                 dataIn.value = value
                 return FIRTransactionResult.success(withValue: dataIn)
             }) { (error, bCompletion, snap) in
