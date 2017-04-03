@@ -14,6 +14,7 @@
 		BF1FDCBC1E40E641009E2B89 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1FDCBA1E40E641009E2B89 /* UserTableViewCell.xib */; };
 		BF1FDCBE1E40EAEC009E2B89 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1FDCBD1E40EAEC009E2B89 /* StudentListView.swift */; };
 		BF3E6C491E2BCC250014F4D4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3E6C481E2BCC250014F4D4 /* Utilities.swift */; };
+		BF4E76AD1E92832F003BDB0E /* CaseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4E76AC1E92832F003BDB0E /* CaseDetailViewController.swift */; };
 		BF53151F1E76D72F00F4CE44 /* PlistAttributeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF53151E1E76D72F00F4CE44 /* PlistAttributeManager.swift */; };
 		BF5315211E7E81BF00F4CE44 /* AppGlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5315201E7E81BF00F4CE44 /* AppGlobalConfig.swift */; };
 		BF73D1F81E23EBE30054EFB4 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73D1F71E23EBE30054EFB4 /* CreateAccountViewController.swift */; };
@@ -48,6 +49,7 @@
 		BF1FDCBA1E40E641009E2B89 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserTableViewCell.xib; path = "UI Files/UserTableViewCell.xib"; sourceTree = "<group>"; };
 		BF1FDCBD1E40EAEC009E2B89 /* StudentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentListView.swift; sourceTree = "<group>"; };
 		BF3E6C481E2BCC250014F4D4 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		BF4E76AC1E92832F003BDB0E /* CaseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseDetailViewController.swift; sourceTree = "<group>"; };
 		BF53151E1E76D72F00F4CE44 /* PlistAttributeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistAttributeManager.swift; sourceTree = "<group>"; };
 		BF5315201E7E81BF00F4CE44 /* AppGlobalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppGlobalConfig.swift; path = ../AppGlobalConfig.swift; sourceTree = "<group>"; };
 		BF73D1F71E23EBE30054EFB4 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				BF1AC6481E87E12700BD1021 /* StudentAccountViewController.swift */,
 				BF1AC64A1E87E15000BD1021 /* TeacherAccountViewController.swift */,
 				BF9611811E8959B300873385 /* PostCaseViewController.swift */,
+				BF4E76AC1E92832F003BDB0E /* CaseDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				BFF3BCD11E16A35E006E5067 /* LoginViewController.swift in Sources */,
 				BFF3BCD71E16A35E006E5067 /* NTU_Tutor.xcdatamodeld in Sources */,
 				BFEBBDFB1E4186F00062936D /* TeacherListView.swift in Sources */,
+				BF4E76AD1E92832F003BDB0E /* CaseDetailViewController.swift in Sources */,
 				BFF3BCCF1E16A35E006E5067 /* AppDelegate.swift in Sources */,
 				BF1FDCBE1E40EAEC009E2B89 /* StudentListView.swift in Sources */,
 			);

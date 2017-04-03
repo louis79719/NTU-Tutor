@@ -401,6 +401,34 @@
             </objects>
             <point key="canvasLocation" x="1214" y="106"/>
         </scene>
+        <!--Case Detail View Controller-->
+        <scene sceneID="b73-uf-c8q">
+            <objects>
+                <viewController id="eW8-zP-SaR" customClass="CaseDetailViewController" customModule="NTU_Tutor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BeR-OY-TMp"/>
+                        <viewControllerLayoutGuide type="bottom" id="jro-Iw-104"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Y5-bn-OHT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5W-2W-g87">
+                                <rect key="frame" x="16" y="20" width="86" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="BackButtonClicked:" destination="eW8-zP-SaR" eventType="touchDown" id="IUl-mQ-KXf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ri4-s7-EPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1637.5999999999999" y="471.8140929535233"/>
+        </scene>
         <!--Teacher Account View Controller-->
         <scene sceneID="jmh-Ys-UFR">
             <objects>
@@ -462,6 +490,7 @@
                     <connections>
                         <outlet property="EditAccountButton" destination="k0K-5w-6kr" id="HBZ-Pz-wZl"/>
                         <outlet property="StudentCaseTableView" destination="fgn-al-kWL" id="9I8-GW-8dC"/>
+                        <segue destination="eW8-zP-SaR" kind="show" identifier="SegueToCaseDetailView" id="ZWL-lz-six"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hId-ex-Xmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -474,6 +503,6 @@
         <image name="Unchecked.png" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wc7-RC-i5O"/>
+        <segue reference="vsJ-MK-ZxQ"/>
     </inferredMetricsTieBreakers>
 </document>
