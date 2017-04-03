@@ -15,9 +15,27 @@ class TeacherAccountViewController: UIViewController
     @IBOutlet weak var EditAccountButton: UIButton!
     @IBOutlet weak var StudentCaseTableView: UITableView!
     
+    var AllTutorCaseData: Array< NSDictionary > = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         StudentCaseTableView.register(UITableViewCell.self, forCellReuseIdentifier: "StudentCaseCell")
+        
+        FirebaseDatabaseRef.child(gs_strDatabaseTutorCaseRoot).observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            // Get user value
+            let data = snapshot.value as? NSDictionary //[uid,caseDatas]
+            let AllKeys = data?.allKeys as? [String]
+            for key in AllKeys!{
+                let keyValue = data?.value(forKey: key) as! NSDictionary
+                for singleValue in keyValue.allValues{
+                    self.AllTutorCaseData.append(singleValue as! NSDictionary)
+                }
+            }
+            self.StudentCaseTableView.reloadData()
+        }){ (error) in
+            print(error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,14 +66,19 @@ extension TeacherAccountViewController: UITableViewDataSource, UITableViewDelega
 {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 1;
+        return AllTutorCaseData.count
     }
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCaseCell", for: indexPath)
-        cell.textLabel?.text = "test case 1"
+        if indexPath.row < AllTutorCaseData.count
+        {
+            let caseData = AllTutorCaseData[ indexPath.row ]
+            let strSubject = caseData.value(forKey: gs_strDatabaseCaseSubject) as! String?
+            cell.textLabel?.text = strSubject
+        }
         return cell
     }
 }
