@@ -15,7 +15,7 @@ class TeacherAccountViewController: UIViewController
     @IBOutlet weak var EditAccountButton: UIButton!
     @IBOutlet weak var StudentCaseTableView: UITableView!
     
-    var AllTutorCaseData: Array< NSDictionary > = []
+    var m_AllTutorCaseData: Array< NSDictionary > = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class TeacherAccountViewController: UIViewController
             for key in AllKeys!{
                 let keyValue = data?.value(forKey: key) as! NSDictionary
                 for singleValue in keyValue.allValues{
-                    self.AllTutorCaseData.append(singleValue as! NSDictionary)
+                    self.m_AllTutorCaseData.append(singleValue as! NSDictionary)
                 }
             }
             self.StudentCaseTableView.reloadData()
@@ -66,16 +66,16 @@ extension TeacherAccountViewController: UITableViewDataSource, UITableViewDelega
 {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return AllTutorCaseData.count
+        return m_AllTutorCaseData.count
     }
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
     // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCaseCell", for: indexPath)
-        if indexPath.row < AllTutorCaseData.count
+        if indexPath.row < m_AllTutorCaseData.count
         {
-            let caseData = AllTutorCaseData[ indexPath.row ]
+            let caseData = m_AllTutorCaseData[ indexPath.row ]
             let strSubject = caseData.value(forKey: gs_strDatabaseCaseSubject) as! String?
             cell.textLabel?.text = strSubject
         }
@@ -84,7 +84,23 @@ extension TeacherAccountViewController: UITableViewDataSource, UITableViewDelega
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: "SegueToCaseDetailView", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "SegueToCaseDetailView"
+        {
+            if let indexPath = StudentCaseTableView.indexPathForSelectedRow, let viewController = segue.destination as? CaseDetailViewController
+            {
+                StudentCaseTableView.deselectRow(at: indexPath, animated: true)
+                let caseData = m_AllTutorCaseData[ indexPath.row ]
+                viewController.m_strSubject = caseData.value(forKey: gs_strDatabaseCaseSubject) as! String
+                viewController.m_strGrade = caseData.value(forKey: gs_strDatabaseCaseStudentGrade) as! String
+                viewController.m_strTeacherSex = caseData.value(forKey: gs_strDatabaseCaseTeacherSex) as! String
+                viewController.m_strPayment = caseData.value(forKey: gs_strDatabaseCaseHourPayment) as! String
+            }
+            
+        }
     }
 }

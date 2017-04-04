@@ -10,10 +10,42 @@ import UIKit
 
 class CaseDetailViewController: UIViewController {
 
+    @IBOutlet weak var SubjectText: UITextField!
+    @IBOutlet weak var StudentGradeText: UITextField!
+    @IBOutlet weak var MaleCheckBox: CustomCheckBox!
+    @IBOutlet weak var FemaleCheckBox: CustomCheckBox!
+    @IBOutlet weak var AllSexCheckBox: CustomCheckBox!
+    @IBOutlet weak var PaymentText: UITextField!
+    
+    var m_strSubject: String = ""
+    var m_strGrade: String = ""
+    var m_strTeacherSex: String = ""
+    var m_strPayment: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        SubjectText.text = m_strSubject
+        StudentGradeText.text = m_strGrade
+        if( m_strTeacherSex == "男" )
+        {
+            MaleCheckBox.isChecked = true
+            FemaleCheckBox.isChecked = false
+            AllSexCheckBox.isChecked = false
+        }
+        else if( m_strTeacherSex == "女" )
+        {
+            MaleCheckBox.isChecked = false
+            FemaleCheckBox.isChecked = true
+            AllSexCheckBox.isChecked = false
+        }
+        else
+        {
+            MaleCheckBox.isChecked = false
+            FemaleCheckBox.isChecked = false
+            AllSexCheckBox.isChecked = true
+        }
+        PaymentText.text = m_strPayment
     }
 
     override func didReceiveMemoryWarning() {
