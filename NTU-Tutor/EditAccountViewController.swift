@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 
 class EditAccountViewController: UIViewController {
-
-    var currentUser : FIRUser? = nil
     var nWaitCount : Int! = 0{
         didSet{
             if( nWaitCount == 0 && bAllDataSended ){
@@ -32,16 +30,16 @@ class EditAccountViewController: UIViewController {
     
     @IBOutlet weak var FavorSubjectText: UITextField!
     @IBOutlet weak var SchoolAndDepartmentText: UITextField!
+    @IBOutlet weak var PhoneText: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentUser = FirebaseManager.GetUser()
         let tapOnViewRecognizer = UITapGestureRecognizer( target:self,
                                                           action:#selector(EditAccountViewController.onMainViewTap(_:)))
         tapOnViewRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapOnViewRecognizer)
         
-        FirebaseManager.CheckAccountType( uid: currentUser?.uid )
+        FirebaseManager.CheckAccountType()
         {
             (eReturnType) in
             self.eAccountType = eReturnType
@@ -49,35 +47,45 @@ class EditAccountViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        FirebaseManager.GetDatabase()?.child(gs_strDatabaseTeacherRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            if let userData = snapshot.value as? NSDictionary
-            {
-                let userName = userData[ gs_strDatabaseDataName ] as? String ?? ""
-                self.NameText.text = userName
-                
-                let userSex = userData[ gs_strDatabaseDataSex ] as? String ?? "男"
-                userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
-                
-                let userSubject = userData[ gs_strDatabaseDataSubject ] as? String ?? ""
-                self.FavorSubjectText.text = userSubject
-                
-                let userSchoolAndDepartment = userData[ gs_strDatabaseDataSchool ] as? String ?? ""
-                self.SchoolAndDepartmentText.text = userSchoolAndDepartment
+        FirebaseManager.CheckAccountType(){
+            (eAccountType) in
+            let currentUser = FirebaseManager.GetUser()
+            if( eAccountType == EAccountType.Teacher ){
+                FirebaseManager.GetDatabase()?.child(gs_strDatabaseTeacherRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user value
+                    if let userData = snapshot.value as? NSDictionary
+                    {
+                        let userName = userData[ gs_strDatabaseDataName ] as? String ?? ""
+                        self.NameText.text = userName
+                        
+                        let userSex = userData[ gs_strDatabaseDataSex ] as? String ?? "男"
+                        userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
+                        
+                        let userSubject = userData[ gs_strDatabaseDataSubject ] as? String ?? ""
+                        self.FavorSubjectText.text = userSubject
+                        
+                        let userSchoolAndDepartment = userData[ gs_strDatabaseDataSchool ] as? String ?? ""
+                        self.SchoolAndDepartmentText.text = userSchoolAndDepartment
+                        
+                        let phoneNumber = userData[ gs_strDatabaseDataPhone ] as? String ?? ""
+                        self.PhoneText.text = phoneNumber
+                    }
+                })
             }
-        })
-        
-        FirebaseManager.GetDatabase()?.child(gs_strDatabaseStudentRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            if let userData = snapshot.value as? NSDictionary
-            {
-                let userName = userData[ gs_strDatabaseDataName ] as? String ?? ""
-                self.NameText.text = userName
-                
-                let userSex = userData[ gs_strDatabaseDataSex ] as? String ?? "男"
-                userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
+            else if( eAccountType == EAccountType.Student ){
+                FirebaseManager.GetDatabase()?.child(gs_strDatabaseStudentRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+                    // Get user value
+                    if let userData = snapshot.value as? NSDictionary
+                    {
+                        let userName = userData[ gs_strDatabaseDataName ] as? String ?? ""
+                        self.NameText.text = userName
+                        
+                        let userSex = userData[ gs_strDatabaseDataSex ] as? String ?? "男"
+                        userSex == "男" ? self.OnMaleChecked(self) : self.OnFemaleChecked(self)
+                    }
+                })
             }
-        })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -96,7 +104,7 @@ class EditAccountViewController: UIViewController {
     @IBAction func OnEditOkButtonClicked(_ sender: Any) {
         if( !(PasswordText.text?.isEmpty)! ){
             if( PasswordText.text == PasswordAgainText.text ){
-                currentUser?.updatePassword(PasswordText.text!){
+                FirebaseManager.GetUser()?.updatePassword(PasswordText.text!){
                     (error) in
                     if( error != nil ){
                         ShowErrorAlert( view: self, title: "Update Password fail", message: error!.localizedDescription)
@@ -129,6 +137,10 @@ class EditAccountViewController: UIViewController {
             UpdateUserData(key: gs_strDatabaseDataSchool, value: SchoolAndDepartmentText.text!)
         }
         
+        if !(PhoneText.text?.isEmpty)!{
+            UpdateUserData(key: gs_strDatabaseDataPhone, value: PhoneText.text!)
+        }
+        
         bAllDataSended = true
         if( nWaitCount == 0 ){
             self.dismiss(animated: true)
@@ -155,7 +167,7 @@ class EditAccountViewController: UIViewController {
             return
         }
         
-        if let userId = currentUser?.uid{
+        if let userId = FirebaseManager.GetUser()?.uid{
             FirebaseManager.GetDatabase()?.child(strMemberDataRoot).child(userId).child(key).runTransactionBlock({ (dataIn) -> FIRTransactionResult in
                 dataIn.value = value
                 return FIRTransactionResult.success(withValue: dataIn)

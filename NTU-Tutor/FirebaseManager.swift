@@ -49,23 +49,25 @@ class FirebaseManager
         FIRAuth.auth()?.signIn(withEmail: strEmail, password: strPassword, completion: onComplete)
     }
     
-    static func CheckAccountType( uid: String!, afterCheck: @escaping (_ result: EAccountType)->Void ) -> Void
+    static func CheckAccountType( afterCheck: @escaping (_ result: EAccountType)->Void ) -> Void
     {
-        FirebaseDatabaseRef?.child(gs_strDatabaseTeacherRoot).child(uid).observeSingleEvent(of: .value, with: {
-            (snapshot) in
-            if (snapshot.value as? NSDictionary) != nil
-            {
-                afterCheck( EAccountType.Teacher )
-            }
-        })
-        FirebaseDatabaseRef?.child(gs_strDatabaseStudentRoot).child(uid).observeSingleEvent(of: .value, with: {
-            (snapshot) in
-            if (snapshot.value as? NSDictionary) != nil
-            {
-                afterCheck( EAccountType.Student )
-            }
-        })
-        
+        if let uid = GetUser()?.uid
+        {
+            FirebaseDatabaseRef?.child(gs_strDatabaseTeacherRoot).child(uid).observeSingleEvent(of: .value, with: {
+                (snapshot) in
+                if (snapshot.value as? NSDictionary) != nil
+                {
+                    afterCheck( EAccountType.Teacher )
+                }
+            })
+            FirebaseDatabaseRef?.child(gs_strDatabaseStudentRoot).child(uid).observeSingleEvent(of: .value, with: {
+                (snapshot) in
+                if (snapshot.value as? NSDictionary) != nil
+                {
+                    afterCheck( EAccountType.Student )
+                }
+            })
+        }
         return
     }
     

@@ -21,6 +21,7 @@ let gs_strDatabaseDataName: String = "UserName"
 let gs_strDatabaseDataSex: String = "Sex"
 let gs_strDatabaseDataSubject: String = "FavorSubject"
 let gs_strDatabaseDataSchool: String = "SchoolDepartment"
+let gs_strDatabaseDataPhone: String = "PhoneNumber"
 
 //Tutor Case Data Name
 let gs_strDatabaseCaseSubject: String = "Subject"

@@ -106,7 +106,7 @@ class LoginViewController: UIViewController {
                 self.kUserDefaults.set(self.strPw, forKey: gs_strUserDefaultPassword)
                 self.kUserDefaults.synchronize()
                 
-                FirebaseManager.CheckAccountType( uid: user!.uid )
+                FirebaseManager.CheckAccountType()
                 {
                     (eReturnType) in
                     switch eReturnType
