@@ -13,6 +13,7 @@ class TeacherAccountViewController: UIViewController
     @IBOutlet weak var EditAccountButton: UIButton!
     @IBOutlet weak var StudentCaseTableView: UITableView!
     
+    var m_AllCaseOwnerUid: Array< String > = []
     var m_AllTutorCaseData: Array< NSDictionary > = []
     
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class TeacherAccountViewController: UIViewController
             for key in AllKeys!{
                 let keyValue = data?.value(forKey: key) as! NSDictionary
                 for singleValue in keyValue.allValues{
+                    self.m_AllCaseOwnerUid.append(key)
                     self.m_AllTutorCaseData.append(singleValue as! NSDictionary)
                 }
             }
@@ -93,6 +95,7 @@ extension TeacherAccountViewController: UITableViewDataSource, UITableViewDelega
             {
                 StudentCaseTableView.deselectRow(at: indexPath, animated: true)
                 let caseData = m_AllTutorCaseData[ indexPath.row ]
+                viewController.m_strCaseOwnerUid = m_AllCaseOwnerUid[ indexPath.row ]
                 viewController.m_strSubject = caseData.value(forKey: gs_strDatabaseCaseSubject) as! String
                 viewController.m_strGrade = caseData.value(forKey: gs_strDatabaseCaseStudentGrade) as! String
                 viewController.m_strTeacherSex = caseData.value(forKey: gs_strDatabaseCaseTeacherSex) as! String
