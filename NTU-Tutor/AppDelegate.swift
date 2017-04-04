@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 import Firebase
 
-var FirebaseDatabaseRef: FIRDatabaseReference!
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 
 class CreateAccountViewController: UIViewController {
 
@@ -79,7 +77,7 @@ class CreateAccountViewController: UIViewController {
                 return
             }
 
-            FIRAuth.auth()?.createUser(withEmail: strEmail, password: strPw)
+            FirebaseManager.GetAuth()?.createUser(withEmail: strEmail, password: strPw)
             {
                 (user, error) in
                 if( error != nil ){
@@ -101,13 +99,13 @@ class CreateAccountViewController: UIViewController {
                         let databaseRootName: String = self.TeacherCheckBox.isChecked ?
                             gs_strDatabaseTeacherRoot : gs_strDatabaseStudentRoot
    
-                        FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(gs_strDatabaseDataMail)").setValue(strEmail)
-                        FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(gs_strDatabaseDataName)").setValue(strUserName)
+                        FirebaseManager.GetDatabase()?.child("\(databaseRootName)/\(currentUser.uid)/\(gs_strDatabaseDataMail)").setValue(strEmail)
+                        FirebaseManager.GetDatabase()?.child("\(databaseRootName)/\(currentUser.uid)/\(gs_strDatabaseDataName)").setValue(strUserName)
                         if( self.MaleCheckBox.isChecked ){
-                            FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(gs_strDatabaseDataSex)").setValue("男")
+                            FirebaseManager.GetDatabase()?.child("\(databaseRootName)/\(currentUser.uid)/\(gs_strDatabaseDataSex)").setValue("男")
                         }
                         else if( self.FemaleCheckBox.isChecked ){
-                            FirebaseDatabaseRef.child("\(databaseRootName)/\(currentUser.uid)/\(gs_strDatabaseDataSex)").setValue("女")
+                            FirebaseManager.GetDatabase()?.child("\(databaseRootName)/\(currentUser.uid)/\(gs_strDatabaseDataSex)").setValue("女")
                         }
                     }
                     

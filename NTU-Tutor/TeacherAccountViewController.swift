@@ -10,8 +10,6 @@ import UIKit
 
 class TeacherAccountViewController: UIViewController
 {
-
-    
     @IBOutlet weak var EditAccountButton: UIButton!
     @IBOutlet weak var StudentCaseTableView: UITableView!
     
@@ -21,7 +19,7 @@ class TeacherAccountViewController: UIViewController
         super.viewDidLoad()
         StudentCaseTableView.register(UITableViewCell.self, forCellReuseIdentifier: "StudentCaseCell")
         
-        FirebaseDatabaseRef.child(gs_strDatabaseTutorCaseRoot).observeSingleEvent(of: .value, with: {
+        FirebaseManager.GetDatabase()?.child(gs_strDatabaseTutorCaseRoot).observeSingleEvent(of: .value, with: {
             (snapshot) in
             // Get user value
             let data = snapshot.value as? NSDictionary //[uid,caseDatas]

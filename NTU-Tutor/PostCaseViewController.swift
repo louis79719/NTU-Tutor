@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class PostCaseViewController: UIViewController {
 
@@ -59,23 +58,23 @@ class PostCaseViewController: UIViewController {
     }
     
     @IBAction func OnOkButtonClicked(_ sender: Any) {
-        if let strUid: String = FIRAuth.auth()?.currentUser?.uid
+        if let strUid: String = FirebaseManager.GetAuth()?.currentUser?.uid
         {
-            let NewCaseReference = FirebaseDatabaseRef.child("\(gs_strDatabaseTutorCaseRoot)").child(strUid).childByAutoId()
-            NewCaseReference.child(gs_strDatabaseCaseSubject).setValue(SubjectTextEdit.text)
-            NewCaseReference.child(gs_strDatabaseCaseStudentGrade).setValue(StudentGradeTextEdit.text)
+            let NewCaseReference = FirebaseManager.GetDatabase()?.child("\(gs_strDatabaseTutorCaseRoot)").child(strUid).childByAutoId()
+            NewCaseReference?.child(gs_strDatabaseCaseSubject).setValue(SubjectTextEdit.text)
+            NewCaseReference?.child(gs_strDatabaseCaseStudentGrade).setValue(StudentGradeTextEdit.text)
             if( MaleCheckBox.isChecked){
-                NewCaseReference.child(gs_strDatabaseCaseTeacherSex).setValue("男")
+                NewCaseReference?.child(gs_strDatabaseCaseTeacherSex).setValue("男")
             }
-            else if( FemaleCheckBox.isChecked){
-                NewCaseReference.child(gs_strDatabaseCaseTeacherSex).setValue("女")
+            else if(FemaleCheckBox.isChecked){
+                NewCaseReference?.child(gs_strDatabaseCaseTeacherSex).setValue("女")
             }
-            else if( NoSexLimitCheckBox.isChecked){
-                NewCaseReference.child(gs_strDatabaseCaseTeacherSex).setValue("不限")
+            else if(NoSexLimitCheckBox.isChecked){
+                NewCaseReference?.child(gs_strDatabaseCaseTeacherSex).setValue("不限")
             }
-            NewCaseReference.child(gs_strDatabaseCaseHourPayment).setValue(PaymentTextEdit.text)
-            NewCaseReference.child(gs_strDatabaseCaseLocation).setValue(LocationTextEdit.text)
-            NewCaseReference.child(gs_strDatabaseCaseNote).setValue(OtherNoteTextView.text)
+            NewCaseReference?.child(gs_strDatabaseCaseHourPayment).setValue(PaymentTextEdit.text)
+            NewCaseReference?.child(gs_strDatabaseCaseLocation).setValue(LocationTextEdit.text)
+            NewCaseReference?.child(gs_strDatabaseCaseNote).setValue(OtherNoteTextView.text)
         }
         self.dismiss(animated: true)
     }

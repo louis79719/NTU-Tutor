@@ -35,13 +35,13 @@ class EditAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentUser = FIRAuth.auth()?.currentUser
+        currentUser = FirebaseManager.GetUser()
         let tapOnViewRecognizer = UITapGestureRecognizer( target:self,
                                                           action:#selector(EditAccountViewController.onMainViewTap(_:)))
         tapOnViewRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapOnViewRecognizer)
         
-        CheckAccountType( uid: currentUser?.uid )
+        FirebaseManager.CheckAccountType( uid: currentUser?.uid )
         {
             (eReturnType) in
             self.eAccountType = eReturnType
@@ -49,7 +49,7 @@ class EditAccountViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        FirebaseDatabaseRef.child(gs_strDatabaseTeacherRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+        FirebaseManager.GetDatabase()?.child(gs_strDatabaseTeacherRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             if let userData = snapshot.value as? NSDictionary
             {
@@ -67,7 +67,7 @@ class EditAccountViewController: UIViewController {
             }
         })
         
-        FirebaseDatabaseRef.child(gs_strDatabaseStudentRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+        FirebaseManager.GetDatabase()?.child(gs_strDatabaseStudentRoot).child((currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             if let userData = snapshot.value as? NSDictionary
             {
@@ -156,7 +156,7 @@ class EditAccountViewController: UIViewController {
         }
         
         if let userId = currentUser?.uid{
-            FirebaseDatabaseRef.child(strMemberDataRoot).child(userId).child(key).runTransactionBlock({ (dataIn) -> FIRTransactionResult in
+            FirebaseManager.GetDatabase()?.child(strMemberDataRoot).child(userId).child(key).runTransactionBlock({ (dataIn) -> FIRTransactionResult in
                 dataIn.value = value
                 return FIRTransactionResult.success(withValue: dataIn)
             }) { (error, bCompletion, snap) in

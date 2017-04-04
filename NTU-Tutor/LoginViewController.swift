@@ -8,8 +8,6 @@
 
 import UIKit
 import CoreData
-import Firebase
-import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -28,7 +26,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        FirebaseDatabaseRef = FIRDatabase.database().reference()
+        FirebaseManager.Initialize()
         viewContext = appDelegate.persistentContainer.viewContext
         manageObjectModel = appDelegate.persistentContainer.managedObjectModel
         
@@ -89,7 +87,7 @@ class LoginViewController: UIViewController {
     }
 
     func onLogin() -> Void {
-        FIRAuth.auth()?.signIn(withEmail: strEmail, password: strPw ){
+        FirebaseManager.Login(strEmail: strEmail, strPassword: strPw){
             (user, error) in
             if( error != nil ){
                 ShowErrorAlert(view: self, title: "Oops!", message: error!.localizedDescription)
@@ -108,7 +106,7 @@ class LoginViewController: UIViewController {
                 self.kUserDefaults.set(self.strPw, forKey: gs_strUserDefaultPassword)
                 self.kUserDefaults.synchronize()
                 
-                CheckAccountType( uid: user!.uid )
+                FirebaseManager.CheckAccountType( uid: user!.uid )
                 {
                     (eReturnType) in
                     switch eReturnType

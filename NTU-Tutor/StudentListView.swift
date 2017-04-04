@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class StudentListView: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
@@ -22,7 +21,7 @@ class StudentListView: UIViewController, UITableViewDelegate, UITableViewDataSou
         super.viewDidLoad()
         let nib = UINib( nibName: "UserTableViewCell", bundle:nil )
         StudentTable.register( nib, forCellReuseIdentifier: "Cell" )
-        FirebaseDatabaseRef.child("\(gs_strDatabaseStudentRoot)").observeSingleEvent(of: .value, with: {
+        FirebaseManager.GetDatabase()?.child("\(gs_strDatabaseStudentRoot)").observeSingleEvent(of: .value, with: {
             (snapshot) in
             // Get user value
             let allUserData = snapshot.value as? NSDictionary //[uid,data]
